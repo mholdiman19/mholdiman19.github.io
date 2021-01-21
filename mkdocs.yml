@@ -3,6 +3,7 @@ nav:
   - Home: index.md
   - GitHub: gitnotes.md
   - Linux Commands: commands.md
+  - OpenVPN: openvpn.md
   - About: about.md
 theme: readthedocs
 extra_css: [extra.css]
