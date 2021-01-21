@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>GitHub - ReadMyDocs</title>
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  <link href="../extra.css" rel="stylesheet">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "GitHub";
+    var mkdocs_page_input_path = "gitnotes.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> ReadMyDocs</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">GitHub</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#github-notes">GitHub Notes</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#ssh-keys">SSH Keys</a></li>
+        
+            <li><a class="toctree-l3" href="#git-push">Git Push</a></li>
+        
+            <li><a class="toctree-l3" href="#git-branching">Git Branching</a></li>
+        
+            <li><a class="toctree-l3" href="#pull-requests-aka-prs">Pull Requests aka PRs</a></li>
+        
+        </ul>
+    
+
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../commands/">Linux Commands</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../about/">About</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">ReadMyDocs</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>GitHub</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="github-notes">GitHub Notes</h1>
+<h2 id="ssh-keys">SSH Keys</h2>
+<ul>
+<li>To generate a SSH key =&gt; <code>ssh-keygen -t rsa -b 4096 -C "emailaddress"</code></li>
+<li>Default file location =&gt; <code>/user/mholdiman/.ssh/id_rsa</code></li>
+<li>To search for newly generated key =&gt; <code>ls | grep &lt;filename&gt;</code></li>
+<li>To see your public key =&gt; <code>cat &lt;filename&gt;.pub</code></li>
+<li>You can copy from the terminal and paste into GitHub, or you can do <code>pbcopy &lt; ~/&lt;filename&gt;.pub</code></li>
+</ul>
+<h3 id="adding-you-ssh-key-to-the-ssh-agent">Adding you SSH key to the ssh-agent</h3>
+<ol>
+<li>Start the ssh-agent in the background =&gt; <code>eval "$(ssh-agent -s)"</code></li>
+<li>Add your SSH private key to the ssh-agent and store your passphrase in the keychain.  If you created your key with a different name, or if you are adding an existing key that has a different name, replace <em>id_rsa</em> in the command with the name of your private key file =&gt; <code>ssh-add -K ~/.ssh/id_rsa</code></li>
+</ol>
+<h2 id="git-push">Git Push</h2>
+<ul>
+<li><code>git push origin master</code></li>
+<li>Tells git to push the changes you made locally (origin) to the GitHub branch (master)</li>
+</ul>
+<h3 id="what-if-you-start-a-repo-locally">What if you start a repo locally?</h3>
+<ul>
+<li>Open folder in Visual Studio Code</li>
+<li>If not a git repo, then do <code>git init</code></li>
+<li>To push this live, you would do <code>git push origin master</code></li>
+<li>However, if the repo is not on GitHub, then you will need to create a new repo on GitHub</li>
+<li>Copy </li>
+<li>Do <code>git remote add origin &lt;paste SSH Link from GitHub&gt;</code></li>
+<li>Then do <code>git remote -v</code> to verify</li>
+<li>Now, you should be able to do <code>git push origin master</code></li>
+<li>In the future, you could just type in <code>git push</code>, but you need to set an <em>upstream</em> first.  Shortcut =&gt; <code>git push -u origin master</code></li>
+</ul>
+<p><strong>GitHub Workflow</strong> =&gt; Write Code &gt; Commit Changes</p>
+<ul>
+<li>If it is not our code, then we can do what is called a pull request.  GitHub Workflow would then be Write Code &gt; Commit Changes &gt; Make a Pull Request</li>
+</ul>
+<p><strong>Local Git Workflow</strong> =&gt; Write Code &gt; Stage Changes <code>git add</code> &gt; Commit Changes <code>git commit</code> &gt; Push Changes <code>git push</code> &gt; Make a Pull Request</p>
+<h2 id="git-branching">Git Branching</h2>
+<ul>
+<li><strong>Master Branch</strong> =&gt; default branch in GitHub.</li>
+<li>We can also create a <strong>Feature Branch</strong></li>
+<li>Each individual branch does not know about changes to any other branches.</li>
+<li>Why is this useful?  When rolling out new features, you can test it here.  It is a sandboxed environment.</li>
+<li><code>git branch</code> =&gt; shows what branch you are currently in </li>
+<li>results =&gt; <code>*master (END)</code></li>
+<li>To create a new branch =&gt; <code>git checkout</code></li>
+<li>To create a new branch and name the branch =&gt; <code>git checkout -b &lt;new branch name&gt;</code></li>
+<li>To see differences between files =&gt; <code>git diff</code></li>
+</ul>
+<h2 id="pull-requests-aka-prs">Pull Requests aka PRs</h2>
+<ul>
+<li>
+<p>What is a pull request?</p>
+</li>
+<li>
+<p>Get your code pulled into another branch</p>
+</li>
+<li>You make a PR from feature branch to the master branch</li>
+<li>Once it is merged, you remove the branch</li>
+<li>You do the pull request in GitHub and then do another pull request to update your local system =&gt; <code>git pull origin master</code></li>
+<li>Now that your branch has been merged with the master, you can delete the branch =&gt; <code>git branch -d &lt;branch name&gt;</code></li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../commands/" class="btn btn-neutral float-right" title="Linux Commands">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href=".." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href=".." style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../commands/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>

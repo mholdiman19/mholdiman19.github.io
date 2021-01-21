@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Linux Commands - ReadMyDocs</title>
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  <link href="../extra.css" rel="stylesheet">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Linux Commands";
+    var mkdocs_page_input_path = "commands.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> ReadMyDocs</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../gitnotes/">GitHub</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">Linux Commands</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#apt-apt">APT (apt)</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#how-to-prevent-fix-package-dependency-errors-in-ubuntu">How to Prevent &amp; Fix Package Dependency Errors in Ubuntu</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l2"><a href="#copy-cp">COPY (cp)</a></li>
+    
+
+    <li class="toctree-l2"><a href="#dhcp-client">DHCP Client</a></li>
+    
+
+    <li class="toctree-l2"><a href="#dpkg-dpkg">DPKG (dpkg)</a></li>
+    
+
+    <li class="toctree-l2"><a href="#gdebi-gdebi">GDEBI (gdebi)</a></li>
+    
+
+    <li class="toctree-l2"><a href="#ip-ip">IP (ip)</a></li>
+    
+
+    <li class="toctree-l2"><a href="#secure-copy-scp">SECURE COPY (scp)</a></li>
+    
+
+    <li class="toctree-l2"><a href="#removing-crash-report-files">Removing Crash Report Files</a></li>
+    
+
+    <li class="toctree-l2"><a href="#syncthing-install-configuration">Syncthing Install &amp; Configuration</a></li>
+    
+
+    <li class="toctree-l2"><a href="#to-see-available-services-in-router-kernel">To See Available Services in Router Kernel</a></li>
+    
+
+    <li class="toctree-l2"><a href="#to-change-network-settings-in-ubuntu-via-netplan">To Change Network Settings in Ubuntu via Netplan</a></li>
+    
+
+    <li class="toctree-l2"><a href="#to-see-partitions-check-disk-space">To See Partitions &amp; Check Disk Space</a></li>
+    
+
+    <li class="toctree-l2"><a href="#to-check-hard-drive-disk-health-via-cli">To Check Hard Drive Disk Health via CLI</a></li>
+    
+
+    <li class="toctree-l2"><a href="#to-check-hardware-information-on-linux">To Check Hardware Information on Linux</a></li>
+    
+
+    <li class="toctree-l2"><a href="#how-to-use-workspaces">How To Use Workspaces</a></li>
+    
+
+    <li class="toctree-l2"><a href="#how-to-remove-directories-files-in-linux">How To Remove Directories &amp; Files in Linux</a></li>
+    
+
+    <li class="toctree-l2"><a href="#removing-directories-with-rmdir">Removing Directories with rmdir</a></li>
+    
+
+    <li class="toctree-l2"><a href="#removing-directories-with-rm">Removing Directories with rm</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#10-handy-systemd-commands-a-reference">10 Handy SystemD Commands: A Reference</a></li>
+        
+        </ul>
+    
+
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../about/">About</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">ReadMyDocs</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Linux Commands</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="apt-apt">APT (apt)</h2>
+<h3 id="how-to-prevent-fix-package-dependency-errors-in-ubuntu">How to Prevent &amp; Fix Package Dependency Errors in Ubuntu</h3>
+<ul>
+<li>Update Package =&gt; <code>sudo apt update</code></li>
+<li>Upgrade Packages =&gt; <code>sudo apt dist-upgrade</code></li>
+<li>Clear Apt Package Cache =&gt; <code>sudo apt clean</code></li>
+<li>Do a Mock Installation =&gt; <code>sudo apt install --dry-run "package name"</code></li>
+<li>Remove Mock Installation =&gt; <code>sudo apt remove --dry-run "package name"</code></li>
+<li>Fix Broken Installations =&gt; <code>sudo apt -f install</code></li>
+<li>Configure Packages that Failed to Install =&gt; <code>sudo dpkg --configure -a</code></li>
+<li>Use PPA-Purge (to install) =&gt; <code>sudo apt install ppa-purge</code></li>
+<li>To Purge a PPA =&gt; <code>sudo ppa-purge "ppa:address"</code></li>
+<li>Example =&gt; <code>sudo ppa-purge ppa:geany-dev/ppa</code></li>
+<li>Use Aptitude Package Manager =&gt; <code>sudo apt install aptitude</code></li>
+<li><em>NOT</em> the same as <code>apt</code></li>
+<li>To Reinstall Ubuntu Desktop Package =&gt; <code>sudo apt install --reinstall ubuntu-desktop</code></li>
+<li>Pulls in essential packages that were installed by default</li>
+<li>To Remove or Disable PPAs Before Upgrading to a Newer Version of Ubuntu =&gt; <code>sudo add-apt-repository --remove "ppa:name"</code></li>
+<li>Use Synaptic Package Manager to Disable a PPA (not removing)</li>
+<li>To Search for a Software Package =&gt; <code>apt search &lt;PACKAGE-NAME&gt;</code></li>
+</ul>
+<h2 id="copy-cp">COPY (cp)</h2>
+<ul>
+<li><code>cp</code> =&gt; commande-line utility for copying files and directories on Unix and Linux systems</li>
+<li>Command Syntax =&gt; <code>cp [options] SOURCE... DESTINATION</code></li>
+<li>To Copy a File =&gt; <code>cp file file_backup</code></li>
+<li>To Copy a File to Directory =&gt; <code>cp file.txt /backup</code></li>
+<li>To Force Copy to Prompt for Confirmation =&gt; <code>cp -i file.txt file_backup.txt</code></li>
+<li>To Copy a Directory (including all files and subdirectories) =&gt; <code>cp -R Pictures Pictures_Backup</code></li>
+</ul>
+<h2 id="dhcp-client">DHCP Client</h2>
+<ul>
+<li>Use this command to force Ubuntu Server 20.04 LTS to request a DHCP Client</li>
+<li><code>dhclient -r -v eth0 &amp;&amp; rm /var/lib/dhcp/dhclient.* ; dhclient -v eth0</code></li>
+</ul>
+<h2 id="dpkg-dpkg">DPKG (dpkg)</h2>
+<ul>
+<li>To Install a DEB Package =&gt; <code>sudo dpkg -i example.deb</code></li>
+<li>If you get =&gt; <code>dpkg: error processing package</code></li>
+<li>Do =&gt; <code>sudo apt install -f</code></li>
+</ul>
+<h2 id="gdebi-gdebi">GDEBI (gdebi)</h2>
+<ul>
+<li><code>gdeb</code> =&gt; command to install DEB packages that will automatically download and install any required dependencies.</li>
+<li>May need to be installed =&gt; <code>sudo apt install gdebi-core</code></li>
+<li>Once installed command syntax is =&gt; <code>sudo gdebi example.deb</code></li>
+</ul>
+<h2 id="ip-ip">IP (ip)</h2>
+<ul>
+<li>To Up/Down an Interface</li>
+<li><code>ip link set dev eth0 down</code></li>
+<li><code>ip link set dev eth0 up</code></li>
+<li>Please reference <code>ip</code> <a href="https://advantecho365-my.sharepoint.com/:b:/g/personal/michelle_holdiman_advantech_com/EXKdyKkk1jJOjx6LhiP9LUsBVZMdibcxfitKnMv-xJBBwA?e=0vueN7">Command Cheat Sheet for RHEL</a></li>
+<li><code>addr</code> =&gt; displays IP addresses and property information<ul>
+<li>EX =&gt; <code>ip addr show dev enp0s25</code></li>
+</ul>
+</li>
+<li><code>link</code> =&gt; manage and display the state of all the network interfaces<ul>
+<li>EX =&gt; <code>ip link show dev enp0s25</code></li>
+<li>EX =&gt; <code>ip -s link</code> [shows statistics]</li>
+</ul>
+</li>
+<li><code>route</code> =&gt; displays and alters the routing table<ul>
+<li>EX =&gt; <code>ip route</code></li>
+</ul>
+</li>
+<li><code>maddr</code> =&gt; manages and displays multicast IP addresses<ul>
+<li>EX =&gt; <code>ip maddr</code></li>
+</ul>
+</li>
+<li><code>neigh</code> =&gt; shows neighbor objects; also known as the ARP table for IPv4<ul>
+<li>EX =&gt; <code>ip neigh</code></li>
+</ul>
+</li>
+<li><code>help</code> =&gt; displays a list of commands and arguments for each subcommand<ul>
+<li>EX =&gt; <code>ip link help</code></li>
+<li>EX =&gt; <code>ip help</code></li>
+<li>EX =&gt; <code>ip addr help</code></li>
+</ul>
+</li>
+<li>Adjusting and Viewing Routes<ul>
+<li><code>route add</code> =&gt; adds an entry to the routing table</li>
+<li>EX =&gt; <code>ip route add default via 192.168.1.1 dev enp0s25</code></li>
+<li>EX =&gt; <code>ip route add 192.168.1.0/24 via 192.168.1.1</code></li>
+<li>EX =&gt; <code>ip route add 192.168.1.0/24 dev enp0s25</code></li>
+<li><code>route delete</code> =&gt; deletes a routing table entry</li>
+<li>EX =&gt; <code>ip route delete 192.168.1.0/24 via 192.168.1.1</code></li>
+<li><code>route replace</code> =&gt; replaces, or adds if not defined, a route</li>
+<li>EX =&gt; <code>ip route replace 192.168.1.0/24 dev enp0s25</code></li>
+<li><code>route get</code> =&gt; displays the route an address will take</li>
+<li>EX =&gt; <code>ip route get 192.168.1.5</code></li>
+</ul>
+</li>
+<li>Useful Networking Commands (Not Necessarily Provided from <code>ip</code> route)<ul>
+<li><code>arping</code> =&gt; sends an ARP request to a neighbor host</li>
+<li>EX =&gt; <code>arping -I enp0s25 192.168.19.8</code></li>
+<li>EX =&gt; <code>arping -D -I enp0s25 192.168.19.1</code> [Checks for duplicate MAC addresses]</li>
+<li><code>ethtool</code> =&gt; queries or controls network drive and hardware settings</li>
+<li>EX =&gt; <code>ethtool -g eth0</code></li>
+<li>EX =&gt; <code>ethtool -i eth0</code></li>
+<li>EX =&gt; <code>ethtool -S eth0</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="secure-copy-scp">SECURE COPY (scp)</h2>
+<p>Resource =&gt; <a href="https://linuxize.com/post/how-to-use-scp-command-to-securely-transfer-files/">How to Use SCP Command to Securely Transfer Files</a></p>
+<p>Description:</p>
+<pre><code>* Secure Copy (`scp`) is a command line utility that allows you to securely copy files and directories between two locations.
+</code></pre>
+<p>Command Syntax:</p>
+<pre><code>* `scp [OPTION] [user@]SRC_HOST:]file1 [user@]DEST_HOST:]file2`
+* `OPTION`- `scp options` such as cipher, ssh configuration, ssh port, limit, recursive copy...etc.
+* `[user@]SRC_HOST:]file1` = Source File
+* `[user@]DEST_HOST:]file2` = Destination File
+</code></pre>
+<h2 id="removing-crash-report-files">Removing Crash Report Files</h2>
+<ul>
+<li>Crash report files are located in =&gt; <code>/var/crash</code></li>
+<li>To remove them, do the following:</li>
+<li><code>cd /var/crash/</code>scp</li>
+<li><code>ls</code></li>
+<li><code>sudo rm /var/crash</code></li>
+</ul>
+<h2 id="syncthing-install-configuration">Syncthing Install &amp; Configuration</h2>
+<ul>
+<li>Downloaded install file at <a href="https://syncthing.net/downloads">Syncthing Downloads</a></li>
+<li>Did the install via the CLI below location to download the .deb file</li>
+<li>Resource I used to install and configure this was listed on Journal Date 20200917</li>
+<li>Added <code>systemd</code> unit</li>
+<li><code>wget https://raw.githubusercontent.com/syncthing/syncthing/main/etc/linux-systemd/system/syncthing%40.service</code></li>
+<li><code>sudo chown root: syncthing@.service</code></li>
+<li><code>sudo mv syncthing@.service /etc/systemd/system</code></li>
+<li><code>sudo systemctl daemon-reload</code></li>
+<li>Enable &amp; Start the Unit</li>
+<li><code>sudo systemctl enable syncthing@&lt;user&gt;</code></li>
+<li><code>sudo systemctl start syncthing@&lt;user&gt;</code></li>
+<li>Access the Web GUI for Synchting</li>
+<li>http://localhost:8384</li>
+<li>Allow connections ot the Web GUI from Network Devices</li>
+<li>Open the configuration file and edit it<ul>
+<li><code>nano /home/&lt;user&gt;/.config/syncthing/config.xml</code></li>
+<li>Change the line =&gt; <code>&lt;address&gt;127.0.0.1:8384&lt;/address&gt;</code></li>
+<li>To <code>&lt;address&gt;0.0.0.0:8384&lt;/address&gt;</code></li>
+</ul>
+</li>
+<li>Restart Syncthing<ul>
+<li><code>sudo systemctl restart syncthing@&lt;user&gt;</code></li>
+</ul>
+</li>
+<li>NOTE:  Now, you should be able to access the Web GUI and add shared folders.  Make sure you set up a username and password in the GUI, to keep it safe.</li>
+</ul>
+<h2 id="to-see-available-services-in-router-kernel">To See Available Services in Router Kernel</h2>
+<ul>
+<li><code>ls /etc/init.d/</code></li>
+</ul>
+<h2 id="to-change-network-settings-in-ubuntu-via-netplan">To Change Network Settings in Ubuntu via Netplan</h2>
+<p><a href="https://netplan.io/examples/">Link to Article</a></p>
+<ul>
+<li>Update the YAML file =&gt; <code>/etc/netplan/</code></li>
+<li>Example of YAML File =&gt; <code>/home/userve/Documents/yamlexample.txt</code></li>
+</ul>
+<h2 id="to-see-partitions-check-disk-space">To See Partitions &amp; Check Disk Space</h2>
+<ul>
+<li><code>sudo fdisk -l</code></li>
+</ul>
+<h2 id="to-check-hard-drive-disk-health-via-cli">To Check Hard Drive Disk Health via CLI</h2>
+<ul>
+<li>Install <code>smartmontools</code> =&gt; <code>sudo apt install smartmontools</code></li>
+<li>Determine which drives you want to check =&gt; <code>sudo fdisk -l</code></li>
+<li>Above command will give you a list of all drives and partitions.</li>
+<li>Three Possible Tests</li>
+<li>Short Test =&gt; Sufficient for detecting issues</li>
+<li>Long Test =&gt; Used if you have concerns, as it examines the whole disk</li>
+<li>Conveyance Test =&gt; Used to test if damage occured during tranportation of the device from the manufacturer</li>
+</ul>
+<h2 id="to-check-hardware-information-on-linux">To Check Hardware Information on Linux</h2>
+<ul>
+<li>To see info about the cpu and processing units =&gt; <code>lscpu</code></li>
+<li>A report that lists detailed and brief information regarding multiple differenct hardware units, such as cpu, memory, disk, usb controllers, network adapters, etc =&gt; <code>sudo lshw -short</code></li>
+<li>General purpose utility that can report detailed and brief info about multiple different hardware components =&gt; <code>hwinfo --short</code></li>
+</ul>
+<h2 id="how-to-use-workspaces">How To Use Workspaces</h2>
+<ul>
+<li>Open the Activies Window</li>
+<li>Use <code>Control+Alt+Up</code> to move to the workspace shown above the current workspace in the workspace selector.</li>
+<li>Use <code>Control+Alt+Down</code> to move to the workspace shown below the current workspace in the workspace selector.</li>
+</ul>
+<h2 id="how-to-remove-directories-files-in-linux">How To Remove Directories &amp; Files in Linux</h2>
+<ul>
+<li>You can use the Gnome GUI</li>
+<li>You can delete directories using <code>rmdir</code>, <code>rm</code> and <code>find</code></li>
+<li><strong>NOTE</strong> You can recover files when you delete them using the GUI, but not when using the command line.</li>
+<li>To delete a directory in Linux filesystems, you are required to have write permission on the directory and its contents.  If not, you will get "Operation Not Permitted" error.</li>
+<li>Directory names with a space in them must be escated with a backslash <code>/</code>.</li>
+</ul>
+<h1 id="removing-directories-with-rmdir">Removing Directories with <code>rmdir</code></h1>
+<ul>
+<li>To remove a directory, you can use the <code>rmdir</code> command line utility for deleting <strong>empty</strong> directories.</li>
+<li>Type the command followed by the name of the directory you want to remove.</li>
+<li><code>rmdir &lt;directory name&gt;</code></li>
+<li>If the directory is not empty, you will receive the following error:<ul>
+<li><code>rmdir: failed to remove &lt;directory name&gt;: No such file or directory</code></li>
+</ul>
+</li>
+<li>In the above case you will need to use the <code>rm</code> command or manually remove the directory contents before you delete the directory using <code>rmdir</code>.</li>
+<li>By default, when used without an option <code>rm</code> does not remove directories.  </li>
+</ul>
+<h1 id="removing-directories-with-rm">Removing Directories with <code>rm</code></h1>
+<p><a href="https://linuxize.com/post/remove-directory-linux/">Link to Article</a></p>
+<ul>
+<li><code>rm</code> is a command-line utility for deleting files and directories.</li>
+<li>Unlike <code>rmdir</code> the <code>rm</code> can delete both empty and non-empty directories.</li>
+<li>By default, when used without any option <code>rm</code> does not remove directories.  </li>
+<li>To delete and empty directory, use the <code>-d</code> <code>(--dir)</code> option and to delete a non-empty directory, and all of its contents use the <code>-r</code> <code>(--recursive or -R)</code> option.</li>
+<li>To delete a directory with all of its contents you would type:</li>
+<li><code>rm -r &lt;directory name&gt;</code></li>
+<li>If a directory or a file within the directory is write-protected, you will be prompted to confirm the deletion.  </li>
+<li>To remove a directory without being prompted, use the <code>-f</code> option.</li>
+<li><code>rm -rf &lt;directory name&gt;</code></li>
+</ul>
+<h2 id="10-handy-systemd-commands-a-reference">10 Handy SystemD Commands: A Reference</h2>
+<p><a href="https://www.redhat.com/sysadmin/systemd-commands">Link to Article</a></p>
+<ul>
+<li>From <code>systemd</code> man page =&gt; a unit file is a plain text inistyle file that encodes information about a service, a socket, a device, a mount point, an automount point, a swap file or a partition, a start-up target, a watched file system path, a timer controlled and supervised by <code>systemd</code>.</li>
+<li><code>systemd</code> =&gt; a resource management slice, or a group of externally created processes.</li>
+<li><code>systemctl list-unit-files</code></li>
+<li>lists all unit files</li>
+<li>You can <code>grep</code> to see just the enabled services.</li>
+<li><code>$ systemctl list-unit-files | grep enabled</code></li>
+<li>
+<p><code>$ systemctl list-unit-files | grep disabled</code></p>
+</li>
+<li>
+<p><strong>Example Output Below</strong></p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Unit File</th>
+<th>State</th>
+<th>Vendor Preset</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>proc-sys-fs-binfmt_misc.mount</td>
+<td>disabled</td>
+<td>enabled</td>
+</tr>
+<tr>
+<td>acpid.service</td>
+<td>disabled</td>
+<td>enabled</td>
+</tr>
+<tr>
+<td>brltty.service</td>
+<td>disabled</td>
+<td>enabled</td>
+</tr>
+<tr>
+<td>console-getty.service</td>
+<td>disabled</td>
+<td>disabled</td>
+</tr>
+<tr>
+<td>debug-shell.service</td>
+<td>disabled</td>
+<td>disabled</td>
+</tr>
+<tr>
+<td>fwupd-refresh.service</td>
+<td>static</td>
+<td>disabled</td>
+</tr>
+<tr>
+<td>openvpn3-autoload.service</td>
+<td>disabled</td>
+<td>enabled</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>These unit files, located under <code>/lib/systemd/system</code>, are roughly the equivalent to the legacy init scripts that were located under <code>/etc/rc.d/init.d</code>.</li>
+<li>If you or your software installation created <code>init</code> scripts, a corresponding <code>systemd</code> unit file is mapped for you.  </li>
+<li>Additional information can be found at <code>/etc/rc.d/init.d/README</code>.</li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../about/" class="btn btn-neutral float-right" title="About">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../gitnotes/" class="btn btn-neutral" title="GitHub"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../gitnotes/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../about/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>

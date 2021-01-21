@@ -1,0 +1,9 @@
+site_name: ReadMyDocs
+nav:
+  - Home: index.md
+  - GitHub: gitnotes.md
+  - Linux Commands: commands.md
+  - About: about.md
+theme: readthedocs
+extra_css: [extra.css]
+
