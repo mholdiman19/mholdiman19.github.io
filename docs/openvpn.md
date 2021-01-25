@@ -8,7 +8,7 @@ _System Info_
 - OS: Ubuntu 20.04
 - OpenVPN: OpenVPN 2.4.7
 - Configuration File: 192.168.20.2.ovpn
-  - File Location => ~/Documents/work/KBs/
+  - File Location => `~/Documents/work/KBs/`
 
 _Procedure_
 
