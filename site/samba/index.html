@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>OpenVPN - ReadMyDocs</title>
+  <title>Samba - ReadMyDocs</title>
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
@@ -16,8 +16,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "OpenVPN";
-    var mkdocs_page_input_path = "openvpn.md";
+    var mkdocs_page_name = "Samba";
+    var mkdocs_page_input_path = "samba.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -62,26 +62,26 @@
     <a class="" href="../commands/">Linux Commands</a>
 	    </li>
           
+            <li class="toctree-l1">
+		
+    <a class="" href="../openvpn/">OpenVPN</a>
+	    </li>
+          
             <li class="toctree-l1 current">
 		
-    <a class="current" href="./">OpenVPN</a>
+    <a class="current" href="./">Samba</a>
     <ul class="subnav">
             
-    <li class="toctree-l2"><a href="#openvpn-information">OpenVPN Information</a></li>
+    <li class="toctree-l2"><a href="#installing-configuring-samba">Installing &amp; Configuring Samba</a></li>
     
         <ul>
         
-            <li><a class="toctree-l3" href="#to-connect-an-ubuntu-machine-to-openvpn-server">To Connect an Ubuntu machine to OpenVPN server</a></li>
+            <li><a class="toctree-l3" href="#connecting-to-a-share">Connecting to a Share</a></li>
         
         </ul>
     
 
     </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../samba/">Samba</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -111,7 +111,7 @@
     
       
     
-    <li>OpenVPN</li>
+    <li>Samba</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -121,26 +121,43 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="openvpn-information">OpenVPN Information</h1>
-<h2 id="to-connect-an-ubuntu-machine-to-openvpn-server">To Connect an Ubuntu machine to OpenVPN server</h2>
-<p><em>System Info</em></p>
+                <h1 id="installing-configuring-samba">Installing &amp; Configuring Samba</h1>
+<ol>
+<li>Update first =&gt; <code>sudo apt update</code></li>
+<li>To install =&gt; <code>sudo apt install samba</code></li>
+<li>To check version information =&gt; <code>samba --version</code></li>
+<li>To see where Samba is installed =&gt; <code>whereis samba</code></li>
+<li>Create a directory for Samba to share =&gt; <code>mkdir ~/&lt;username&gt;/sambashare/</code></li>
+<li>Location of Samba configuration file =&gt; <code>/etc/samba/smb.conf</code></li>
+<li>
+<p>Example of Samba configuration file:</p>
+<p>[sambashare]
+    comment = Samba on Ubuntu
+    path = /home/<username>/sambashare
+    read only = no
+    browsable = yes</p>
+</li>
+<li>
+<p>To setup a Samba password =&gt; <code>sudo smbpasswd -a username</code></p>
+</li>
+</ol>
+<h2 id="connecting-to-a-share">Connecting to a Share</h2>
 <ul>
-<li>Date: 2021.01.21</li>
-<li>OS: Ubuntu 20.04</li>
-<li>OpenVPN: OpenVPN 2.4.7</li>
-<li>Configuration File: 192.168.20.2.ovpn</li>
-<li>File Location =&gt; ~/Documents/work/KBs/</li>
+<li>In Ubuntu:  Open up the default file manager and click <em>Connect to Server</em> then enter =&gt; <code>smb://ip-address/sambashare</code></li>
+<li>In Windows: Open File Manager and edit the file path to =&gt; <code>\\ip-address\sambashare</code></li>
+<li>NOTE:  <code>ip-address</code> =&gt; Samba server IP address &amp; <code>sambashare</code> is the name of the share</li>
 </ul>
-<p><em>Procedure</em></p>
-<ul>
-<li><code>sudo apt update</code></li>
-<li><code>sudo apt install openvpn -y</code></li>
-<li>Download the Standalone VPN Client configuration file from your WebAccess/VPN server.</li>
-<li>Navigate to the directory where the configuration was downloaded.</li>
-<li>For my example, it would be <code>cd ~/Downloads</code></li>
-<li>Then, run the following command to the connect to the OpenVPN server.</li>
-<li><code>sudo openvpn --config 192.168.20.2.ovpn</code></li>
-</ul>
+<p><em>RESOURCE</em>:</p>
+<p><a href="https://ubuntu.com/tutorials/install-and-configure-samba#4-setting-up-user-accounts-and-connecting-to-share">Installing and Configuring Samba</a></p>
+<h3 id="my-samba-configuration">My Samba Configuration</h3>
+<pre><code>[homes]
+   comment = Home Directories
+   browseable = yes
+   read only = no
+   create mask = 0700
+   directory mask = 0700
+   valid users = %S
+</code></pre>
               
             </div>
           </div>
@@ -148,10 +165,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../samba/" class="btn btn-neutral float-right" title="Samba">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../about/" class="btn btn-neutral float-right" title="About">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../commands/" class="btn btn-neutral" title="Linux Commands"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../openvpn/" class="btn btn-neutral" title="OpenVPN"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -177,10 +194,10 @@
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../commands/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../openvpn/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../samba/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../about/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

@@ -4,6 +4,7 @@ nav:
   - GitHub: gitnotes.md
   - Linux Commands: commands.md
   - OpenVPN: openvpn.md
+  - Samba: samba.md
   - About: about.md
 theme: readthedocs
 extra_css: [extra.css]
