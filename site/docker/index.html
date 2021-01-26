@@ -136,7 +136,29 @@
 <h3 id="section-1">Section 1</h3>
 <ul>
 <li><strong>Docker</strong> is a platform that lets you package, develop and run applications in containers.</li>
+<li>a virutal environment on top of the OS kernel to capture all of its sw-libraries, dependencies, etc.</li>
 </ul>
+<p><em>insert image from notes here</em></p>
+<ul>
+<li>isolated from other containers</li>
+<li>lightweight approach, more so than virtual machines.</li>
+<li>portability to major architectures and OS's</li>
+<li>able to achieve continuous integration &amp; deployment for DevOps</li>
+</ul>
+<h4 id="main-features">Main Features</h4>
+<ul>
+<li>create images and containers</li>
+<li>docker-compose for multi-container apps</li>
+<li>docker swarm to utilize multiple machines running Docker</li>
+</ul>
+<h4 id="installing-docker-on-ubuntu">Installing Docker on Ubuntu</h4>
+<ol>
+<li>Download Docker Install Script =&gt; <code>wget -qO- https://get.docker.com/ | sh</code></li>
+<li><code>sudo usermod -aG docker $(whoami)</code></li>
+<li>Restart OS</li>
+<li>Try <code>docker</code> and <code>docker container ls</code></li>
+<li>To verify your Docker version =&gt; <code>docker --version</code></li>
+</ol>
               
             </div>
           </div>
