@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Samba - ReadMyDocs</title>
+  <title>WebAccess/DMP - ReadMyDocs</title>
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
@@ -16,8 +16,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Samba";
-    var mkdocs_page_input_path = "samba.md";
+    var mkdocs_page_name = "WebAccess/DMP";
+    var mkdocs_page_input_path = "webaccessdmp.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -67,26 +67,26 @@
     <a class="" href="../openvpn/">OpenVPN</a>
 	    </li>
           
+            <li class="toctree-l1">
+		
+    <a class="" href="../samba/">Samba</a>
+	    </li>
+          
             <li class="toctree-l1 current">
 		
-    <a class="current" href="./">Samba</a>
+    <a class="current" href="./">WebAccess/DMP</a>
     <ul class="subnav">
             
-    <li class="toctree-l2"><a href="#installing-configuring-samba">Installing &amp; Configuring Samba</a></li>
+    <li class="toctree-l2"><a href="#webaccessdmp">WebAccess/DMP</a></li>
     
         <ul>
         
-            <li><a class="toctree-l3" href="#connecting-to-a-share">Connecting to a Share</a></li>
+            <li><a class="toctree-l3" href="#login-information-api">Login Information - API</a></li>
         
         </ul>
     
 
     </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../webaccessdmp/">WebAccess/DMP</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -116,7 +116,7 @@
     
       
     
-    <li>Samba</li>
+    <li>WebAccess/DMP</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -126,43 +126,29 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="installing-configuring-samba">Installing &amp; Configuring Samba</h1>
-<ol>
-<li>Update first =&gt; <code>sudo apt update</code></li>
-<li>To install =&gt; <code>sudo apt install samba</code></li>
-<li>To check version information =&gt; <code>samba --version</code></li>
-<li>To see where Samba is installed =&gt; <code>whereis samba</code></li>
-<li>Create a directory for Samba to share =&gt; <code>mkdir ~/&lt;username&gt;/sambashare/</code></li>
-<li>Location of Samba configuration file =&gt; <code>/etc/samba/smb.conf</code></li>
-<li>
-<p>Example of Samba configuration file:</p>
-<p>[sambashare]
-    comment = Samba on Ubuntu
-    path = /home/<username>/sambashare
-    read only = no
-    browsable = yes</p>
-</li>
-<li>
-<p>To setup a Samba password =&gt; <code>sudo smbpasswd -a username</code></p>
-</li>
-</ol>
-<h2 id="connecting-to-a-share">Connecting to a Share</h2>
+                <h1 id="webaccessdmp">WebAccess/DMP</h1>
+<p><em>Description</em>: All notes or information on using WebAccess/DMP (WA/DMP).</p>
+<h2 id="login-information-api">Login Information - API</h2>
 <ul>
-<li>In Ubuntu:  Open up the default file manager and click <em>Connect to Server</em> then enter =&gt; <code>smb://ip-address/sambashare</code></li>
-<li>In Windows: Open File Manager and edit the file path to =&gt; <code>\\ip-address\sambashare</code></li>
-<li>NOTE:  <code>ip-address</code> =&gt; Samba server IP address &amp; <code>sambashare</code> is the name of the share</li>
+<li>
+<p><a href="https://api.wadmp.com">WebAccess/DMP API</a></p>
+</li>
+<li>
+<p>Make sure you are logged into your account.</p>
+</li>
+<li>
+<p>Click on API Gallery.</p>
+</li>
+<li>
+<p>Select SWH API.</p>
+</li>
+<li>
+<p>Click on the Authorize button.</p>
+</li>
+<li>
+<p><img alt="Available Authorizations" src="../img/wadmp_available_authorizations.png" /></p>
+</li>
 </ul>
-<p><em>RESOURCE</em>:</p>
-<p><a href="https://ubuntu.com/tutorials/install-and-configure-samba#4-setting-up-user-accounts-and-connecting-to-share">Installing and Configuring Samba</a></p>
-<h3 id="my-samba-configuration">My Samba Configuration</h3>
-<pre><code>[homes]
-   comment = Home Directories
-   browseable = yes
-   read only = no
-   create mask = 0700
-   directory mask = 0700
-   valid users = %S
-</code></pre>
               
             </div>
           </div>
@@ -170,10 +156,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../webaccessdmp/" class="btn btn-neutral float-right" title="WebAccess/DMP">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../about/" class="btn btn-neutral float-right" title="About">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../openvpn/" class="btn btn-neutral" title="OpenVPN"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../samba/" class="btn btn-neutral" title="Samba"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -199,10 +185,10 @@
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../openvpn/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../samba/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../webaccessdmp/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../about/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
