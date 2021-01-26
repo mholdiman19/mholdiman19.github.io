@@ -5,6 +5,7 @@ nav:
   - Linux Commands: commands.md
   - OpenVPN: openvpn.md
   - Samba: samba.md
+  - WebAccess/DMP: webaccessdmp.md
   - About: about.md
 theme: readthedocs
 extra_css: [extra.css]
