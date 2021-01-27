@@ -30,3 +30,34 @@ _insert image from notes here_
 
 
 
+## Docker Essentials 
+
+_Resource_: Learn Linux YouTube Series by Jay LaCroix => [Docker Essentials](https://youtube.com/playlist?list=PLT98CRl2KxKECHltRib03tG8pyKEzwf9t)
+
+### Part 3 - Installing Docker on Windows 10, macOS and Ubuntu
+
+**For Ubuntu**
+
+1. Make sure that your system is the most up to date.
+    * `sudo apt update`
+    * `sudo apt dist-upgrade`
+2. Run `systemctl status docker` to see if Docker is running.
+    * If it is showing as disbled, then you can run `sudo systemctl enable docker`
+    * If it is not started, then you can run `sudo systemctl start docker`
+3. To confirm that Docker is working, you can run `sudo docker run hello-world`
+4. To make sure that you don't always have to run commands with `sudo`, you can do `sudo usermod -aG docker <userid>`
+5. Restart system after adding yourself to the Docker group.
+
+### Part 4 - Running Containers 
+
+* `docker images` => will show you all available images on your machine.
+    * Since we ran the `hello-world` image in the previous step, the `docker image`should be listed in the results.
+* `docker search <imagename>` => will show you all available images with the name ubuntu
+* `docker pull <imagename>` => will download the image
+* `docker run <imagename>` = will run the image you want to create your container in
+    * Note if you run a container and there is nothing for it to do, then it will just exit.
+    * For example, if you just type `docker run ubuntu`, then nothing will happen because you did not tell it do anything.
+* `docker ps` => list of Docker images running on your machine.
+* `docker ps -a` => list of Docker images that have been run on your machine.
+* To attempt to keep a container running, you can run => `docker run -it ubuntu /bin/bash`
+    * `it` => `i` stands for interactive; `t` stands for `tty` or terminal
