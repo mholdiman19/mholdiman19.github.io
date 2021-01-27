@@ -186,6 +186,19 @@
 <li>Since we ran the <code>hello-world</code> image in the previous step, the <code>docker image</code>should be listed in the results.</li>
 </ul>
 </li>
+<li><code>docker search &lt;imagename&gt;</code> =&gt; will show you all available images with the name ubuntu</li>
+<li><code>docker pull &lt;imagename&gt;</code> =&gt; will download the image</li>
+<li><code>docker run &lt;imagename&gt;</code> = will run the image you want to create your container in<ul>
+<li>Note if you run a container and there is nothing for it to do, then it will just exit.</li>
+<li>For example, if you just type <code>docker run ubuntu</code>, then nothing will happen because you did not tell it do anything.</li>
+</ul>
+</li>
+<li><code>docker ps</code> =&gt; list of Docker images running on your machine.</li>
+<li><code>docker ps -a</code> =&gt; list of Docker images that have been run on your machine.</li>
+<li>To attempt to keep a container running, you can run =&gt; <code>docker run -it ubuntu /bin/bash</code><ul>
+<li><code>it</code> =&gt; <code>i</code> stands for interactive; <code>t</code> stands for <code>tty</code> or terminal</li>
+</ul>
+</li>
 </ul>
               
             </div>
