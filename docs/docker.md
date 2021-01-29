@@ -76,3 +76,4 @@ _Resource_: Learn Linux YouTube Series by Jay LaCroix => [Docker Essentials](htt
 
 ### Part 6 - Accessing Containerized Applications
 
+* Let's try running a different container => `docker run nginx`
