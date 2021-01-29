@@ -61,3 +61,18 @@ _Resource_: Learn Linux YouTube Series by Jay LaCroix => [Docker Essentials](htt
 * `docker ps -a` => list of Docker images that have been run on your machine.
 * To attempt to keep a container running, you can run => `docker run -it ubuntu /bin/bash`
     * `it` => `i` stands for interactive; `t` stands for `tty` or terminal
+
+### Part 5 - Making Containers Persist
+
+* Using the same command as above => `docker run -it ubuntu /bin/bash`
+* Add `-d` to keep it running in the background => `docker run -it -d ubuntu /bin/bash`
+* `-d` stands for daemon (a service running in the background) 
+* To confirm the container is still running, run `docker ps`
+    * _Results_:CONTAINER ID   IMAGE     COMMAND       CREATED         STATUS         PORTS     NAMES
+                b677c09360ba   ubuntu    "/bin/bash"   3 minutes ago   Up 3 minutes         naughty_jones
+* How to attach yourselft to a container => `docker attach <containerID>`
+    * _Results_: prompt changes to `root@<containerID>`
+* How to exit a container while leaving the container running => `Ctrl+pq`
+
+### Part 6 - Accessing Containerized Applications
+

@@ -52,6 +52,11 @@
     <a class="" href="..">Home</a>
 	    </li>
           
+            <li class="toctree-l1">
+		
+    <a class="" href="../resources/">Cool Resources</a>
+	    </li>
+          
             <li class="toctree-l1 current">
 		
     <a class="current" href="./">Docker</a>
@@ -200,6 +205,23 @@
 </ul>
 </li>
 </ul>
+<h3 id="part-5-making-containers-persist">Part 5 - Making Containers Persist</h3>
+<ul>
+<li>Using the same command as above =&gt; <code>docker run -it ubuntu /bin/bash</code></li>
+<li>Add <code>-d</code> to keep it running in the background =&gt; <code>docker run -it -d ubuntu /bin/bash</code></li>
+<li><code>-d</code> stands for daemon (a service running in the background) </li>
+<li>To confirm the container is still running, run <code>docker ps</code><ul>
+<li><em>Results</em>:CONTAINER ID   IMAGE     COMMAND       CREATED         STATUS         PORTS     NAMES
+            b677c09360ba   ubuntu    "/bin/bash"   3 minutes ago   Up 3 minutes         naughty_jones</li>
+</ul>
+</li>
+<li>How to attach yourselft to a container =&gt; <code>docker attach &lt;containerID&gt;</code><ul>
+<li><em>Results</em>: prompt changes to <code>root@&lt;containerID&gt;</code></li>
+</ul>
+</li>
+<li>How to exit a container while leaving the container running =&gt; <code>Ctrl+pq</code></li>
+</ul>
+<h3 id="part-6-accessing-containerized-applications">Part 6 - Accessing Containerized Applications</h3>
               
             </div>
           </div>
@@ -210,7 +232,7 @@
         <a href="../gitnotes/" class="btn btn-neutral float-right" title="GitHub">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href=".." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../resources/" class="btn btn-neutral" title="Cool Resources"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -236,7 +258,7 @@
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href=".." style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../resources/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
         <span style="margin-left: 15px"><a href="../gitnotes/" style="color: #fcfcfc">Next &raquo;</a></span>

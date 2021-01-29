@@ -1,6 +1,7 @@
 site_name: ReadMyDocs
 nav:
   - Home: index.md
+  - Cool Resources: resources.md
   - Docker: docker.md
   - GitHub: gitnotes.md
   - Linux Commands: commands.md
