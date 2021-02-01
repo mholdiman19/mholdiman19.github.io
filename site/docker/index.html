@@ -224,6 +224,65 @@
 <h3 id="part-6-accessing-containerized-applications">Part 6 - Accessing Containerized Applications</h3>
 <ul>
 <li>Let's try running a different container =&gt; <code>docker run nginx</code></li>
+<li>Nginx is a proxy and web server</li>
+<li><code>docker run -it -d -p 8080:80 nginx</code><ul>
+<li><code>-p</code> means port</li>
+<li>Here we are opening port 8080 on our host computer and opening port 80 on the docker container.</li>
+</ul>
+</li>
+<li>Then, do <code>docker ps</code> to make sure that your container is running.</li>
+<li>Since nginx is a webserver, you can type <code>&lt;ipaddress of host&gt;:8080</code> in to a browser, and you will see the nginx main screen popup.</li>
+<li>Any computer on your network should be able to bring up the webpage.</li>
+<li>To see the Nginx container running do a <code>docker ps</code></li>
+<li>To stop the container from running you can do =&gt; <code>docker stop &lt;containerID&gt;</code></li>
+<li>Now do =&gt;  <code>docker run -it -d --restart unless-stopped -p 8080:80 nginx</code></li>
+<li>The <code>restart unless-stopped</code> is very helpful so you can do a <code>Ctrl+C</code> without stopping the container from running.</li>
+</ul>
+<h3 id="part-7-creating-images">Part 7: Creating Images</h3>
+<ul>
+<li>Last video in the series.</li>
+<li>Create an Ubuntu image<ul>
+<li><code>docker run -it ubuntu</code></li>
+<li><code>apt update</code></li>
+<li><code>apt dist-upgrade</code></li>
+<li><code>apt install apache2</code></li>
+<li>To see if apache is running =&gt; <code>/etc/init.d/apache2 status</code></li>
+<li>To start it =&gt; <code>/etc/init.d/apache2 start</code></li>
+<li>Let's install vim =&gt; <code>apt install vim-nox</code></li>
+</ul>
+</li>
+<li>Now, lets save all of these changes, so we do not lose them.<ul>
+<li>Do, <code>docker ps</code> to obtain the Container ID.</li>
+<li>Then, do <code>docker commit &lt;containerID&gt; &lt;newname&gt;:&lt;versioninfo&gt;</code></li>
+<li>My example =&gt; <code>docker commit 5db0e25d6ca0 ubuntu/apache-test:1.0</code></li>
+<li>You receive a sha256 hash.</li>
+<li>Then do <code>docker images</code> and you should see your image listed.</li>
+</ul>
+</li>
+<li>Now, lets stop everything and go back in and see if we can still get to our image.<ul>
+<li><code>docker stop &lt;containerID&gt;</code></li>
+<li>Do <code>docker ps</code> to make sure nothing is running.</li>
+<li>Since you have confirmed nothing is running, lets try to locate and use our image we created earlier.</li>
+<li><code>docker run -d -it -p 8080:80 &lt;imagename&gt;</code></li>
+<li>For my example, it would be <code>docker run -d -it -p 8080:80 ubuntu/apache-test:1.0</code></li>
+<li>Do <code>docker ps</code></li>
+<li>Since it is running, lets bring up a webpage, using same webpage we used earlier, which was <code>&lt;IPaddress:8080&gt;</code></li>
+<li>Doh, it does not work.  Why?</li>
+<li>Because Apache is not running, as we did not create an entry point.</li>
+<li>Lets add an entry point =&gt; <code>docker commit --change='ENTRYPOINT ["apachectl", "-DFOREGROUND"]' c26 ubuntu/apache-test:1.1</code></li>
+<li>Receive SHA256 hash again</li>
+<li>Do <code>docker images</code></li>
+<li>You should see both of your images</li>
+<li>Do <code>docker ps</code> to see your running containers</li>
+<li>Stop the original container that is still running =&gt; <code>docker stop &lt;containerID&gt;</code></li>
+<li>Then recall the last command via the up arrow, just change the version from 1.0 to 1.1.</li>
+<li>Hit enter.</li>
+</ul>
+</li>
+<li>Do <code>docker ps</code> to see insure your image is running.</li>
+<li>Now, lets try to bring up the webpage again.</li>
+<li>You should now see the Apache2 Default page.</li>
+<li>Now, lets automate this entire process by creating text file, known as a <strong>docker file</strong></li>
 </ul>
               
             </div>
