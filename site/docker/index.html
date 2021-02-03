@@ -282,7 +282,14 @@
 <li>Do <code>docker ps</code> to see insure your image is running.</li>
 <li>Now, lets try to bring up the webpage again.</li>
 <li>You should now see the Apache2 Default page.</li>
-<li>Now, lets automate this entire process by creating text file, known as a <strong>docker file</strong></li>
+<li>Now, lets automate this entire process by creating text file, known as a <strong>docker file</strong><ul>
+<li><code>docker build -t ubuntu/apache-test:1.2 .</code></li>
+</ul>
+</li>
+<li>To remove Docker images =&gt; <code>docker rmi &lt;imageID&gt;</code></li>
+<li>To remove Docker containers =&gt; <code>docker rm &lt;containerID&gt;</code></li>
+<li>If you are receiving messages that state you are unable to remove an image because a container is using it, then do <code>docker ps -a</code> or <code>docker ps -a | grep &lt;containerID&gt;</code>.</li>
+<li>You can confirm the image is removed by doing <code>docker images</code></li>
 </ul>
               
             </div>
