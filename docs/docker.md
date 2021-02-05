@@ -129,6 +129,7 @@ _Resource_: Learn Linux YouTube Series by Jay LaCroix => [Docker Essentials](htt
 * You should now see the Apache2 Default page.
 * Now, lets automate this entire process by creating text file, known as a **docker file**
     * `docker build -t ubuntu/apache-test:1.2 .`
+    * [DockerFile](https://1drv.ms/u/s!Apbq5Jr7k3BRrkqsHDMi7S5szqsg?e=QwhJYq)
 * To remove Docker images => `docker rmi <imageID>`
 * To remove Docker containers => `docker rm <containerID>`
 * If you are receiving messages that state you are unable to remove an image because a container is using it, then do `docker ps -a` or `docker ps -a | grep <containerID>`.
