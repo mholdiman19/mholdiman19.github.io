@@ -72,6 +72,9 @@
     <a class="current" href="./">Linux Commands</a>
     <ul class="subnav">
             
+    <li class="toctree-l2"><a href="#adding-a-user-in-linux">Adding a User in Linux</a></li>
+    
+
     <li class="toctree-l2"><a href="#apt-apt">APT (apt)</a></li>
     
         <ul>
@@ -193,7 +196,13 @@
           <div role="main">
             <div class="section">
               
-                <h2 id="apt-apt">APT (apt)</h2>
+                <h2 id="adding-a-user-in-linux">Adding a User in Linux</h2>
+<ul>
+<li>To add the user =&gt; <code>adduser &lt;username&gt;</code></li>
+<li>To verify the new user was created =&gt; <code>ls /home</code> or <code>cat /etc/passwd</code></li>
+<li>To add user to the sudoers group =&gt; <code>usermod -aG sudo &lt;username&gt;</code> then =&gt; <code>groups &lt;username&gt;</code></li>
+</ul>
+<h2 id="apt-apt">APT (apt)</h2>
 <h3 id="how-to-prevent-fix-package-dependency-errors-in-ubuntu">How to Prevent &amp; Fix Package Dependency Errors in Ubuntu</h3>
 <ul>
 <li>Update Package =&gt; <code>sudo apt update</code></li>

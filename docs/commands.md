@@ -1,3 +1,8 @@
+## Adding a User in Linux
+
+* To add the user => `adduser <username>`
+* To verify the new user was created => `ls /home` or `cat /etc/passwd`
+* To add user to the sudoers group => `usermod -aG sudo <username>` then => `groups <username>`
 
 ## APT (apt) ##
 
