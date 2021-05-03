@@ -123,6 +123,21 @@
     <li class="toctree-l2"><a href="#to-check-hardware-information-on-linux">To Check Hardware Information on Linux</a></li>
     
 
+    <li class="toctree-l2"><a href="#to-check-power-battery-information-via-cli">To Check Power (Battery) Information via CLI</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#upower">UPower ###</a></li>
+        
+            <li><a class="toctree-l3" href="#acpi">ACPI</a></li>
+        
+            <li><a class="toctree-l3" href="#via-directory">Via Directory</a></li>
+        
+            <li><a class="toctree-l3" href="#via-gui">Via GUI</a></li>
+        
+        </ul>
+    
+
     <li class="toctree-l2"><a href="#how-to-use-workspaces">How To Use Workspaces</a></li>
     
 
@@ -309,7 +324,7 @@
 <h2 id="secure-copy-scp">SECURE COPY (scp)</h2>
 <p>Resource =&gt; <a href="https://linuxize.com/post/how-to-use-scp-command-to-securely-transfer-files/">How to Use SCP Command to Securely Transfer Files</a></p>
 <p>Description:</p>
-<pre><code>* Secure Copy (`scp`) is a command line utility that allows you to securely copy files and directories between two locations.
+<pre><code>Secure Copy (`scp`) is a command line utility that allows you to securely copy files and directories between two locations.
 </code></pre>
 <p>Command Syntax:</p>
 <pre><code>* `scp [OPTION] [user@]SRC_HOST:]file1 [user@]DEST_HOST:]file2`
@@ -382,6 +397,32 @@
 <li>To see info about the cpu and processing units =&gt; <code>lscpu</code></li>
 <li>A report that lists detailed and brief information regarding multiple differenct hardware units, such as cpu, memory, disk, usb controllers, network adapters, etc =&gt; <code>sudo lshw -short</code></li>
 <li>General purpose utility that can report detailed and brief info about multiple different hardware components =&gt; <code>hwinfo --short</code></li>
+</ul>
+<h2 id="to-check-power-battery-information-via-cli">To Check Power (Battery) Information via CLI</h2>
+<h3 id="upower">UPower ###</h3>
+<ul>
+<li>Description:  A command line tool for UPower which provides an interface to enumerate power sources on the system and control system-wide power management.  </li>
+<li>Using the <code>upower</code> command =&gt; <code>upower -i /org/freedesktop/UPower/devices/battery_BAT0</code></li>
+</ul>
+<h3 id="acpi">ACPI</h3>
+<ul>
+<li>Description:  Shows battery status and other ACPI information from /proc and /sys file system.</li>
+<li>To check the battery =&gt; <code>acpi -V</code></li>
+<li>To just see status =&gt; <code>acpi</code></li>
+<li>To see the AC adapter information =&gt; <code>acpi -a</code></li>
+<li>To show thermal information =&gt; <code>acpi -t</code></li>
+<li>To show thermal information in Fahrenheit =&gt; <code>acpi -tf</code></li>
+<li>You can browse the same information by going to =&gt; <code>cd /proc/acpi/</code> and doing, <code>ls -al</code></li>
+</ul>
+<h3 id="via-directory">Via Directory</h3>
+<ul>
+<li>Description:  Stores ACPI information about your first battery.</li>
+<li>Command =&gt; <code>ls -l /sys/class/power_supply/BAT0</code></li>
+</ul>
+<h3 id="via-gui">Via GUI</h3>
+<ul>
+<li>Description:  The GUI program for the gnome power management infrastructure.  It allows users to visualize their power consumption of laptop hardware.  </li>
+<li>Command =&gt; <code>gnome-power-statistics</code></li>
 </ul>
 <h2 id="how-to-use-workspaces">How To Use Workspaces</h2>
 <ul>

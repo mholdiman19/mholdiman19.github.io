@@ -99,7 +99,7 @@
 
   Description:
 
-    * Secure Copy (`scp`) is a command line utility that allows you to securely copy files and directories between two locations.
+    Secure Copy (`scp`) is a command line utility that allows you to securely copy files and directories between two locations.
 
   Command Syntax:
 
@@ -171,6 +171,34 @@
 * To see info about the cpu and processing units => `lscpu`
 * A report that lists detailed and brief information regarding multiple differenct hardware units, such as cpu, memory, disk, usb controllers, network adapters, etc => `sudo lshw -short`
 * General purpose utility that can report detailed and brief info about multiple different hardware components => `hwinfo --short`
+
+## To Check Power (Battery) Information via CLI ##
+
+### UPower ### 
+
+* Description:  A command line tool for UPower which provides an interface to enumerate power sources on the system and control system-wide power management.  
+* Using the `upower` command => `upower -i /org/freedesktop/UPower/devices/battery_BAT0`
+
+### ACPI ###
+
+* Description:  Shows battery status and other ACPI information from /proc and /sys file system.
+* To check the battery => `acpi -V`
+* To just see status => `acpi`
+* To see the AC adapter information => `acpi -a`
+* To show thermal information => `acpi -t`
+* To show thermal information in Fahrenheit => `acpi -tf`
+* You can browse the same information by going to => `cd /proc/acpi/` and doing, `ls -al`
+
+### Via Directory ###
+
+* Description:  Stores ACPI information about your first battery.
+* Command => `ls -l /sys/class/power_supply/BAT0`
+
+### Via GUI ###
+
+* Description:  The GUI program for the gnome power management infrastructure.  It allows users to visualize their power consumption of laptop hardware.  
+* Command => `gnome-power-statistics`
+
 
 ## How To Use Workspaces ##
 
