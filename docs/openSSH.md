@@ -1,6 +1,11 @@
 # OpenSSH
 
-## Terruit figat nunc huius
+Notes:  These are my notes on Jay LaCroix's YouTube video.
+
+[Link to Video](https://youtu.be/YS5Zh7KExvE)
+
+
+## Connecting to a Server via OpenSSH CLI
 
 Lorem markdownum quaeque. Hactenus mox est vita undis quod, furoribus arva solis
 meruisse.
