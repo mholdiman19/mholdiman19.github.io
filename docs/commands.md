@@ -174,7 +174,9 @@
 
 ## To Check Power (Battery) Information via CLI ##
 
-### UPower ### 
+[Link to Article](https://www.cyberciti.biz/faq/linux-laptop-battery-status-temperature/)
+
+### UPower ###
 
 * Description:  A command line tool for UPower which provides an interface to enumerate power sources on the system and control system-wide power management.  
 * Using the `upower` command => `upower -i /org/freedesktop/UPower/devices/battery_BAT0`
