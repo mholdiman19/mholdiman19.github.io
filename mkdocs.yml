@@ -5,6 +5,7 @@ nav:
   - Docker: docker.md
   - GitHub: gitnotes.md
   - Linux Commands: commands.md
+  - OpenSSH: openssh.md
   - OpenVPN: openvpn.md
   - Samba: samba.md
   - WebAccess/DMP: webaccessdmp.md
