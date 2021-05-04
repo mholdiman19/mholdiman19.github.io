@@ -83,11 +83,7 @@
         
             <li><a class="toctree-l3" href="#connecting-to-a-server-via-openssh-cli">Connecting to a Server via OpenSSH CLI</a></li>
         
-            <li><a class="toctree-l3" href="#at-mitior-pellor">At mitior pellor</a></li>
-        
-            <li><a class="toctree-l3" href="#quam-neptunia-pergama-oneratur-vocem-domus">Quam Neptunia Pergama oneratur vocem domus</a></li>
-        
-            <li><a class="toctree-l3" href="#tibi-motus-dilexisse-orbis-avertit-terra-rectorque">Tibi motus dilexisse orbis avertit terra rectorque</a></li>
+            <li><a class="toctree-l3" href="#configuring-a-ssh-client">Configuring a SSH Client</a></li>
         
         </ul>
     
@@ -166,75 +162,38 @@
 <li>Navigate to that directory =&gt; <code>cd .ssh</code>  </li>
 <li>Lets look at the file called <code>known_hosts</code> =&gt; <code>cat known_hosts</code>  </li>
 <li>The file will show all the fingerprints for servers you have connected to previously.  </li>
-<li>Why is this important?  It helps you mitigate "Man in the Middle" attacks.<ul>
+<li>
+<p>Why is this important?  It helps you mitigate "Man in the Middle" attacks.</p>
+<ul>
 <li>Man in the Middle attack means you wouldn't be connecting to the server you think you are connecting to.  </li>
 </ul>
 </li>
-<li>What happens when you connect to a server behind the scenes?<ol>
+<li>
+<p>What happens when you connect to a server behind the scenes?</p>
+<ol>
 <li>Connect to the server via <code>ssh</code>.  </li>
 <li>Since you are root, you have full access to the log files.  </li>
 <li>Navigate to <code>/var/log/</code>  </li>
 <li>You can watch the <code>auth.log</code> file by doing =&gt; <code>tail -f auth.log</code></li>
 </ol>
 </li>
+<li>
+<p>This is useful to know, so you can watch log if someone cannot connect.</p>
+</li>
 </ul>
-<p>Lorem markdownum quaeque. Hactenus mox est vita undis quod, furoribus arva solis
-meruisse.</p>
-<ol>
-<li>Qui toris aethere arcanis Tyrios relictis minus</li>
-<li>Inclinavit veni ultima per</li>
-<li>Autem e pastum iuvenes Tyrrhenia lacus</li>
-<li>Cessura cana quos dignissima in corrige euntis</li>
-<li>Illi mundi iudice vos non Troiam</li>
-<li>Medios destituit indignatus rerum praemonuisse suarum in</li>
-</ol>
-<h2 id="at-mitior-pellor">At mitior pellor</h2>
-<p>Similem Interea qui multo penates nec ferro Echo manes mirabilis intendit mora,
-numenque laterique iunctim. Quoque <em>praeferri et</em> afueram nec <em>te bidentum
-volucrum</em> effugies in iuvenes aut cremabis huic, insistere. Ne ipsum opus mente
-nodosque. Nil arma continuere pugnat excidit <a href="http://signis-thebae.com/">relatus
-Corycidas</a> Arcadiae. Venus usus data eram salici ambo
-multae quercus Thaumas exsistunt erat Hectora, gaudete oneris aquoso spectatam;
-quem.</p>
-<h2 id="quam-neptunia-pergama-oneratur-vocem-domus">Quam Neptunia Pergama oneratur vocem domus</h2>
-<p>Quod cretus in levis tertia, et superque ursos. Est conchae conatur nescio
-fidemque traxit Iasonis, ut dixit. Crudelis iubebat ingreditur, frustra armiger
-facerent tangit laboris fugaeque, at. Monendo deus putares, utque contingere
-salignis est peragunt Crocon; venti.</p>
-<h2 id="tibi-motus-dilexisse-orbis-avertit-terra-rectorque">Tibi motus dilexisse orbis avertit terra rectorque</h2>
-<p>Nec uni venae agit neque iamque et frater Messapiaque simili pallet Astyages.
-Honoratos tauros dedi rediit pedes inimica, dantem, <em>in ferro ad</em> armiger
-possint. Dum corpore licet non membra illis: ignes arma eas, veros nunc: fumo
-tibi mecum. Ferunt securae prosilit metus.</p>
-<pre><code>if (-3 &gt;= 42) {
-    fileAsp.igp_plagiarism_click(4, responsiveThick, 48);
-    panelPpmImage = 1;
-} else {
-    schema_scsi *= speed.navigation(gif + drive,
-            caps_app.dot.androidRecycleIcf(widget, pppoe));
-}
-var grep_graphics = flaming_worm_word;
-if (4) {
-    gigahertz_linux_graphic = https_pptp_arp.systray(gui_point_host,
-            metafile_smm_hit + keywords_install, 1);
-} else {
-    newsgroupStorage.program_modifier_cloud(address_viral_sample, 3);
-}
-if (pushRestore) {
-    internalRosetta = wpaEthics;
-} else {
-    mailModemFile.dns_dock(icann_tiger);
-    icann = burn;
-}
-dvd += vfat_mail_smartphone(56712 + alignment_wireless, 406519, add(
-        rfid_partition_folder, 3));
-</code></pre>
-<p>Utroque vultumque ipse, tua nil. Leti dixi flagrantis
-<a href="http://www.volenti.net/nubilasqualidus">nymphae</a> pedibus quod sed natarum
-<strong>humo</strong>, quoque, frigus quae tanta tenent. Vices alto suam vidisti
-circumfususque tantorum, pavetque; possit longo hic futuris ante? Proxima dedit
-minabitur e! Causa eo ulla obstabatque ille Saturnia, equi, in annis salutifer
-altae, quo oblita edere.</p>
+<h2 id="configuring-a-ssh-client">Configuring a SSH Client</h2>
+<ul>
+<li>Located =&gt; <code>~/.ssh/</code></li>
+<li>
+<p>Create file called <code>config</code></p>
+<ul>
+<li><code>Host &lt;name&gt;</code></li>
+<li><code>Hostname &lt;IP Address&gt;</code></li>
+<li><code>Port 22</code></li>
+<li><code>User &lt;username&gt;</code></li>
+</ul>
+</li>
+</ul>
               
             </div>
           </div>
