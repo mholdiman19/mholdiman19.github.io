@@ -151,6 +151,33 @@
 <p>Notes:  These are my notes on Jay LaCroix's YouTube video.</p>
 <p><a href="https://youtu.be/YS5Zh7KExvE">Link to Video</a></p>
 <h2 id="connecting-to-a-server-via-openssh-cli">Connecting to a Server via OpenSSH CLI</h2>
+<ul>
+<li>OpenSSH client is on the majority of Linux distributions.</li>
+<li>Even though the client is installed on your system, it does not mean people can connect to you.  </li>
+<li>How to tell if you have the SSH client installed =&gt; <code>which ssh</code><ul>
+<li>Results =&gt; <code>/usr/bin/bash</code> (meaning it is already installed)</li>
+<li>If the SSH Client was not installed, then you could search via =&gt; <code>apt search openssh-client</code></li>
+</ul>
+</li>
+<li>To connect to a SSH Server =&gt; <code>ssh &lt;username&gt;@&lt;server_IP_address&gt;</code></li>
+<li>You will receive a key fingerprint message if you have not connected to the server previously.  </li>
+<li>To see what occured in your system, navigate to =&gt; <code>ls /home/mholdiman/ -a</code>  </li>
+<li>You will see you have a hidden directory called <code>.ssh</code></li>
+<li>Navigate to that directory =&gt; <code>cd .ssh</code>  </li>
+<li>Lets look at the file called <code>known_hosts</code> =&gt; <code>cat known_hosts</code>  </li>
+<li>The file will show all the fingerprints for servers you have connected to previously.  </li>
+<li>Why is this important?  It helps you mitigate "Man in the Middle" attacks.<ul>
+<li>Man in the Middle attack means you wouldn't be connecting to the server you think you are connecting to.  </li>
+</ul>
+</li>
+<li>What happens when you connect to a server behind the scenes?<ol>
+<li>Connect to the server via <code>ssh</code>.  </li>
+<li>Since you are root, you have full access to the log files.  </li>
+<li>Navigate to <code>/var/log/</code>  </li>
+<li>You can watch the <code>auth.log</code> file by doing =&gt; <code>tail -f auth.log</code></li>
+</ol>
+</li>
+</ul>
 <p>Lorem markdownum quaeque. Hactenus mox est vita undis quod, furoribus arva solis
 meruisse.</p>
 <ol>

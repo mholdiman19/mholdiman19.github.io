@@ -4,8 +4,31 @@ Notes:  These are my notes on Jay LaCroix's YouTube video.
 
 [Link to Video](https://youtu.be/YS5Zh7KExvE)
 
-
 ## Connecting to a Server via OpenSSH CLI
+
+* OpenSSH client is on the majority of Linux distributions.
+* Even though the client is installed on your system, it does not mean people can connect to you.  
+* How to tell if you have the SSH client installed => `which ssh`
+    * Results => `/usr/bin/bash` (meaning it is already installed)
+    * If the SSH Client was not installed, then you could search via => `apt search openssh-client`
+* To connect to a SSH Server => `ssh <username>@<server_IP_address>`
+* You will receive a key fingerprint message if you have not connected to the server previously.  
+* To see what occured in your system, navigate to => `ls /home/mholdiman/ -a`  
+* You will see you have a hidden directory called `.ssh`
+* Navigate to that directory => `cd .ssh`  
+* Lets look at the file called `known_hosts` => `cat known_hosts`  
+* The file will show all the fingerprints for servers you have connected to previously.  
+* Why is this important?  It helps you mitigate "Man in the Middle" attacks.
+    * Man in the Middle attack means you wouldn't be connecting to the server you think you are connecting to.  
+* What happens when you connect to a server behind the scenes?
+    1. Connect to the server via `ssh`.  
+    2. Since you are root, you have full access to the log files.  
+    3. Navigate to `/var/log/`  
+    4. You can watch the `auth.log` file by doing => `tail -f auth.log`
+
+
+
+
 
 Lorem markdownum quaeque. Hactenus mox est vita undis quod, furoribus arva solis
 meruisse.
