@@ -1,18 +1,28 @@
-# Quotiensque amplexus iuvenum
+# Node-RED
 
-## Ruris tibi mihi Phaethon muta semper gerit
+## Node-RED Essentials
 
-Lorem markdownum, *instabilis forem*, flumina dabant. Admisitque videri negant
-terret, es metuque [precibusque vultus me](http://www.unde.com/matrem-silvis)
-quoque quam; vidit? Divumque summis. Ros gente litore quibus indicium est per
-vaccam Iamque, tu? Nam renasci iussit, pulcherrime dies hostis; sic quid si quam
-vertit!
+Resource Used: [Node-RED Essentials](https://youtube.com/playlist?list=PLyNBB9VCLmo1hyO-4fIZ08gqFcXBkHy-6)
 
-1. Ope finemque gaudent cognatumque ille
-2. Inplebo et inquit caelestia votisque iuvatis sum
-3. Quantum arduus et humum
-4. Abest quondam fausto sed verba
-5. Secura trementes cum ferebat morte
+1. [Introduction](https://youtu.be/ksGeUD26Mw0)
+2. [Editor Components](https://youtu.be/veiNb6Y0ERg)
+3. Creating a Flow
+4. Wiring Node
+5. Editing Nodes
+6. Deploying Flows
+7. Information Sidebar
+8. Debug Sidebar
+9. Configuration Nodes Sidebar
+10. Context Sidebar
+11. Subflows
+12. Working with Context
+13. Introduction to Messages
+14. Working with Messages
+15. Message Sequences
+16. Routing Messages
+17. Managing Messages
+18. Merging Flows
+19. Grouping Nodes
 
 In haec medio perenni anni teretesque me potiere memorque at mala ferrum nuper
 mihi fusus thalamos triplicis mox. Nasci et unum colebat modo alis conplexus
