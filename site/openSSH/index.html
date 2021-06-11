@@ -72,6 +72,11 @@
     <a class="" href="../commands/">Linux Commands</a>
 	    </li>
           
+            <li class="toctree-l1">
+		
+    <a class="" href="../nodered/">Node-RED</a>
+	    </li>
+          
             <li class="toctree-l1 current">
 		
     <a class="current" href="./">OpenSSH</a>
@@ -84,6 +89,8 @@
             <li><a class="toctree-l3" href="#connecting-to-a-server-via-openssh-cli">Connecting to a Server via OpenSSH CLI</a></li>
         
             <li><a class="toctree-l3" href="#configuring-a-ssh-client">Configuring a SSH Client</a></li>
+        
+            <li><a class="toctree-l3" href="#using-publicprivate-keys">Using Public/Private Keys</a></li>
         
         </ul>
     
@@ -150,23 +157,25 @@
 <ul>
 <li>OpenSSH client is on the majority of Linux distributions.</li>
 <li>Even though the client is installed on your system, it does not mean people can connect to you.  </li>
-<li>How to tell if you have the SSH client installed =&gt; <code>which ssh</code><ul>
-<li>Results =&gt; <code>/usr/bin/bash</code> (meaning it is already installed)</li>
-<li>If the SSH Client was not installed, then you could search via =&gt; <code>apt search openssh-client</code></li>
+<li>
+<p>How to tell if you have the SSH client installed =&gt; <code>which ssh</code>  </p>
+<ul>
+<li>Results =&gt; <code>/usr/bin/bash</code> (meaning it is already installed)  </li>
+<li>If the SSH Client was not installed, then you could search via =&gt; <code>apt search openssh-client</code>  </li>
 </ul>
 </li>
-<li>To connect to a SSH Server =&gt; <code>ssh &lt;username&gt;@&lt;server_IP_address&gt;</code></li>
+<li>
+<p>To connect to a SSH Server =&gt; <code>ssh &lt;username&gt;@&lt;server_IP_address&gt;</code></p>
+</li>
 <li>You will receive a key fingerprint message if you have not connected to the server previously.  </li>
 <li>To see what occured in your system, navigate to =&gt; <code>ls /home/mholdiman/ -a</code>  </li>
 <li>You will see you have a hidden directory called <code>.ssh</code></li>
 <li>Navigate to that directory =&gt; <code>cd .ssh</code>  </li>
 <li>Lets look at the file called <code>known_hosts</code> =&gt; <code>cat known_hosts</code>  </li>
 <li>The file will show all the fingerprints for servers you have connected to previously.  </li>
+<li>Why is this important?  It helps you mitigate "Man in the Middle" attacks.</li>
 <li>
-<p>Why is this important?  It helps you mitigate "Man in the Middle" attacks.</p>
-<ul>
-<li>Man in the Middle attack means you wouldn't be connecting to the server you think you are connecting to.  </li>
-</ul>
+<p>Man in the Middle attack means you wouldn't be connecting to the server you think you are connecting to.  </p>
 </li>
 <li>
 <p>What happens when you connect to a server behind the scenes?</p>
@@ -184,14 +193,41 @@
 <h2 id="configuring-a-ssh-client">Configuring a SSH Client</h2>
 <ul>
 <li>Located =&gt; <code>~/.ssh/</code></li>
-<li>
-<p>Create file called <code>config</code></p>
-<ul>
-<li><code>Host &lt;name&gt;</code></li>
-<li><code>Hostname &lt;IP Address&gt;</code></li>
-<li><code>Port 22</code></li>
-<li><code>User &lt;username&gt;</code></li>
+<li>Create file called <code>config</code></li>
 </ul>
+<pre><code class="bash">Host &quot;name&quot;
+  Hostname &quot;IP Address&quot;
+  Port 22
+  User &quot;username&quot;
+</code></pre>
+
+<p><strong>NOTE:</strong> For this to work for me, I had to add the host and hostname information to my <code>/etc/hosts</code> file.  </p>
+<h2 id="using-publicprivate-keys">Using Public/Private Keys</h2>
+<ul>
+<li>It is better to use ssh keys than to just use a password.</li>
+<li>Best practice is to disable password authorization on a server.</li>
+<li>To create a ssh keypair =&gt; <code>ssh-keygen</code></li>
+<li>
+<p>It will automatically create the keys in the default location.  </p>
+<ul>
+<li>Default Location =&gt; <code>~/.ssh</code></li>
+<li>The two keys created with the above command are <code>id_rsa</code> and <code>id_rsa.pub</code>.</li>
+<li>Once the keys are created a random art image and the key fingerprint will show in the output.  </li>
+</ul>
+</li>
+<li>
+<p>The private key <code>id_rsa</code> and <code>id_rsa.pub</code> are required for the SSH connection to work.</p>
+</li>
+<li>The public key <code>id_rsa.pub</code> needs to be copied to the server.</li>
+<li>
+<p>To do this, you can do the following:  </p>
+<ul>
+<li><code>cat</code> the contents of the <code>id_rsa.pub</code> and copy and paste to the <code>authorized_keys</code> file on the server.</li>
+<li>Use the command =&gt; <code>ssh-copy-id -i ~/.ssh/id_rsa.pub root@&lt;Server_IP&gt;</code>.  </li>
+</ul>
+</li>
+<li>
+<p>The SSH program will automatically create the <code>.ssh/</code> and the <code>authorized_keys</code> file if they do not already exist.  </p>
 </li>
 </ul>
               
@@ -204,7 +240,7 @@
         <a href="../openvpn/" class="btn btn-neutral float-right" title="OpenVPN">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../commands/" class="btn btn-neutral" title="Linux Commands"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../nodered/" class="btn btn-neutral" title="Node-RED"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -230,7 +266,7 @@
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../commands/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../nodered/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
         <span style="margin-left: 15px"><a href="../openvpn/" style="color: #fcfcfc">Next &raquo;</a></span>
