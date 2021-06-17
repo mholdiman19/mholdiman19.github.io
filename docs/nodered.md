@@ -6,8 +6,8 @@ Resource Used: [Node-RED Essentials](https://youtube.com/playlist?list=PLyNBB9VC
 
 1. [Introduction](https://youtu.be/ksGeUD26Mw0)
 2. [Editor Components](https://youtu.be/veiNb6Y0ERg)
-3. Creating a Flow
-4. Wiring Node
+3. [Creating a Flow](https://youtu.be/46Ak61c_ymc)
+4. [Wiring Node](https://youtu.be/_ST7fiBLlfw)
 5. Editing Nodes
 6. Deploying Flows
 7. Information Sidebar
@@ -24,16 +24,29 @@ Resource Used: [Node-RED Essentials](https://youtube.com/playlist?list=PLyNBB9VC
 18. Merging Flows
 19. Grouping Nodes
 
-In haec medio perenni anni teretesque me potiere memorque at mala ferrum nuper
-mihi fusus thalamos triplicis mox. Nasci et unum colebat modo alis conplexus
-visum Lernaeae nec. Dempto **per** capillos Marte caerula comitavit suspiria
-saxis, quoniam qualis, rupibus.
+### Introduction
 
-1. Ille munus ferrove ore dabuntur
-2. Ulla pellibus parvum
-3. Super non ultro peregit
-4. A recepi
-5. Tristis cinctasque secus et quodque habebas molitor
+* flow based programming tool
+* browser based
+* built on top of node.js
+
+### Editor Components
+
+* 4 areas of the editor
+
+    * header (menu, deploy button)
+    * sidebar (info, debug, context)
+    * main workspace
+    * palette
+
+### Creating a Flow
+
+* To create a flow, drag inject node on to the workspace.
+* Then, add debug node to the workspace.
+* Drag a line from the inject node _timestamp_ to debug node _msg.payload_.
+* For something to happen, you need to click the Deploy button.
+* Then, click on the button on the left hand side of the _timestamp_ node to inject the _timestamp_ into the _msg.payload_.
+* Now, add _function_ node to add JavaScript code that gets run against each message passing through.
 
 ## Sub turpe Medusae vestes edidit Non et
 
