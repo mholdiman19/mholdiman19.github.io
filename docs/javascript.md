@@ -10,7 +10,7 @@ __NOTE__ from [freeCodeCamp](https://www.freecodecamp.org/)
 * Leave notes for yourself and others who are reading your code.
 * To leave an in-line comment.
   * `// This is an in-line comment.`
-* To leave a multi-line comment beginning with `/*` and ending iwth `*/`.
+* To leave a multi-line comment beginning with `/*` and ending with `*/`.
 
 Here is an example:
 
@@ -102,3 +102,96 @@ What is happening in the above example?
 * When JavaScript variables are declared, they have an initial value of `undefined`
 * If you do a mathematical operation on an `undefined` variable your result will be `NaN`, which means _"Not a Number_
 * If you concatenate a string with an `undefined` variable, you will get a literal string of `undefined`
+
+### Understanding Case Sensitivity in Variables
+
+* All variables and function names are case sensitive.
+* `MYVAR`is not the same as `myVar` or `myvar`
+* __Best Practice__ => Write variable names in JavaScript in _camelCase_.
+* In _camelCase_, multi-word variable names have the first word in lowercase and the first letter of each subsequent word is capitalized.
+
+What are some examples?
+
+```javascript
+var someVariable;
+var anotherVariableName;
+var thisVariableNameIsSoLong;
+```
+
+### Add Two Number with JavaScript
+
+* `Number` is a data type in JavaScript which represents numeric data.
+* JavaScript uses the `+` symbol as an addition operator when placed between two numbers.
+
+What is an example?
+
+`myVar = 5 + 10`
+
+### Subtract One Number from Another with JavaScript
+
+* You can also subtract one number from another.
+* JavaScript uses the `-` symbol for subtraction.
+
+What is an example?
+
+`myVar = 16 - 6;`
+
+### Multiply Two Numbers with JavaScript
+
+* You can also multiply one number by another number.
+* JavaScript uses the `*` symbol for multiplication of two numbers.
+
+What is an example?
+
+`myVar = 13 * 13`
+
+### Divide One Number by Another with JavaScript
+
+* You can also divide one number by another.
+* JavaScript uses the `/` symbol for division.
+
+What is an example?
+
+`myVar = 16 / 2;`
+
+### Increment a Number with JavaScript
+
+* You can easily _increment_ or add one to a variable with a `++` operator.
+* The above is equal to => `i = i + 1;`
+* The entire line becomes `i++;`, eliminating the need for the equal sign.
+
+What is an example?
+
+```javascript
+var myVar = 87;
+// Only change code below this line
+myVar = myVar + 1;
+myVar++;
+```
+
+### Decrement a Number with JavaScript
+
+* You can easily _decrement_ or decrease a variable by one with the `--` operator.
+* Example => `i--;`
+* The above is equal to => `i = i - 1;`
+* The entire line becomes `i--;`, eliminating the need for the equal sign.
+
+### Create Decimal Numbers with JavaScript
+
+* We can store decimal numbers in variables too.
+* Decimal numbers are sometime referred to as _floating point_ numbers or _floats_.
+* Not all real numbers can accurately be represented in _floating point_, which can lead to rounding errors.
+
+What is an example?
+
+`var ourDecimal = 5.7;`
+
+### Multiply Two Decimals with JavaScript
+
+* In JavaScript, you can also perform calculations with decimal numbers.
+* Let's multiply two decimals together.
+
+What is an example?
+
+`var product = 2.0 * 2.5;`
+
