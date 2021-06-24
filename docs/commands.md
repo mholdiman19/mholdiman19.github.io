@@ -97,16 +97,14 @@
 
   Resource => [How to Use SCP Command to Securely Transfer Files](https://linuxize.com/post/how-to-use-scp-command-to-securely-transfer-files/)
 
-  Description:
-
-    Secure Copy (`scp`) is a command line utility that allows you to securely copy files and directories between two locations.
+  Description:  __Secure Copy__ `scp` is a command line utility that allows you to securely copy files and directories between two locations.
 
   Command Syntax:
 
-    * `scp [OPTION] [user@]SRC_HOST:]file1 [user@]DEST_HOST:]file2`
-    * `OPTION`- `scp options` such as cipher, ssh configuration, ssh port, limit, recursive copy...etc.
-    * `[user@]SRC_HOST:]file1` = Source File
-    * `[user@]DEST_HOST:]file2` = Destination File
+  * `scp [OPTION] [user@]SRC_HOST:]file1 [user@]DEST_HOST:]file2`
+  * `OPTION`- `scp options` such as cipher, ssh configuration, ssh port, limit, recursive copy...etc.
+  * `[user@]SRC_HOST:]file1` = Source File
+  * `[user@]DEST_HOST:]file2` = Destination File
 
 ## Removing Crash Report Files ##
 
