@@ -55,3 +55,50 @@ __Assignment Operator__ => `=`
 var myVar;
 myVar = 5;
 ```
+
+### Assigning the Value of One Variable to Another
+
+After a value is assigned to a variable using the _assignment operator_, you can assign the value of that variable to another variable using the assignment operator.
+
+```javascript
+var myVar;
+myVar = 5;
+var myNum;
+myNum = myVar;
+```
+
+What is happening in the above example?
+
+  * `myVar` is declared a variable with no value
+  * `myVar` is assigned a value of 5
+  * `myNum` is declared a variable with no value
+  * `myNum` the contents of `myVar` (which is `5`) is assigned to the variable `myNum`
+  * `myNum` has a value of `5`
+
+Test Example:
+
+```javascript
+var a;
+a = 7;
+var = b;
+b = a;
+```
+
+### Initializing Variables with the Assignment Operator
+
+It is common to _initialize_ a variable to an initial value in the same line as it is declared.
+
+```javascript
+var myVar = 0;
+```
+
+What is happening in the above example?
+
+* A new variable is created called `myVar`
+* `myVar` is assigned a value of 5
+
+### Understanding Uninitialized Variables
+
+* When JavaScript variables are declared, they have an initial value of `undefined`
+* If you do a mathematical operation on an `undefined` variable your result will be `NaN`, which means _"Not a Number_
+* If you concatenate a string with an `undefined` variable, you will get a literal string of `undefined`
