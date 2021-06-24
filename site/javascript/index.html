@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>OpenVPN - ReadMyDocs</title>
+  <title>Java Script - ReadMyDocs</title>
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
@@ -16,8 +16,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "OpenVPN";
-    var mkdocs_page_input_path = "openvpn.md";
+    var mkdocs_page_name = "Java Script";
+    var mkdocs_page_input_path = "javascript.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -72,9 +72,21 @@
     <a class="" href="../commands/">Linux Commands</a>
 	    </li>
           
-            <li class="toctree-l1">
+            <li class="toctree-l1 current">
 		
-    <a class="" href="../javascript/">Java Script</a>
+    <a class="current" href="./">Java Script</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#javascript">JavaScript</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#course-javascript-algorithms-and-data-structures-certification">Course:  JavaScript Algorithms and Data Structures Certification</a></li>
+        
+        </ul>
+    
+
+    </ul>
 	    </li>
           
             <li class="toctree-l1">
@@ -87,21 +99,9 @@
     <a class="" href="../openSSH/">OpenSSH</a>
 	    </li>
           
-            <li class="toctree-l1 current">
+            <li class="toctree-l1">
 		
-    <a class="current" href="./">OpenVPN</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l2"><a href="#openvpn-information">OpenVPN Information</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l3" href="#to-connect-an-ubuntu-machine-to-openvpn-server">To Connect an Ubuntu machine to OpenVPN server</a></li>
-        
-        </ul>
-    
-
-    </ul>
+    <a class="" href="../openvpn/">OpenVPN</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -141,7 +141,7 @@
     
       
     
-    <li>OpenVPN</li>
+    <li>Java Script</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -151,25 +151,42 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="openvpn-information">OpenVPN Information</h1>
-<h2 id="to-connect-an-ubuntu-machine-to-openvpn-server">To Connect an Ubuntu machine to OpenVPN server</h2>
-<p><em>System Info</em></p>
+                <h1 id="javascript">JavaScript</h1>
+<h2 id="course-javascript-algorithms-and-data-structures-certification">Course:  JavaScript Algorithms and Data Structures Certification</h2>
+<p><strong>NOTE</strong> from <a href="freecodecamp.org">freeCodeCamp</a></p>
+<h3 id="comment-your-javascript-code">Comment Your JavaScript Code</h3>
 <ul>
-<li>Date: 2021.01.21</li>
-<li>OS: Ubuntu 20.04</li>
-<li>OpenVPN: OpenVPN 2.4.7</li>
-<li>Configuration File: 192.168.20.2.ovpn</li>
-<li>File Location =&gt; <code>~/Documents/work/KBs/</code></li>
+<li>Comments are lines of code that JavaScript will intentionally ignore.</li>
+<li>Leave notes for yourself and others who are reading your code.</li>
+<li>To leave an in-line comment.</li>
+<li><code>// This is an in-line comment.</code></li>
+<li>To leave a multi-line comment beginning with <code>/*</code> and ending iwth <code>*/</code>.</li>
+<li><code>/* This is a 
+multi-line comment */</code></li>
 </ul>
-<p><em>Procedure</em></p>
+<h3 id="declare-javascript-variables">Declare JavaScript Variables</h3>
 <ul>
-<li><code>sudo apt update</code></li>
-<li><code>sudo apt install openvpn -y</code></li>
-<li>Download the Standalone VPN Client configuration file from your WebAccess/VPN server.</li>
-<li>Navigate to the directory where the configuration was downloaded.</li>
-<li>For my example, it would be <code>cd ~/Downloads</code></li>
-<li>Then, run the following command to the connect to the OpenVPN server.</li>
-<li><code>sudo openvpn --config 192.168.20.2.ovpn</code></li>
+<li><strong>Data</strong> is anything that is meaningful to the computer.</li>
+<li>undefined</li>
+<li>null</li>
+<li>boolean</li>
+<li>string</li>
+<li>symbol</li>
+<li>bigint</li>
+<li>number</li>
+<li>object</li>
+<li>
+<p>Computer's need to be able to distinguish between numbers and strings, such as "12" and "123 dogs".  Whereas, "12" is a <em>number</em>, and "123 dogs" should be processed as a <em>string</em>.</p>
+</li>
+<li>
+<p><strong>Variables</strong> allow computers to store and manipulate data.</p>
+</li>
+<li>Any of the above eight data types may be stored as a variable.</li>
+<li>Computer variables differ from mathematical variables in that they can store different values at different times.</li>
+<li>How do we declare variables?</li>
+<li>By putting <code>var</code> in front of it.</li>
+<li>Example: <code>var myName;</code></li>
+<li>In JavaScript, we end statements with semicolons.</li>
 </ul>
               
             </div>
@@ -178,10 +195,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../samba/" class="btn btn-neutral float-right" title="Samba">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../nodered/" class="btn btn-neutral float-right" title="Node-RED">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../openSSH/" class="btn btn-neutral" title="OpenSSH"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../commands/" class="btn btn-neutral" title="Linux Commands"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -207,10 +224,10 @@
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../openSSH/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../commands/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../samba/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../nodered/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
