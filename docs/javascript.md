@@ -195,3 +195,136 @@ What is an example?
 
 `var product = 2.0 * 2.5;`
 
+### Divide One Decimal by Another with JavaScript
+
+What is an example?
+
+`var quotient = 4.4 / 2.0;`
+
+### Finding a Remainder in JavaScript
+
+* The _remainder_ operator `%` gives the remainder of the division of two numbers.
+
+Example
+
+```javascript
+5 % 2 = 1 because
+Math.floor(5 / 2) = 2 (Quotient)
+2 * 2 = 4
+5 - 4 = 1 (Remainder)
+```
+
+Usage
+
+* In mathematics, a number can be checked to be even or odd by checking the remainder of the division of the number by `2`.
+
+```javascript
+17 % 2 = 1 (17 is Odd)
+48 % 2 = 0 (48 is Even)
+```
+
+__Note:__ The _remainder_ operator is sometimes incorrectly referred to as the modulus operator.  It is very similar to modulus, but does not work properly with negative numbers.
+
+Test Example
+
+```javascript
+var remainder;
+remainder = 11 % 3
+```
+
+### Compound Assignment with Augmented Addition
+
+* In programming, it is common to use assignments to modify the contents of a variable.
+* Remember that everything to the right of th equals sign is evaluated first, so we can say:
+`my Var = myVar + 5;` to add `5` to `myVar`.
+* Since this is such a common pattern, there are operators which do both - a mathematical operation and assignment in one step.
+* One such operator is the `+=` operator.
+
+What is an example?
+
+```javascript
+var myVar = 1; 
+myVar += 5;
+console.log(myVar);
+```
+
+Test Example
+
+```javascript
+a = a + 5;
+b = b + 17;
+c = c + 8;
+```
+
+Can Be:
+
+```javascript
+a += 5;
+b += 17;
+c += 8;
+```
+
+### Compound Assignment With Augmented Subtraction
+
+* Like the `+=` operator, `-=` subtracts a number from a variable.
+
+Example
+
+`myVar = myVar -5;`
+
+* will subtract `5` from `myVar`.  Can be rewritten as :
+
+`myVar -= 5;`
+
+Test Example:
+
+```javascript
+a = a - 6;
+b = b - 15;
+c = c - 1;
+```
+
+Can Be:
+
+```javascript
+a -= 6;
+b -= 15;
+c -= 1;
+```
+
+### Compound Assignment With Augmented Multiplication
+
+* The `*=` operator multiplies a variable by a number.
+
+`myVar = myVar * 5;`
+
+* will multiply `myVar` by `5`.  This can be rewritten as:
+
+`myVar *= 5;`
+
+Test Example:
+
+```javascript
+var a = 5;
+var b = 12;
+var c = 4.6;
+
+// Only change code below this line
+a = a * 5;
+b = 3 * b;
+c = c * 10;
+```
+
+Can Be:
+
+```javascript
+a *= 5;
+b *= 3; 
+c *= 10;
+```
+
+
+### Compound Assignment With Augmented Division
+
+
+
