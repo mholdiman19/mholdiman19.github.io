@@ -326,5 +326,3 @@ c *= 10;
 
 ### Compound Assignment With Augmented Division
 
-
-
