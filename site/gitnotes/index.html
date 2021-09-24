@@ -71,9 +71,15 @@
     
         <ul>
         
-            <li><a class="toctree-l3" href="#ssh-keys">SSH Keys</a></li>
+            <li><a class="toctree-l3" href="#setting-up-and-configuring-you-git-repo">Setting Up and Configuring You Git Repo</a></li>
         
             <li><a class="toctree-l3" href="#git-push">Git Push</a></li>
+        
+            <li><a class="toctree-l3" href="#what-if-you-start-a-repo-locally">What if you start a repo locally?</a></li>
+        
+            <li><a class="toctree-l3" href="#github-workflow-online">GitHub Workflow (Online)</a></li>
+        
+            <li><a class="toctree-l3" href="#github-workflow-local">GitHub Workflow (Local)</a></li>
         
             <li><a class="toctree-l3" href="#git-branching">Git Branching</a></li>
         
@@ -158,7 +164,8 @@
             <div class="section">
               
                 <h1 id="github-notes">GitHub Notes</h1>
-<h2 id="ssh-keys">SSH Keys</h2>
+<h2 id="setting-up-and-configuring-you-git-repo">Setting Up and Configuring You Git Repo</h2>
+<h3 id="ssh-keys">SSH Keys</h3>
 <ul>
 <li>To generate a SSH key =&gt; <code>ssh-keygen -t rsa -b 4096 -C "emailaddress"</code></li>
 <li>Default file location =&gt; <code>/user/mholdiman/.ssh/id_rsa</code></li>
@@ -173,34 +180,48 @@
 </ol>
 <h2 id="git-push">Git Push</h2>
 <ul>
-<li><code>git push origin master</code></li>
-<li>Tells git to push the changes you made locally (origin) to the GitHub branch (master)</li>
+<li><code>git push origin master</code> =&gt; Tells git to push the changes you made locally (origin) to the GitHub branch (master)</li>
 </ul>
-<h3 id="what-if-you-start-a-repo-locally">What if you start a repo locally?</h3>
+<h2 id="what-if-you-start-a-repo-locally">What if you start a repo locally?</h2>
 <ul>
 <li>Open folder in Visual Studio Code</li>
 <li>If not a git repo, then do <code>git init</code></li>
+<li>Do <code>git status</code>, to see status of repo.</li>
 <li>To push this live, you would do <code>git push origin master</code></li>
 <li>However, if the repo is not on GitHub, then you will need to create a new repo on GitHub</li>
-<li>Copy </li>
+<li>Copy SSH Link from GitHub</li>
 <li>Do <code>git remote add origin &lt;paste SSH Link from GitHub&gt;</code></li>
 <li>Then do <code>git remote -v</code> to verify</li>
 <li>Now, you should be able to do <code>git push origin master</code></li>
 <li>In the future, you could just type in <code>git push</code>, but you need to set an <em>upstream</em> first.  Shortcut =&gt; <code>git push -u origin master</code></li>
 </ul>
-<p><strong>GitHub Workflow</strong> =&gt; Write Code &gt; Commit Changes</p>
+<h2 id="github-workflow-online">GitHub Workflow (Online)</h2>
+<h3 id="creating-code">Creating Code</h3>
+<ol>
+<li>Write Code</li>
+<li>Commit Changes</li>
+</ol>
+<h3 id="adding-to-editing-someone-elses-code">Adding To / Editing Someone Else's Code</h3>
 <ul>
-<li>If it is not our code, then we can do what is called a pull request.  GitHub Workflow would then be Write Code &gt; Commit Changes &gt; Make a Pull Request</li>
+<li>If it is not our code, then we can do what is called a pull request.  </li>
+<li>Workflow =&gt; Write Code &gt; Commit Changes &gt; Make a Pull Request</li>
 </ul>
-<p><strong>Local Git Workflow</strong> =&gt; Write Code &gt; Stage Changes <code>git add</code> &gt; Commit Changes <code>git commit</code> &gt; Push Changes <code>git push</code> &gt; Make a Pull Request</p>
+<h2 id="github-workflow-local">GitHub Workflow (Local)</h2>
+<ol>
+<li>Write Code</li>
+<li>Stage Changes <code>git add</code> </li>
+<li>Commit Changes <code>git commit</code></li>
+<li>Push Changes <code>git push</code></li>
+<li>Make a Pull Request &gt; Push Changes <code>git push</code> &gt; Make a Pull Request</li>
+</ol>
 <h2 id="git-branching">Git Branching</h2>
 <ul>
 <li><strong>Master Branch</strong> =&gt; default branch in GitHub.</li>
 <li>We can also create a <strong>Feature Branch</strong></li>
 <li>Each individual branch does not know about changes to any other branches.</li>
 <li>Why is this useful?  When rolling out new features, you can test it here.  It is a sandboxed environment.</li>
-<li><code>git branch</code> =&gt; shows what branch you are currently in </li>
-<li>results =&gt; <code>*master (END)</code></li>
+<li><code>git branch</code> =&gt; shows what branch you are currently in</li>
+<li>Example =&gt; <code>*master (END)</code></li>
 <li>To create a new branch =&gt; <code>git checkout</code></li>
 <li>To create a new branch and name the branch =&gt; <code>git checkout -b &lt;new branch name&gt;</code></li>
 <li>To see differences between files =&gt; <code>git diff &lt;branch name of the one that you want to compare it to&gt;</code></li>

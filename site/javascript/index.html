@@ -329,6 +329,109 @@ myVar++;
 </ul>
 <p>What is an example?</p>
 <p><code>var product = 2.0 * 2.5;</code></p>
+<h3 id="divide-one-decimal-by-another-with-javascript">Divide One Decimal by Another with JavaScript</h3>
+<p>What is an example?</p>
+<p><code>var quotient = 4.4 / 2.0;</code></p>
+<h3 id="finding-a-remainder-in-javascript">Finding a Remainder in JavaScript</h3>
+<ul>
+<li>The <em>remainder</em> operator <code>%</code> gives the remainder of the division of two numbers.</li>
+</ul>
+<p>Example</p>
+<pre><code class="javascript">5 % 2 = 1 because
+Math.floor(5 / 2) = 2 (Quotient)
+2 * 2 = 4
+5 - 4 = 1 (Remainder)
+</code></pre>
+
+<p>Usage</p>
+<ul>
+<li>In mathematics, a number can be checked to be even or odd by checking the remainder of the division of the number by <code>2</code>.</li>
+</ul>
+<pre><code class="javascript">17 % 2 = 1 (17 is Odd)
+48 % 2 = 0 (48 is Even)
+</code></pre>
+
+<p><strong>Note:</strong> The <em>remainder</em> operator is sometimes incorrectly referred to as the modulus operator.  It is very similar to modulus, but does not work properly with negative numbers.</p>
+<p>Test Example</p>
+<pre><code class="javascript">var remainder;
+remainder = 11 % 3
+</code></pre>
+
+<h3 id="compound-assignment-with-augmented-addition">Compound Assignment with Augmented Addition</h3>
+<ul>
+<li>In programming, it is common to use assignments to modify the contents of a variable.</li>
+<li>Remember that everything to the right of th equals sign is evaluated first, so we can say:
+<code>my Var = myVar + 5;</code> to add <code>5</code> to <code>myVar</code>.</li>
+<li>Since this is such a common pattern, there are operators which do both - a mathematical operation and assignment in one step.</li>
+<li>One such operator is the <code>+=</code> operator.</li>
+</ul>
+<p>What is an example?</p>
+<pre><code class="javascript">var myVar = 1; 
+myVar += 5;
+console.log(myVar);
+</code></pre>
+
+<p>Test Example</p>
+<pre><code class="javascript">a = a + 5;
+b = b + 17;
+c = c + 8;
+</code></pre>
+
+<p>Can Be:</p>
+<pre><code class="javascript">a += 5;
+b += 17;
+c += 8;
+</code></pre>
+
+<h3 id="compound-assignment-with-augmented-subtraction">Compound Assignment With Augmented Subtraction</h3>
+<ul>
+<li>Like the <code>+=</code> operator, <code>-=</code> subtracts a number from a variable.</li>
+</ul>
+<p>Example</p>
+<p><code>myVar = myVar -5;</code></p>
+<ul>
+<li>will subtract <code>5</code> from <code>myVar</code>.  Can be rewritten as :</li>
+</ul>
+<p><code>myVar -= 5;</code></p>
+<p>Test Example:</p>
+<pre><code class="javascript">a = a - 6;
+b = b - 15;
+c = c - 1;
+</code></pre>
+
+<p>Can Be:</p>
+<pre><code class="javascript">a -= 6;
+b -= 15;
+c -= 1;
+</code></pre>
+
+<h3 id="compound-assignment-with-augmented-multiplication">Compound Assignment With Augmented Multiplication</h3>
+<ul>
+<li>The <code>*=</code> operator multiplies a variable by a number.</li>
+</ul>
+<p><code>myVar = myVar * 5;</code></p>
+<ul>
+<li>will multiply <code>myVar</code> by <code>5</code>.  This can be rewritten as:</li>
+</ul>
+<p><code>myVar *= 5;</code></p>
+<p>Test Example:</p>
+<pre><code class="javascript">var a = 5;
+var b = 12;
+var c = 4.6;
+
+// Only change code below this line
+a = a * 5;
+b = 3 * b;
+c = c * 10;
+</code></pre>
+
+<p>Can Be:</p>
+<pre><code class="javascript">a *= 5;
+b *= 3; 
+c *= 10;
+</code></pre>
+
+<h3 id="compound-assignment-with-augmented-division">Compound Assignment With Augmented Division</h3>
               
             </div>
           </div>
