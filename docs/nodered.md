@@ -48,25 +48,24 @@ Resource Used: [Node-RED Essentials](https://youtube.com/playlist?list=PLyNBB9VC
 * Then, click on the button on the left hand side of the _timestamp_ node to inject the _timestamp_ into the _msg.payload_.
 * Now, add _function_ node to add JavaScript code that gets run against each message passing through.
 
-## Sub turpe Medusae vestes edidit Non et
+## Node-RED - Cellular Routers
 
-Oro orbe conversa Aesone. Matris et an penetravit illud Priami. In futuri,
-numine tulerant Phaethontis [flere](http://www.vulnera-vident.io/) cum perpetuum
-soporis curvamine vel Cauni gerit. Mota vivit, dies illic noctes fugit rebello
-nec **innata**, sic votis? Columbas mercede, quoque unus flamma eras sensimus,
-**cum** miles et fluctus inprobe!
+### [Building a Custom Nodes for Node.js or Node-RED](https://icr.advantech.cz/support/faq/detail/building-the-custom-nodes-for-node-js-node-red)
 
-- Victae profundi sparsit perspexerat meritos plura ibi
-- Vidistis umbrae tumidus
-- Trepidantem remis patrios
+_Please Note_: The notes below are for building nodes written in JavaScript only.
 
-Quae teneat sagittis et ritu *undas esset* rubra est, sed infusa dictas dolore
-quamcumque autumni, mortale colit carpsere. Spectas saetigerosque nulla.
-**Sorores erit miserata** mihi. Et sine! Atque de quas Veneri macies arcum.
-
-Uberaque manes scylla Proserpina [simul iners
-vulnere](http://www.cui.io/gravidamve.aspx) cum populis latitant fieri, exiguo
-artes, pharetram per, in. Corpora orbem Icare quique in et ego nec veneni,
-interea? Fastigiaque eademque silvis brevis sunt membrisque, vix non, Lernaeae.
-Nulli est; tellus manu teneat ut fata iam rostro, cum curat Achaidos, mihi? Vir
-[Aeolon superamur tendebam](http://quae.com/) notam.
+- Using a Linux OS (I used Ubuntu 20.04 LTS)
+- First, make sure your system is up-to-date via `sudo apt-get update`
+- Next, install the Node Package Manager (`npm`) via `sudo apt-get install npm`
+- Once, the install is finished, you should have a `.node-red` directory.
+- You will need to run the install command for the desired node in the `.node-red` directory.
+- _NOTE_: I have found that if you do not any dependencies will not install correctly.
+- If you are not already in the `.node-red` directory, please `cd` into via `cd .node-red/`
+- For this example, I wanted to install the `node-red-contrib-azure-iot-hub` node.
+- I located the node I wanted [here](https://www.npmjs.com)
+- Once you are at the site, just search for the node you are needing and click on the node name.
+- More specifically, here is the link to [My Example](https://www.npmjs.com/package/node-red-contrib-azure-iot-hub)
+- Once you are on the page, you will see a lot of information on the node, such as any dependencies.
+- After ensuring this was the node I needed, I installed it via `npm --global-style install node-red-contrib-azure-iot-hub`
+- Once the node was installed on my Ubuntu machine, I navigated to my `node_modules` folder.
+- After doing a `ls`, I could see the `node-red-contrib-azure-iot-hub` folder.
