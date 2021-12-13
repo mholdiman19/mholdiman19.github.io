@@ -50,7 +50,7 @@ Resource Used: [Node-RED Essentials](https://youtube.com/playlist?list=PLyNBB9VC
 
 ## Node-RED - Cellular Routers
 
-### [Building a Custom Nodes for Node.js or Node-RED](https://icr.advantech.cz/support/faq/detail/building-the-custom-nodes-for-node-js-node-red)
+### [Building Custom Nodes for Node.js or Node-RED](https://icr.advantech.cz/support/faq/detail/building-the-custom-nodes-for-node-js-node-red)
 
 _Please Note_: The notes below are for building nodes written in JavaScript only.
 
