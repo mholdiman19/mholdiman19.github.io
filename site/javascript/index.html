@@ -7,12 +7,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   
+  
   <link rel="shortcut icon" href="../img/favicon.ico">
   <title>Java Script - ReadMyDocs</title>
-  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
-  <link href="../extra.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+  <link href="../extra.css" rel="stylesheet" />
   
   <script>
     // Current page data
@@ -23,9 +26,8 @@
   
   <script src="../js/jquery-2.1.1.min.js" defer></script>
   <script src="../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script> 
-  
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -34,94 +36,115 @@
 
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
         <a href=".." class="icon icon-home"> ReadMyDocs</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
   </form>
 </div>
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-	<ul class="current">
-	  
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="..">Home</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../resources/">Cool Resources</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../docker/">Docker</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../gitnotes/">GitHub</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../commands/">Linux Commands</a>
-	    </li>
-          
-            <li class="toctree-l1 current">
-		
-    <a class="current" href="./">Java Script</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l2"><a href="#javascript">JavaScript</a></li>
-    
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../resources/">Cool Resources</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../docker/">Docker</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../gitnotes/">GitHub</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../commands/">Linux Commands</a>
+                    </li>
+                </ul>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Java Script</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#course-javascript-algorithms-and-data-structures-certification">Course:  JavaScript Algorithms and Data Structures Certification</a>
         <ul>
-        
-            <li><a class="toctree-l3" href="#course-javascript-algorithms-and-data-structures-certification">Course:  JavaScript Algorithms and Data Structures Certification</a></li>
-        
+    <li class="toctree-l3"><a class="reference internal" href="#comment-your-javascript-code">Comment Your JavaScript Code</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#declare-javascript-variables">Declare JavaScript Variables</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#storing-values-with-the-assignment-operator">Storing Values with the Assignment Operator</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#assigning-the-value-of-one-variable-to-another">Assigning the Value of One Variable to Another</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#initializing-variables-with-the-assignment-operator">Initializing Variables with the Assignment Operator</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#understanding-uninitialized-variables">Understanding Uninitialized Variables</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#understanding-case-sensitivity-in-variables">Understanding Case Sensitivity in Variables</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#add-two-number-with-javascript">Add Two Number with JavaScript</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#subtract-one-number-from-another-with-javascript">Subtract One Number from Another with JavaScript</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#multiply-two-numbers-with-javascript">Multiply Two Numbers with JavaScript</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#divide-one-number-by-another-with-javascript">Divide One Number by Another with JavaScript</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#increment-a-number-with-javascript">Increment a Number with JavaScript</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#decrement-a-number-with-javascript">Decrement a Number with JavaScript</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#create-decimal-numbers-with-javascript">Create Decimal Numbers with JavaScript</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#multiply-two-decimals-with-javascript">Multiply Two Decimals with JavaScript</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#divide-one-decimal-by-another-with-javascript">Divide One Decimal by Another with JavaScript</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#finding-a-remainder-in-javascript">Finding a Remainder in JavaScript</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#compound-assignment-with-augmented-addition">Compound Assignment with Augmented Addition</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#compound-assignment-with-augmented-subtraction">Compound Assignment With Augmented Subtraction</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#compound-assignment-with-augmented-multiplication">Compound Assignment With Augmented Multiplication</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#compound-assignment-with-augmented-division">Compound Assignment With Augmented Division</a>
+    </li>
         </ul>
-    
-
+    </li>
     </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../nodered/">Node-RED</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../openSSH/">OpenSSH</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../openvpn/">OpenVPN</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../samba/">Samba</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../webaccessdmp/">WebAccess/DMP</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../about/">About</a>
-	    </li>
-          
-        </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../nodered/">Node-RED</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../openSSH/">OpenSSH</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../openvpn/">OpenVPN</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../samba/">Samba</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../webaccessdmp/">WebAccess/DMP</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../about/">About</a>
+                    </li>
+                </ul>
       </div>
-      &nbsp;
+    </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
@@ -146,8 +169,10 @@
       
     </li>
   </ul>
+  
   <hr/>
 </div>
+
           <div role="main">
             <div class="section">
               
@@ -210,18 +235,16 @@
 <p><em>Note</em> =&gt; Any calculations to the right of the <code>=</code> operator are performed before variables to the left of the operator.</p>
 </li>
 </ul>
-<pre><code class="js">var myVar;
+<pre><code class="language-js">var myVar;
 myVar = 5;
 </code></pre>
-
 <h3 id="assigning-the-value-of-one-variable-to-another">Assigning the Value of One Variable to Another</h3>
 <p>After a value is assigned to a variable using the <em>assignment operator</em>, you can assign the value of that variable to another variable using the assignment operator.</p>
-<pre><code class="javascript">var myVar;
+<pre><code class="language-javascript">var myVar;
 myVar = 5;
 var myNum;
 myNum = myVar;
 </code></pre>
-
 <p>What is happening in the above example?</p>
 <ul>
 <li><code>myVar</code> is declared a variable with no value</li>
@@ -231,17 +254,15 @@ myNum = myVar;
 <li><code>myNum</code> has a value of <code>5</code></li>
 </ul>
 <p>Test Example:</p>
-<pre><code class="javascript">var a;
+<pre><code class="language-javascript">var a;
 a = 7;
 var = b;
 b = a;
 </code></pre>
-
 <h3 id="initializing-variables-with-the-assignment-operator">Initializing Variables with the Assignment Operator</h3>
 <p>It is common to <em>initialize</em> a variable to an initial value in the same line as it is declared.</p>
-<pre><code class="javascript">var myVar = 0;
+<pre><code class="language-javascript">var myVar = 0;
 </code></pre>
-
 <p>What is happening in the above example?</p>
 <ul>
 <li>A new variable is created called <code>myVar</code></li>
@@ -261,11 +282,10 @@ b = a;
 <li>In <em>camelCase</em>, multi-word variable names have the first word in lowercase and the first letter of each subsequent word is capitalized.</li>
 </ul>
 <p>What are some examples?</p>
-<pre><code class="javascript">var someVariable;
+<pre><code class="language-javascript">var someVariable;
 var anotherVariableName;
 var thisVariableNameIsSoLong;
 </code></pre>
-
 <h3 id="add-two-number-with-javascript">Add Two Number with JavaScript</h3>
 <ul>
 <li><code>Number</code> is a data type in JavaScript which represents numeric data.</li>
@@ -301,12 +321,11 @@ var thisVariableNameIsSoLong;
 <li>The entire line becomes <code>i++;</code>, eliminating the need for the equal sign.</li>
 </ul>
 <p>What is an example?</p>
-<pre><code class="javascript">var myVar = 87;
+<pre><code class="language-javascript">var myVar = 87;
 // Only change code below this line
 myVar = myVar + 1;
 myVar++;
 </code></pre>
-
 <h3 id="decrement-a-number-with-javascript">Decrement a Number with JavaScript</h3>
 <ul>
 <li>You can easily <em>decrement</em> or decrease a variable by one with the <code>--</code> operator.</li>
@@ -337,26 +356,23 @@ myVar++;
 <li>The <em>remainder</em> operator <code>%</code> gives the remainder of the division of two numbers.</li>
 </ul>
 <p>Example</p>
-<pre><code class="javascript">5 % 2 = 1 because
+<pre><code class="language-javascript">5 % 2 = 1 because
 Math.floor(5 / 2) = 2 (Quotient)
 2 * 2 = 4
 5 - 4 = 1 (Remainder)
 </code></pre>
-
 <p>Usage</p>
 <ul>
 <li>In mathematics, a number can be checked to be even or odd by checking the remainder of the division of the number by <code>2</code>.</li>
 </ul>
-<pre><code class="javascript">17 % 2 = 1 (17 is Odd)
+<pre><code class="language-javascript">17 % 2 = 1 (17 is Odd)
 48 % 2 = 0 (48 is Even)
 </code></pre>
-
 <p><strong>Note:</strong> The <em>remainder</em> operator is sometimes incorrectly referred to as the modulus operator.  It is very similar to modulus, but does not work properly with negative numbers.</p>
 <p>Test Example</p>
-<pre><code class="javascript">var remainder;
+<pre><code class="language-javascript">var remainder;
 remainder = 11 % 3
 </code></pre>
-
 <h3 id="compound-assignment-with-augmented-addition">Compound Assignment with Augmented Addition</h3>
 <ul>
 <li>In programming, it is common to use assignments to modify the contents of a variable.</li>
@@ -366,23 +382,20 @@ remainder = 11 % 3
 <li>One such operator is the <code>+=</code> operator.</li>
 </ul>
 <p>What is an example?</p>
-<pre><code class="javascript">var myVar = 1; 
+<pre><code class="language-javascript">var myVar = 1; 
 myVar += 5;
 console.log(myVar);
 </code></pre>
-
 <p>Test Example</p>
-<pre><code class="javascript">a = a + 5;
+<pre><code class="language-javascript">a = a + 5;
 b = b + 17;
 c = c + 8;
 </code></pre>
-
 <p>Can Be:</p>
-<pre><code class="javascript">a += 5;
+<pre><code class="language-javascript">a += 5;
 b += 17;
 c += 8;
 </code></pre>
-
 <h3 id="compound-assignment-with-augmented-subtraction">Compound Assignment With Augmented Subtraction</h3>
 <ul>
 <li>Like the <code>+=</code> operator, <code>-=</code> subtracts a number from a variable.</li>
@@ -394,17 +407,15 @@ c += 8;
 </ul>
 <p><code>myVar -= 5;</code></p>
 <p>Test Example:</p>
-<pre><code class="javascript">a = a - 6;
+<pre><code class="language-javascript">a = a - 6;
 b = b - 15;
 c = c - 1;
 </code></pre>
-
 <p>Can Be:</p>
-<pre><code class="javascript">a -= 6;
+<pre><code class="language-javascript">a -= 6;
 b -= 15;
 c -= 1;
 </code></pre>
-
 <h3 id="compound-assignment-with-augmented-multiplication">Compound Assignment With Augmented Multiplication</h3>
 <ul>
 <li>The <code>*=</code> operator multiplies a variable by a number.</li>
@@ -415,7 +426,7 @@ c -= 1;
 </ul>
 <p><code>myVar *= 5;</code></p>
 <p>Test Example:</p>
-<pre><code class="javascript">var a = 5;
+<pre><code class="language-javascript">var a = 5;
 var b = 12;
 var c = 4.6;
 
@@ -424,13 +435,11 @@ a = a * 5;
 b = 3 * b;
 c = c * 10;
 </code></pre>
-
 <p>Can Be:</p>
-<pre><code class="javascript">a *= 5;
+<pre><code class="language-javascript">a *= 5;
 b *= 3; 
 c *= 10;
 </code></pre>
-
 <h3 id="compound-assignment-with-augmented-division">Compound Assignment With Augmented Division</h3>
               
             </div>
@@ -454,7 +463,7 @@ c *= 10;
     
   </div>
 
-  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
       
         </div>
@@ -464,20 +473,26 @@ c *= 10;
 
   </div>
 
-  <div class="rst-versions" role="note" style="cursor: pointer">
-    <span class="rst-current-version" data-toggle="rst-current-version">
-      
-      
-        <span><a href="../commands/" style="color: #fcfcfc;">&laquo; Previous</a></span>
-      
-      
-        <span style="margin-left: 15px"><a href="../nodered/" style="color: #fcfcfc">Next &raquo;</a></span>
-      
-    </span>
+  <div class="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../commands/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../nodered/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
 </div>
     <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
     <script src="../js/theme.js" defer></script>
       <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
 
 </body>
 </html>
