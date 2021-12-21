@@ -69,3 +69,8 @@ _Please Note_: The notes below are for building nodes written in JavaScript only
 - After ensuring this was the node I needed, I installed it via `npm --global-style install node-red-contrib-azure-iot-hub`
 - Once the node was installed on my Ubuntu machine, I navigated to my `node_modules` folder.
 - After doing a `ls`, I could see the `node-red-contrib-azure-iot-hub` folder.
+- Then, I copied the node folder (`node-red-contrib-azure-iot-hub`) via SFTP to the target folder on the router.  
+- Desired location for Node-RED nodes => `/usr/lib/node_modules/node-red/nodes`
+- For other nodes, the desired location => `/usr/lib/node_modules/`
+- It is recommended to create a link to the `/opt` folder from the above mentioned folders to avoid overriding while upgrading firmware.
+- While in the `/usr/lib/node_modules/node-red/nodes`, use `ln -s node-red-contrib-azure-iot-hub /opt` to create the link to the `/opt` folder.
