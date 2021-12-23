@@ -216,6 +216,11 @@
 <li>After ensuring this was the node I needed, I installed it via <code>npm --global-style install node-red-contrib-azure-iot-hub</code></li>
 <li>Once the node was installed on my Ubuntu machine, I navigated to my <code>node_modules</code> folder.</li>
 <li>After doing a <code>ls</code>, I could see the <code>node-red-contrib-azure-iot-hub</code> folder.</li>
+<li>Then, I copied the node folder (<code>node-red-contrib-azure-iot-hub</code>) via SFTP to the target folder on the router.  </li>
+<li>Desired location for Node-RED nodes =&gt; <code>/usr/lib/node_modules/node-red/nodes</code></li>
+<li>For other nodes, the desired location =&gt; <code>/usr/lib/node_modules/</code></li>
+<li>It is recommended to create a link to the <code>/opt</code> folder from the above mentioned folders to avoid overriding while upgrading firmware.</li>
+<li>While in the <code>/usr/lib/node_modules/node-red/nodes</code>, use <code>ln -s node-red-contrib-azure-iot-hub /opt</code> to create the link to the <code>/opt</code> folder.</li>
 </ul>
               
             </div>
