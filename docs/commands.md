@@ -4,6 +4,11 @@
 * To verify the new user was created => `ls /home` or `cat /etc/passwd`
 * To add user to the sudoers group => `usermod -aG sudo <username>` then => `groups <username>`
 
+## Changing Password via CLI
+
+* To change your password => `passwd`
+* To change someone else's password => `sudo passwd <user's name>`
+
 ## APT (apt) ##
 
 ### How to Prevent & Fix Package Dependency Errors in Ubuntu ###
