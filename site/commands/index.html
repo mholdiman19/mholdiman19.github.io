@@ -66,6 +66,60 @@
                 <ul class="current">
                     <li class="toctree-l1 current"><a class="reference internal current" href="./">Linux Commands</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#adding-a-user-in-linux">Adding a User in Linux</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#changing-password-via-cli">Changing Password via CLI</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#apt-apt">APT (apt)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#how-to-prevent-fix-package-dependency-errors-in-ubuntu">How to Prevent &amp; Fix Package Dependency Errors in Ubuntu</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#copy-cp">COPY (cp)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#dhcp-client">DHCP Client</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#dpkg-dpkg">DPKG (dpkg)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#gdebi-gdebi">GDEBI (gdebi)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#ip-ip">IP (ip)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#secure-copy-scp">SECURE COPY (scp)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#removing-crash-report-files">Removing Crash Report Files</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#tree-tree">TREE (tree)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#syncthing-install-configuration">Syncthing Install &amp; Configuration</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#to-see-available-services-in-router-kernel">To See Available Services in Router Kernel</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#to-change-network-settings-in-ubuntu-via-netplan">To Change Network Settings in Ubuntu via Netplan</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#to-see-partitions-check-disk-space">To See Partitions &amp; Check Disk Space</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#to-check-hard-drive-disk-health-via-cli">To Check Hard Drive Disk Health via CLI</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#to-check-hardware-information-on-linux">To Check Hardware Information on Linux</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#to-check-power-battery-information-via-cli">To Check Power (Battery) Information via CLI</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#upower">UPower</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#acpi">ACPI</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#via-directory">Via Directory</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#via-gui">Via GUI</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#how-to-use-workspaces">How To Use Workspaces</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#how-to-remove-directories-files-in-linux">How To Remove Directories &amp; Files in Linux</a>
+    </li>
     </ul>
                     </li>
                 </ul>
@@ -130,7 +184,8 @@
           <div role="main">
             <div class="section">
               
-                <h2 id="adding-a-user-in-linux">Adding a User in Linux</h2>
+                <h1 id="linux-cli-commands">Linux CLI Commands</h1>
+<h2 id="adding-a-user-in-linux">Adding a User in Linux</h2>
 <ul>
 <li>To add the user =&gt; <code>adduser &lt;username&gt;</code></li>
 <li>To verify the new user was created =&gt; <code>ls /home</code> or <code>cat /etc/passwd</code></li>
@@ -141,7 +196,7 @@
 <li>To change your password =&gt; <code>passwd</code></li>
 <li>To change someone else's password =&gt; <code>sudo passwd &lt;user's name&gt;</code></li>
 </ul>
-<h2 id="apt-apt">APT (apt)</h2>
+<h2 id="apt-apt">APT (<code>apt</code>)</h2>
 <h3 id="how-to-prevent-fix-package-dependency-errors-in-ubuntu">How to Prevent &amp; Fix Package Dependency Errors in Ubuntu</h3>
 <ul>
 <li>Update Package =&gt; <code>sudo apt update</code></li>
@@ -162,7 +217,7 @@
 <li>Use Synaptic Package Manager to Disable a PPA (not removing)</li>
 <li>To Search for a Software Package =&gt; <code>apt search &lt;PACKAGE-NAME&gt;</code></li>
 </ul>
-<h2 id="copy-cp">COPY (cp)</h2>
+<h2 id="copy-cp">COPY (<code>cp</code>)</h2>
 <ul>
 <li><code>cp</code> =&gt; commande-line utility for copying files and directories on Unix and Linux systems</li>
 <li>Command Syntax =&gt; <code>cp [options] SOURCE... DESTINATION</code></li>
@@ -176,19 +231,19 @@
 <li>Use this command to force Ubuntu Server 20.04 LTS to request a DHCP Client</li>
 <li><code>dhclient -r -v eth0 &amp;&amp; rm /var/lib/dhcp/dhclient.* ; dhclient -v eth0</code></li>
 </ul>
-<h2 id="dpkg-dpkg">DPKG (dpkg)</h2>
+<h2 id="dpkg-dpkg">DPKG (<code>dpkg</code>)</h2>
 <ul>
 <li>To Install a DEB Package =&gt; <code>sudo dpkg -i example.deb</code></li>
 <li>If you get =&gt; <code>dpkg: error processing package</code></li>
 <li>Do =&gt; <code>sudo apt install -f</code></li>
 </ul>
-<h2 id="gdebi-gdebi">GDEBI (gdebi)</h2>
+<h2 id="gdebi-gdebi">GDEBI (<code>gdebi</code>)</h2>
 <ul>
 <li><code>gdeb</code> =&gt; command to install DEB packages that will automatically download and install any required dependencies.</li>
 <li>May need to be installed =&gt; <code>sudo apt install gdebi-core</code></li>
 <li>Once installed command syntax is =&gt; <code>sudo gdebi example.deb</code></li>
 </ul>
-<h2 id="ip-ip">IP (ip)</h2>
+<h2 id="ip-ip">IP (<code>ip</code>)</h2>
 <ul>
 <li>To Up/Down an Interface</li>
 <li><code>ip link set dev eth0 down</code></li>
@@ -245,7 +300,7 @@
 </ul>
 </li>
 </ul>
-<h2 id="secure-copy-scp">SECURE COPY (scp)</h2>
+<h2 id="secure-copy-scp">SECURE COPY (<code>scp</code>)</h2>
 <p>Resource =&gt; <a href="https://linuxize.com/post/how-to-use-scp-command-to-securely-transfer-files/">How to Use SCP Command to Securely Transfer Files</a></p>
 <p>Description:  <strong>Secure Copy</strong> <code>scp</code> is a command line utility that allows you to securely copy files and directories between two locations.</p>
 <p>Command Syntax:</p>
@@ -262,6 +317,19 @@
 <li><code>cd /var/crash/</code>scp</li>
 <li><code>ls</code></li>
 <li><code>sudo rm /var/crash</code></li>
+</ul>
+<h2 id="tree-tree">TREE (<code>tree</code>)</h2>
+<ul>
+<li>Lists the content of directories in a tree-like format</li>
+<li>To run <code>tree</code> in a directory that requires root user permissions =&gt; <code>sudo tree</code></li>
+<li>To display contents, while including hidden files, use the <code>-a</code> flag =&gt; <code>sudo tree -a</code></li>
+<li>To see the full path prefix =&gt; <code>sudo tree -f</code></li>
+<li>To see the subdirectories, minus the files in them =&gt; <code>sudo tree -d</code></li>
+<li>To specify the maximum display depth of the directory, use the <code>-L</code> flag =&gt; <code>sudo tree -L 2</code></li>
+<li>To only display files that match a specific wild-card pattern, user the <code>-P</code> flag =&gt; <code>sudo tree -P cata*</code></li>
+<li>To eliminate empty directories, you can use the <code>--prune</code> option =&gt; <code>sudo tree --prune</code></li>
+<li>If you would like to see the file permissions, then do =&gt; <code>sudo tree -p</code></li>
+<li>If you would like to redirect the output to a text file =&gt; <code>sudo tree -o &lt;filename&gt;</code></li>
 </ul>
 <h2 id="syncthing-install-configuration">Syncthing Install &amp; Configuration</h2>
 <ul>

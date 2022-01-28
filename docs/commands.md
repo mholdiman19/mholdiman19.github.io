@@ -1,3 +1,5 @@
+# Linux CLI Commands
+
 ## Adding a User in Linux
 
 * To add the user => `adduser <username>`
@@ -9,7 +11,7 @@
 * To change your password => `passwd`
 * To change someone else's password => `sudo passwd <user's name>`
 
-## APT (apt) ##
+## APT (`apt`) ##
 
 ### How to Prevent & Fix Package Dependency Errors in Ubuntu ###
 
@@ -31,7 +33,7 @@
   * Use Synaptic Package Manager to Disable a PPA (not removing)
 * To Search for a Software Package => `apt search <PACKAGE-NAME>`
 
-## COPY (cp) ##
+## COPY (`cp`) ##
 
 * `cp` => commande-line utility for copying files and directories on Unix and Linux systems
 * Command Syntax => `cp [options] SOURCE... DESTINATION`
@@ -45,19 +47,19 @@
 * Use this command to force Ubuntu Server 20.04 LTS to request a DHCP Client
 * `dhclient -r -v eth0 && rm /var/lib/dhcp/dhclient.* ; dhclient -v eth0`
 
-## DPKG (dpkg) ##
+## DPKG (`dpkg`) ##
 
 * To Install a DEB Package => `sudo dpkg -i example.deb`
 * If you get => `dpkg: error processing package`
   * Do => `sudo apt install -f`
 
-## GDEBI (gdebi) ##
+## GDEBI (`gdebi`) ##
 
 * `gdeb` => command to install DEB packages that will automatically download and install any required dependencies.
   * May need to be installed => `sudo apt install gdebi-core`
 * Once installed command syntax is => `sudo gdebi example.deb`
 
-## IP (ip) ##
+## IP (`ip`) ##
 
 * To Up/Down an Interface
   * `ip link set dev eth0 down`
@@ -98,7 +100,7 @@
       * EX => `ethtool -i eth0`
       * EX => `ethtool -S eth0`
 
-## SECURE COPY (scp) ##
+## SECURE COPY (`scp`) ##
 
   Resource => [How to Use SCP Command to Securely Transfer Files](https://linuxize.com/post/how-to-use-scp-command-to-securely-transfer-files/)
 
@@ -118,6 +120,20 @@
   * `cd /var/crash/`scp
   * `ls`
   * `sudo rm /var/crash`
+
+## TREE (`tree`)
+
+* Lists the content of directories in a tree-like format
+* To run `tree` in a directory that requires root user permissions => `sudo tree`
+* To display contents, while including hidden files, use the `-a` flag => `sudo tree -a`
+* To see the full path prefix => `sudo tree -f`
+* To see the subdirectories, minus the files in them => `sudo tree -d`
+* To specify the maximum display depth of the directory, use the `-L` flag => `sudo tree -L 2`
+* To only display files that match a specific wild-card pattern, user the `-P` flag => `sudo tree -P cata*`
+* To eliminate empty directories, you can use the `--prune` option => `sudo tree --prune`
+* If you would like to see the file permissions, then do => `sudo tree -p`
+* If you would like to redirect the output to a text file => `sudo tree -o <filename>`
+
 
 ## Syncthing Install & Configuration ##
 
