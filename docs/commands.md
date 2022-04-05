@@ -121,6 +121,22 @@
   * `ls`
   * `sudo rm /var/crash`
 
+## TCPDUMP (`tcpdump`)
+
+* Packer sniffer tool
+* Offers the ability to save the tcpdump output to a `pcap` file.
+* Command Syntax:
+  - From a specific interface => `tcpdump -i eth0`
+  - Capture specified amount of packets => `tcpdump -c 5 -i eth0`
+  - To display available interfaces => `tcpdump -D`
+  - To capture and save packets in a file => `tcpdump -w <filename> -i eth0`
+  - Read captured packets file => `tcpdump -r <filename>`
+  - Capture IP address packets => `tcpdump -n -i eth0`
+  - To capture only TCP packets => `tcpdump -i eth0 tcp`
+  - To capture packets on a specific port => `tcpdump -i eth0 port 22`
+  - To capture packets from a source IP => `tcpdump -i eth0 src <IP address>`
+  - To capture packets from a destination IP => `tcpdump -i eth0 dst <IP address>`
+
 ## TREE (`tree`)
 
 * Lists the content of directories in a tree-like format
