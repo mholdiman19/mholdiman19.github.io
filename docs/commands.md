@@ -163,17 +163,18 @@ __REFERENCE__:  [12 TCPDUMP Commands - A Network Sniffer Tool](https://www.tecmi
 
 * Packer sniffer tool
 * Offers the ability to save the tcpdump output to a `pcap` file.
+    - Example => `tcpdump -i eth1 -s 65535 -w <filename>.pcap`
 * Command Syntax:
-  - From a specific interface => `tcpdump -i eth0`
-  - Capture specified amount of packets => `tcpdump -c 5 -i eth0`
-  - To display available interfaces => `tcpdump -D`
-  - To capture and save packets in a file => `tcpdump -w <filename> -i eth0`
-  - Read captured packets file => `tcpdump -r <filename>`
-  - Capture IP address packets => `tcpdump -n -i eth0`
-  - To capture only TCP packets => `tcpdump -i eth0 tcp`
-  - To capture packets on a specific port => `tcpdump -i eth0 port 22`
-  - To capture packets from a source IP => `tcpdump -i eth0 src <IP address>`
-  - To capture packets from a destination IP => `tcpdump -i eth0 dst <IP address>`
+    - From a specific interface => `tcpdump -i eth0`
+    - Capture specified amount of packets => `tcpdump -c 5 -i eth0`
+    - To display available interfaces => `tcpdump -D`
+    - To capture and save packets in a file => `tcpdump -w <filename> -i eth0`
+    - Read captured packets file => `tcpdump -r <filename>`
+    - Capture IP address packets => `tcpdump -n -i eth0`
+    - To capture only TCP packets => `tcpdump -i eth0 tcp`
+    - To capture packets on a specific port => `tcpdump -i eth0 port 22`
+    - To capture packets from a source IP => `tcpdump -i eth0 src <IP address>`
+    - To capture packets from a destination IP => `tcpdump -i eth0 dst <IP address>`
 
 ## TREE (`tree`)
 
