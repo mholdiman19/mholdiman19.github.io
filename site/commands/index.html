@@ -365,8 +365,11 @@
 <p><strong>REFERENCE</strong>:  <a href="https://www.tecmint.com/12-tcpdump-commands-a-network-sniffer-tool/">12 TCPDUMP Commands - A Network Sniffer Tool</a></p>
 <ul>
 <li>Packer sniffer tool</li>
-<li>Offers the ability to save the tcpdump output to a <code>pcap</code> file.</li>
-<li>Command Syntax:</li>
+<li>Offers the ability to save the tcpdump output to a <code>pcap</code> file.<ul>
+<li>Example =&gt; <code>tcpdump -i eth1 -s 65535 -w &lt;filename&gt;.pcap</code></li>
+</ul>
+</li>
+<li>Command Syntax:<ul>
 <li>From a specific interface =&gt; <code>tcpdump -i eth0</code></li>
 <li>Capture specified amount of packets =&gt; <code>tcpdump -c 5 -i eth0</code></li>
 <li>To display available interfaces =&gt; <code>tcpdump -D</code></li>
@@ -377,6 +380,8 @@
 <li>To capture packets on a specific port =&gt; <code>tcpdump -i eth0 port 22</code></li>
 <li>To capture packets from a source IP =&gt; <code>tcpdump -i eth0 src &lt;IP address&gt;</code></li>
 <li>To capture packets from a destination IP =&gt; <code>tcpdump -i eth0 dst &lt;IP address&gt;</code></li>
+</ul>
+</li>
 </ul>
 <h2 id="tree-tree">TREE (<code>tree</code>)</h2>
 <ul>
