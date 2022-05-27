@@ -23,7 +23,7 @@
 * Copy and paste the Remote Public Key from the Windows 10 WireGuard Client
 * Click Apply
 
-#### Windows 10 WireGuard Client Configuration
+#### Windows 10 Configuration (Client)
 * Click Add Empty Tunnel in the WireGuard Software
 * In the __Create New Tunnel__ window, do the following:
     - Give your tunnel a name
