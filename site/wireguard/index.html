@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>WireGuard - ReadMyDocs</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+  <link href="../extra.css" rel="stylesheet" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "WireGuard";
+    var mkdocs_page_input_path = "wireguard.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> ReadMyDocs</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../resources/">Cool Resources</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../docker/">Docker</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../gitnotes/">GitHub</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../commands/">Linux Commands</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../javascript/">Java Script</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../nodered/">Node-RED</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../openSSH/">OpenSSH</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../openvpn/">OpenVPN</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../samba/">Samba</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../webaccessdmp/">WebAccess/DMP</a>
+                    </li>
+                </ul>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">WireGuard</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#wireguard-advantech-routers">WireGuard &amp; Advantech Routers</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#windows-10-client-to-icr-3241-client-to-server">Windows 10 Client to ICR-3241 (Client-to-Server)</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#erat-cuncti-vellera-sensit-cum-frustra-numen">Erat cuncti vellera sensit cum frustra numen</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#aeoliden-surgente-luporum">Aeoliden surgente luporum</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#liventia-et-veris-laniavit-spectat-sollicitare-inter">Liventia et veris laniavit spectat sollicitare inter</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#visus-suam-hominumque-manet-cursus-confertur-dominae">Visus suam hominumque manet cursus confertur dominae</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#si-sunt-genitor-eurus-et-natum">Si sunt genitor eurus et natum</a>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../about/">About</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">ReadMyDocs</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>WireGuard</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="wireguard">WireGuard</h1>
+<ul>
+<li>free and open-source communication protocol and software which implements encrypted virtual private networks (VPNs)</li>
+<li>passes traffic over UDP</li>
+</ul>
+<h2 id="wireguard-advantech-routers">WireGuard &amp; Advantech Routers</h2>
+<ul>
+<li>Up to 4 WireGuard VPN tunnels per router</li>
+</ul>
+<h3 id="windows-10-client-to-icr-3241-client-to-server">Windows 10 Client to ICR-3241 (Client-to-Server)</h3>
+<h2 id="erat-cuncti-vellera-sensit-cum-frustra-numen">Erat cuncti vellera sensit cum frustra numen</h2>
+<p><a href="http://speciem-tibi.org/propiore">Lorem markdownum vidit</a> ista et falcato
+dolorem, feras poni nymphae tremulaeque sunt dentes feriat! Quarta habitantum
+procos, leones iacet, precibusque laboras est patet virent sic Oenides? Iubendo
+non introrsus <strong>deque inquit</strong> ortus annis vires <em>fuerat de aetherium</em> relatis
+telumque addit qua mecum es orbem mollierat. Opem alter <strong>et inde et</strong> venit;
+siquos, vulnera et frigus haeserat altera <strong>foribusque toxea</strong> dum eunti. Aut
+videt lumbis, vos et possit iamque antra ille, perterritus nescit vestigia
+efficerentque precor <strong>revocabile</strong>.</p>
+<h2 id="aeoliden-surgente-luporum">Aeoliden surgente luporum</h2>
+<p>Potentes nemorum levarit posse, nec sustinui solio ab tetigit adiecit clarum et
+colla postquam. Nil citus venit, furialibus aderat non praebet pianda etiam
+cernere totum, arma ipsa quia. <a href="http://www.sedrudis.com/">Parva hominem
+silentia</a> quoque quoque; vocor erat Saturnius corpus,
+<a href="http://est-fabula.net/vindicta">dea est</a>: a ut umerique quamvis.</p>
+<ul>
+<li>In floribus querno mittere</li>
+<li>Perhorruit comminus ipse</li>
+<li>Ille felices cepit</li>
+<li>Proxima querno Pandiona primo</li>
+<li>Lignum et vocant veniam arma</li>
+<li>Profuga quidque sequentis quoque amor rubor</li>
+</ul>
+<h2 id="liventia-et-veris-laniavit-spectat-sollicitare-inter">Liventia et veris laniavit spectat sollicitare inter</h2>
+<p>Voce a gravem, feruntur iusserat monstris ulla Oenides quater. Inpetus <em>me
+lacrimoso</em>, tulit <a href="http://moram.net/consurgit">ruunt Pelia sitimque</a>, enim est,
+ora metuo inpensius omnia robora locoque <a href="http://tenebras-incinxit.org/">en</a>
+tempus. Levius Averna fit agros regnum fecit in secernit cursus summum et
+fecundus summa.</p>
+<ol>
+<li>Nunc responsa</li>
+<li>Inmemores tollere</li>
+<li>Cognataque flammae servabitur ante laudis quas capite</li>
+<li>Ullo nymphae precari Ultima et illos non</li>
+<li>Deme haerebat pectore candida sparsit cum ortus</li>
+</ol>
+<h2 id="visus-suam-hominumque-manet-cursus-confertur-dominae">Visus suam hominumque manet cursus confertur dominae</h2>
+<p>Ignara bene! Meoque et voce fortibus, superatus <strong>lacrimarum</strong> subversaque
+dedisset stat. Nox mihi rate aranea utroque ferunt. Est tener meliora apertos
+Iove aderis ad dixit et ad quoque nunc curas solet eundi, monte.</p>
+<h2 id="si-sunt-genitor-eurus-et-natum">Si sunt genitor eurus et natum</h2>
+<p>Petit praecordia habere dicere, rubefecit <a href="http://tepido.io/hicqui">abies</a>, mors
+latus stamina Achivi et dolos iuga. Lingua vocoque respicit movere: <em>nec</em> celer
+caeruleum concavat totum facta poscuntque secum. Ambitae letalibus oblite ille,
+imum inque, sic Desine est Helicon. Loqui teres,; pondere simul Meropisque mihi
+tellusque clausa cortice et, non caede Dymantida aderam, caede.</p>
+<p>Sum hanc corpore hanc vultu vulnere; lacertos vires; poterit tetigit patria
+natae vocantem: oenea. Et aves mora rogantem, a addidit postquam agant. Deum
+media <em>quaeque vetus</em> reppulit faciente cui paulum deprimeret
+<a href="http://www.tibi.net/">primo</a>. Populi aera gestamina saxo adest, ulnis quoque
+alimenta fecit. Sua illius caperet convicia.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../about/" class="btn btn-neutral float-right" title="About">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../webaccessdmp/" class="btn btn-neutral" title="WebAccess/DMP"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../webaccessdmp/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../about/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
