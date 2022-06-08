@@ -60,4 +60,30 @@ __Boris' Preso__
         - Critical Repition => how many times in a row the rule mut be evaluated as True before the Alert is triggered
         - Cooldown => how long before checking the Alert again
         - Critical Device Count => Number of devices that would need to the match the rule at the same time for the Alert to trigger.
+* Audit Logs
+    - keep data for the last 2 months (longest period)
+    - export to CSV
+* Private Cloud Solution
+    - was developed and delivered to a customer
+
+* Delivery Options
+    - Public Cloud
+    - Hybrid
+        - monthly fee 3600 a month (no limits)
+        - do not have to pay for infrastructure
+    - Private Cloud
+        - 50K just to install it
+        - flexible on the above price
+        - 3600 per quarter for maintenance
+        - first 6 months no charge
+        - if they choose not to pay maintenance fee, then they would have to pay the 50K over again
+* New website => wadmp.advantech.cz
+* If they go with the Hybrid version, then they could keep their info in the US or whereever they are
+* Roadmap
+    - a comprehensive solution for industrial cellular applications
+    - WADMP 2.4.3 => H1 2022 => SWH EoL
+    - WADMP 2.5 =>  Q3 2022 => Migration from Service, Fabric to KBS, Additional GUI Improvements, AWS Enablement
+    - WADMP 2.6 => Q4 2022 => New Sync Engine
+    - WADMP 3.0 => 1H 2023 => New WEB, Flexible Dashboard, R-SeeNet Replacement, On-Premises Product, VPN Management
+    - WADMP 3.0 => 2023 => New Products Onboarding, ECU-1000, WA/SIM Integration
 
