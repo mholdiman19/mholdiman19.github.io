@@ -10,7 +10,6 @@ nav:
   - OpenSSH: openSSH.md
   - OpenVPN: openvpn.md
   - Samba: samba.md
-  - WebAccess/DMP: webaccessdmp.md
   - WireGuard: wireguard.md
   - About: about.md
 theme: readthedocs
