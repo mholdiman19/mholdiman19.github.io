@@ -54,11 +54,13 @@
                 <ul class="current">
                     <li class="toctree-l1 current"><a class="reference internal current" href="./">Bash Scripting</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#super-ultro-petunt">Super ultro petunt</a>
+    <li class="toctree-l2"><a class="reference internal" href="#episode-1">Episode 1</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#domus-origine-tamen-solo-animo-animam-quos">Domus origine tamen solo animo animam quos</a>
+    <li class="toctree-l2"><a class="reference internal" href="#episode-2">Episode 2</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#positional-parameters-aka-argument-example">Positional Parameters (A.K.A Argument) Example</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#inscius-labitur">Inscius labitur</a>
+        </ul>
     </li>
     </ul>
                     </li>
@@ -140,54 +142,230 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="mirantur-amat">Mirantur amat</h1>
-<h2 id="super-ultro-petunt">Super ultro petunt</h2>
-<p>Lorem markdownum, annos lumina residens <em>postquam</em> quid, inplevi <em>tamen</em> tulit
-tamen Peleus; quid modo? Nec primo silvarum per; aut <em>sonus corpusque</em> nec
-indulgent clarae variusque candida. <em>Hic ipsa</em> est: opposita quam in, illa quae
-sublimis, sol per tandem ebur semivir an cuncta.</p>
+                <h1 id="bash-scripting">Bash Scripting</h1>
+<p>Resource: <a href="https://youtu.be/SPwyp2NG-bE">you need to learn BASH Scripting RIGHT NOW!! // EP1</a></p>
+<h2 id="episode-1">Episode 1</h2>
+<ul>
+<li><code>which $SHELL</code> =&gt; <code>/bin/bash</code></li>
+<li><code>echo "Hi Mom"</code> =&gt; <code>Hi Mom</code></li>
+<li>To automate the above command, open a text editor, such as <code>nano</code>.</li>
+<li><code>nano himom.sh</code></li>
+<li>Create script</li>
+</ul>
+<pre><code class="language-bash">
+#!/bin/bash
+echo &quot;Hi Mom&quot;
+
+</code></pre>
+<ul>
+<li>save script in nano</li>
+<li>do <code>ls</code> to confirm your file is saved</li>
+<li>To run the script, you can do:<ul>
+<li><code>bash himom.sh</code> or </li>
+<li>you can change the permissions via <code>chmod +x himom.sh</code> and then do <code>./himom.sh</code></li>
+<li>To see the permissions of the file, do <code>ls -al</code></li>
+</ul>
+</li>
+<li>Bash scripts are just commands.</li>
+</ul>
+<h2 id="episode-2">Episode 2</h2>
+<p><strong>Beginning Quick Challenge</strong></p>
 <ol>
-<li>Vacuum concilium si vestri nocendi crevit gravis</li>
-<li>Est iungere centum caterva</li>
-<li>Adit germana servaberis vitiatis</li>
-<li>Et apro serpentem saepe ait aethera annum</li>
-<li>Sua locus sit ponunt</li>
+<li>Create a script</li>
+<li>Name it bestdayever.sh</li>
+<li>
+<p>Be sure to include the following 3 lines: </p>
+<ul>
+<li>Good Morning Michelle!!</li>
+<li>You're looking good today Michelle!!</li>
+<li>You have the best eyes I've ever seen Michelle!!</li>
+</ul>
+</li>
+<li>
+<p>What if you wanted to change the name for your friend Monica?</p>
+</li>
+<li>Add a <strong>variable</strong>, which can change</li>
+<li>To do this add, do <code>name="Monica"</code></li>
+<li>Then, change remove Michelle in the script </li>
+<li>Replace with <code>$name</code></li>
 </ol>
-<p>Sacros et nec ter semiferos corpora. Saturnia sit fama quam nubila cretus angue
-sanguine promissaque illa, agrisque regales quid cognoram byblis. Ulla ripas
-coniunx pete thracius ipsum omnia sinuantur ferat glaciali, Teleboasque vera
-pugna facinusque.</p>
-<h2 id="domus-origine-tamen-solo-animo-animam-quos">Domus origine tamen solo animo animam quos</h2>
-<p>Misit mutet mihi simplex. In super Neptunius usus silvarum, et sive victum
-gemitus lenius venisset tum lapillos persequar coniunx utar dant limina quinos?</p>
-<ol>
-<li>Patulosque Triviae tamen</li>
-<li>Faciat quae</li>
-<li>Pendebant dum est</li>
-<li>Nomina quo</li>
-<li>Indulgent mons superest</li>
-<li>Iura et vehi Alcmene carbasa aevo vites</li>
-</ol>
-<h2 id="inscius-labitur">Inscius labitur</h2>
-<p>Nec levavit virtus quam non cum gratamque! Securibus caput temptatum, secus;
-denos nisi meritis pro, elisa quaecumque liceatque teneri deseruere Achaia
-iungitur Ausonias? Voluptas in dare alas, nec fulmina quem Hac. Induruit
-formidine aditum victor sensitque taedas Cimoli quod esse non vimque Iuppiter
-sunt, detque tamen audita qua soporem.</p>
-<ol>
-<li>Tamen aqua</li>
-<li>Puniceo subvolat ire</li>
-<li>Discrimine pallentia vox nunc tellus pallam mea</li>
-<li>Durus mater sequar in utero</li>
-<li>Tum rursus excussa</li>
-<li>Lacerti spolioque</li>
-</ol>
-<p>Passim ipsum tenebroso Ionium habe clausit cardine corpore credite colorem iuga
-male animalia vulnera gravi, non. Et carmine humani iubemur requirit <strong>urna
-crines quaecumque</strong> utque. Scelus circum: portitor senex pecudes movet ego, suam
-miscet virginea, ne. Ab quid per neu sors: falsosque Telamone ruptosque lucidus
-trabes <a href="http://vertit-creatus.org/">cognorat</a>, et nunc? Cum maiora ut tela
-<strong>adfectus</strong>: in extendi tertius ab geminata est.</p>
+<p>Script:</p>
+<pre><code class="language-bash">
+#!/bin/bash
+
+name=&quot;Monica&quot;
+
+# Greeting
+
+echo &quot;Good Morning $name!!&quot;
+
+sleep 3
+
+# Compliment 1
+
+echo &quot;You're looking good today $name!!&quot;
+
+sleep 3
+
+# Compliment 2
+
+echo &quot;You have the best eyes I've ever seen $name!!&quot;
+</code></pre>
+<p>Results:</p>
+<pre><code class="language-text">Good Morning Monica!!
+You're looking good today Monica!!
+You have the best eyes I've ever seen Monica!!
+</code></pre>
+<ul>
+<li>However, we want to be more lazy and not have to go in and change the name each time.</li>
+<li>So, we need to make some changes.</li>
+</ul>
+<p>Script:</p>
+<pre><code class="language-bash">#!/bin/bash
+
+echo &quot;What is your name?&quot;
+
+read name
+
+# Greeting
+
+echo &quot;Good Morning $name!!&quot;
+
+sleep 3
+
+# Compliment 1
+
+echo &quot;You're looking good today $name!!&quot;
+
+sleep 3
+
+# Compliment 2
+
+echo &quot;You have the best eyes I've ever seen $name!!&quot;
+</code></pre>
+<p>Results:</p>
+<pre><code class="language-text">What is your name?
+Ben
+Good Morning Ben!!
+You're looking good today Ben!!
+You have the best eyes I've ever seen Ben!!
+</code></pre>
+<h3 id="positional-parameters-aka-argument-example">Positional Parameters (A.K.A Argument) Example</h3>
+<p>Script:</p>
+<pre><code class="language-bash">#!/bin/bash
+
+# Positional Parameter (aka Argument)
+
+name=$1
+
+# Greeting
+
+echo &quot;Good Morning $name!!&quot;
+
+sleep 3
+
+# Compliment 1
+
+echo &quot;You're looking good today $name!!&quot;
+
+sleep 3
+
+# Compliment 2
+
+echo &quot;You have the best eyes I've ever seen $name!!&quot;
+</code></pre>
+<ul>
+<li>To run the script, you would need to do, <code>./bestdayever2.sh Brian</code></li>
+<li><code>Brian</code> is the <strong>positional parameter</strong></li>
+</ul>
+<p>Results:</p>
+<pre><code class="language-text">Good Morning Brian!!
+You're looking good today Brian!!
+You have the best eyes I've ever seen Brian!!
+</code></pre>
+<p><strong>Challenge</strong></p>
+<ul>
+<li>Change the <code>eyes</code> variable to something for everyone</li>
+<li>Essentially, we are adding an additional <strong>positional parameter or argument</strong></li>
+</ul>
+<p>Script:</p>
+<pre><code class="language-bash">#!/bin/bash
+
+# Positional Parameter (aka Argument)
+
+name=$1
+feature=$2
+
+# Greeting
+
+echo &quot;Good Morning $name!!&quot;
+
+sleep 3
+
+# Compliment 1
+
+echo &quot;You're looking good today $name!!&quot;
+
+sleep 3
+
+# Compliment 2
+
+echo &quot;You have the best $feature I've ever seen $name!!&quot;
+</code></pre>
+<ul>
+<li>Again to run the script, I had to input the <strong>argument</strong></li>
+<li>So, I did `./bestdayever2.sh Kim hair</li>
+</ul>
+<p>Results:</p>
+<pre><code class="language-text">Good Morning Kim!!
+You're looking good today Kim!!
+You have the best hair I've ever seen Kim!!
+</code></pre>
+<ul>
+<li>Now, lets try to use the output of a command in our script.</li>
+<li>Commands to use: <code>whoami</code>, <code>pwd</code> and <code>date</code></li>
+</ul>
+<p>Script:</p>
+<pre><code class="language-bash">#!/bin/bash
+
+# Positional Parameter (aka Argument)
+
+name=$1
+feature=$2
+
+user=$(whoami)
+location=$(pwd)
+date=$(date)
+
+# Greeting
+
+echo &quot;Good Morning $name!!&quot;
+
+sleep 3
+
+# Compliment 1
+
+echo &quot;You're looking good today $name!!&quot;
+
+sleep 3
+
+# Compliment 2
+
+echo &quot;You have the best $feature I've ever seen $name!!&quot;
+
+sleep 2
+
+echo &quot;You are currently logged in as $user and you are in the directory $location. Also, today is: $date&quot;
+</code></pre>
+<ul>
+<li>To run script, do <code>./bestdayever2.sh Kim hair</code></li>
+</ul>
+<p>Results:</p>
+<pre><code class="language-text">Good Morning Kim!!
+You're looking good today Kim!!
+You have the best hair I've ever seen Kim!!
+You are currently logged in as manhands and you are in the directory /home/manhands/scripts. Also, today is: Thu 30 Jun 2022 03:48:51 PM CDT
+</code></pre>
               
             </div>
           </div>
