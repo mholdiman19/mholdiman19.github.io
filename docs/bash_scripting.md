@@ -243,3 +243,23 @@ You're looking good today Kim!!
 You have the best hair I've ever seen Kim!!
 You are currently logged in as manhands and you are in the directory /home/manhands/scripts. Also, today is: Thu 30 Jun 2022 03:48:51 PM CDT
 ```
+
+## Here Documents
+
+__Resource Used__ => Hak5 
+
+* All __heredocs__ include the following:
+  - command << token
+  - script
+  - token
+
+__Example1__
+
+```bash
+cat << _EOF_
+echo "Hello World"
+_EOF_
+```
+
+
+

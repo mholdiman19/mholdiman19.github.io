@@ -55,6 +55,8 @@
 
 ## Expansion Shortcuts ##
 
+__Resource Used__ => [Advanced Bash Scripting Tuturial](https://youtu.be/emhouufDnB4)
+
 ### Tilde Expansion
 
 ### Brace Expansion
