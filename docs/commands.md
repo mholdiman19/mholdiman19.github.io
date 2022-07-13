@@ -53,6 +53,41 @@
 * If you get => `dpkg: error processing package`
   * Do => `sudo apt install -f`
 
+## Expansion Shortcuts ##
+
+### Tilde Expansion
+
+### Brace Expansion
+
+* written with braces around an expression
+* can help with repeated commands with different terms or interpolation within a range
+
+__Example1__: `touch {apple,banana,cherry,durian}`
+   
+```bash
+$ touch {apple,banana,cherry,durian}
+$ ls
+apple  banana  cherry  durian
+```
+__Example2__: `touch file_{1..10}`
+
+```bash
+$ touch file_{1..10}
+$ ls
+file_1  file_10  file_2  file_3  file_4  file_5  file_6  file_7  file_8  file_9
+```
+
+* If you go above 10, say to 1000, the files may not sort the way you want, so you should use _zero padding_.  [Example => `touch file_{01..1000}`]
+* The above can also be completed with letters.
+
+```bash
+$ echo {A..z}
+A B C D E F G H I J K L M N O P Q R S T U V W X Y Z [  ] ^ _ ` a b c d e f g h i j k l m n o p q r s t u v w x y z
+```
+
+
+
+
 ## GDEBI (`gdebi`) ##
 
 * `gdeb` => command to install DEB packages that will automatically download and install any required dependencies.
