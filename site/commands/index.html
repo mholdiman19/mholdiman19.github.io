@@ -86,6 +86,14 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#dpkg-dpkg">DPKG (dpkg)</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#expansion-shortcuts">Expansion Shortcuts</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#tilde-expansion">Tilde Expansion</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#brace-expansion">Brace Expansion</a>
+    </li>
+        </ul>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#gdebi-gdebi">GDEBI (gdebi)</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#ip-ip">IP (ip)</a>
@@ -245,6 +253,31 @@
 <li>If you get =&gt; <code>dpkg: error processing package</code></li>
 <li>Do =&gt; <code>sudo apt install -f</code></li>
 </ul>
+<h2 id="expansion-shortcuts">Expansion Shortcuts</h2>
+<p><strong>Resource Used</strong> =&gt; <a href="https://youtu.be/emhouufDnB4">Advanced Bash Scripting Tuturial</a></p>
+<h3 id="tilde-expansion">Tilde Expansion</h3>
+<h3 id="brace-expansion">Brace Expansion</h3>
+<ul>
+<li>written with braces around an expression</li>
+<li>can help with repeated commands with different terms or interpolation within a range</li>
+</ul>
+<p><strong>Example1</strong>: <code>touch {apple,banana,cherry,durian}</code></p>
+<pre><code class="language-bash">$ touch {apple,banana,cherry,durian}
+$ ls
+apple  banana  cherry  durian
+</code></pre>
+<p><strong>Example2</strong>: <code>touch file_{1..10}</code></p>
+<pre><code class="language-bash">$ touch file_{1..10}
+$ ls
+file_1  file_10  file_2  file_3  file_4  file_5  file_6  file_7  file_8  file_9
+</code></pre>
+<ul>
+<li>If you go above 10, say to 1000, the files may not sort the way you want, so you should use <em>zero padding</em>.  [Example =&gt; <code>touch file_{01..1000}</code>]</li>
+<li>The above can also be completed with letters.</li>
+</ul>
+<pre><code class="language-bash">$ echo {A..z}
+A B C D E F G H I J K L M N O P Q R S T U V W X Y Z [  ] ^ _ ` a b c d e f g h i j k l m n o p q r s t u v w x y z
+</code></pre>
 <h2 id="gdebi-gdebi">GDEBI (<code>gdebi</code>)</h2>
 <ul>
 <li><code>gdeb</code> =&gt; command to install DEB packages that will automatically download and install any required dependencies.</li>
