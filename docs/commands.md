@@ -87,9 +87,6 @@ $ echo {A..z}
 A B C D E F G H I J K L M N O P Q R S T U V W X Y Z [  ] ^ _ ` a b c d e f g h i j k l m n o p q r s t u v w x y z
 ```
 
-
-
-
 ## GDEBI (`gdebi`) ##
 
 * `gdeb` => command to install DEB packages that will automatically download and install any required dependencies.
@@ -137,13 +134,19 @@ A B C D E F G H I J K L M N O P Q R S T U V W X Y Z [  ] ^ _ ` a b c d e f g h i
       * EX => `ethtool -i eth0`
       * EX => `ethtool -S eth0`
 
+## MOVE (`mv`)
+  
+* Moves files
+* To move a file, do the following:
+    - `mv source_file... target_dir`
+
 ## Removing Crash Report Files ##
 
 * Crash report files are located in => `/var/crash`
 * To remove them, do the following:
-  * `cd /var/crash/`scp
-  * `ls`
-  * `sudo rm /var/crash`
+    - `cd /var/crash/`
+    - `ls`
+    - `sudo rm /var/crash`
 
 ## SECURE COPY (`scp`) ##
 
@@ -379,3 +382,10 @@ __REFERENCE__:  [12 TCPDUMP Commands - A Network Sniffer Tool](https://www.tecmi
 * These unit files, located under `/lib/systemd/system`, are roughly the equivalent to the legacy init scripts that were located under `/etc/rc.d/init.d`.
 * If you or your software installation created `init` scripts, a corresponding `systemd` unit file is mapped for you.  
   * Additional information can be found at `/etc/rc.d/init.d/README`.
+
+## Wildcards ##
+
+* An asterick (`*`) will match any characters with your query.
+* A question mark (`?`) will match any single character.
+* An exclamation (`!`) plus your sting of characters inside brackets will search for the string => `[!abc]`
+* A (`:`) in front of and behind a string closed in double brackets will search for the specified class => `[[:abc:]]`
