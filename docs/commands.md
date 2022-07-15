@@ -134,6 +134,22 @@ A B C D E F G H I J K L M N O P Q R S T U V W X Y Z [  ] ^ _ ` a b c d e f g h i
       * EX => `ethtool -i eth0`
       * EX => `ethtool -S eth0`
 
+## Links
+
+* `ln` creates hard and symbolic links
+* `ln <filename> <link_name>
+
+__Hard Link__
+
+* original way of creating links
+* creates an additional link to a file
+* cannot reference a directory
+
+__Symbolic Link__
+     - more modern approach to links
+     - think of it as a 
+     - `ln -s <filename> <link_name>`
+     
 ## MOVE (`mv`)
   
 * Moves files

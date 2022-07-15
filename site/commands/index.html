@@ -98,6 +98,8 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#ip-ip">IP (ip)</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#move-mv">MOVE (mv)</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#removing-crash-report-files">Removing Crash Report Files</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#secure-copy-scp">SECURE COPY (scp)</a>
@@ -341,13 +343,23 @@ A B C D E F G H I J K L M N O P Q R S T U V W X Y Z [  ] ^ _ ` a b c d e f g h i
 </ul>
 </li>
 </ul>
+<h2 id="move-mv">MOVE (<code>mv</code>)</h2>
+<ul>
+<li>Moves files</li>
+<li>To move a file, do the following:<ul>
+<li><code>mv source_file... target_dir</code></li>
+</ul>
+</li>
+</ul>
 <h2 id="removing-crash-report-files">Removing Crash Report Files</h2>
 <ul>
 <li>Crash report files are located in =&gt; <code>/var/crash</code></li>
-<li>To remove them, do the following:</li>
-<li><code>cd /var/crash/</code>scp</li>
+<li>To remove them, do the following:<ul>
+<li><code>cd /var/crash/</code></li>
 <li><code>ls</code></li>
 <li><code>sudo rm /var/crash</code></li>
+</ul>
+</li>
 </ul>
 <h2 id="secure-copy-scp">SECURE COPY (<code>scp</code>)</h2>
 <p>Resource =&gt; <a href="https://linuxize.com/post/how-to-use-scp-command-to-securely-transfer-files/">How to Use SCP Command to Securely Transfer Files</a></p>
@@ -623,6 +635,13 @@ A B C D E F G H I J K L M N O P Q R S T U V W X Y Z [  ] ^ _ ` a b c d e f g h i
 <li>These unit files, located under <code>/lib/systemd/system</code>, are roughly the equivalent to the legacy init scripts that were located under <code>/etc/rc.d/init.d</code>.</li>
 <li>If you or your software installation created <code>init</code> scripts, a corresponding <code>systemd</code> unit file is mapped for you.  </li>
 <li>Additional information can be found at <code>/etc/rc.d/init.d/README</code>.</li>
+</ul>
+<h2 id="wildcards">Wildcards</h2>
+<ul>
+<li>An asterick (<code>*</code>) will match any characters with your query.</li>
+<li>A question mark (<code>?</code>) will match any single character.</li>
+<li>An exclamation (<code>!</code>) plus your sting of characters inside brackets will search for the string =&gt; <code>[!abc]</code></li>
+<li>A (<code>:</code>) in front of and behind a string closed in double brackets will search for the specified class =&gt; <code>[[:abc:]]</code></li>
 </ul>
               
             </div>
