@@ -139,13 +139,14 @@ A B C D E F G H I J K L M N O P Q R S T U V W X Y Z [  ] ^ _ ` a b c d e f g h i
 * `ln` creates hard and symbolic links
 * `ln <filename> <link_name>`
 
-__Hard Link__
+### Hard Link
 
+* `ln <filename> <linkname>`
 * original way of creating links
 * creates an additional link to a file
 * cannot reference a directory
 
-__Symbolic Link__
+### Symbolic Link
 
 * more modern approach to links
 * think of it as a 
