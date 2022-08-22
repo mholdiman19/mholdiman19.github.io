@@ -98,7 +98,13 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#ip-ip">IP (ip)</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#links">Links</a>
+    <li class="toctree-l2"><a class="reference internal" href="#links-ln">LINKS (ln)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#hard-link">Hard Link</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#symbolic-link">Symbolic Link</a>
+    </li>
+        </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#move-mv">MOVE (mv)</a>
     </li>
@@ -345,21 +351,24 @@ A B C D E F G H I J K L M N O P Q R S T U V W X Y Z [  ] ^ _ ` a b c d e f g h i
 </ul>
 </li>
 </ul>
-<h2 id="links">Links</h2>
+<h2 id="links-ln">LINKS (<code>ln</code>)</h2>
 <ul>
 <li><code>ln</code> creates hard and symbolic links</li>
-<li>`ln <filename> <link_name></li>
+<li><code>ln &lt;filename&gt; &lt;link_name&gt;</code></li>
 </ul>
-<p><strong>Hard Link</strong></p>
+<h3 id="hard-link">Hard Link</h3>
 <ul>
+<li><code>ln &lt;filename&gt; &lt;linkname&gt;</code></li>
 <li>original way of creating links</li>
 <li>creates an additional link to a file</li>
 <li>cannot reference a directory</li>
 </ul>
-<p><strong>Symbolic Link</strong>
-     - more modern approach to links
-     - think of it as a 
-     - <code>ln -s &lt;filename&gt; &lt;link_name&gt;</code></p>
+<h3 id="symbolic-link">Symbolic Link</h3>
+<ul>
+<li>more modern approach to links</li>
+<li>think of it as a </li>
+<li><code>ln -s &lt;filename&gt; &lt;link_name&gt;</code></li>
+</ul>
 <h2 id="move-mv">MOVE (<code>mv</code>)</h2>
 <ul>
 <li>Moves files</li>
