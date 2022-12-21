@@ -43,6 +43,3 @@
         + Swap panels
 * To switch between the two panels, use __TAB__.
 * To close Midnight Commander, do __F10__.
-
-
-
