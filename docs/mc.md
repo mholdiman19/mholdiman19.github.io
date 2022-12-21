@@ -21,49 +21,28 @@
     - Quit
 * Above the 10 options listed above, you will see your current working directory.
     - Example => `username@hostname:~$`
+* Active panel is the one on the left.
+* You can move around the panel using the UP and DOWN arrow keys.
+* To create a new file, you can do `touch test` and then ENTER.
+* Then, use UP and DOWN arrows to navigate around the left window pane.
+* If you wish to delete the newly created `test` file, then you can hit __F8__ on your keyboard.
+* At the top of the Midnight Commander window, you will see the following drop-down menus:
+    - Left
+    - File
+    - Command
+    - Options
+    - Right
+* To access the above menus, you will need to hit __F9__ on your keyboard.
+* Once you hit __F9__ Left will be selected, you can use the UP and DOWN arrows to move around the left window pane.
+* If you would like to move to a different drop-down menu, then you can hit the first letter of the menu.
+    - For example, if you hit __C__, then you will move to the Command menu.
+    - Command drop-down menu selections include _some_ of the following:
+        + User menu
+        + Directory tree
+        + Find file
+        + Swap panels
+* To switch between the two panels, use __TAB__.
+* To close Midnight Commander, do __F10__.
 
 
 
-Lorem markdownum quondam vocanti pedibusque Romana. Erit fortibus, est et
-Tiberinus minimo! **Si superat** perque, sors nube Athenae et Aegyptia, et spuma
-terrae. Quae fallax este primo denique secabatur; fluminis divitis Saturnia
-magno; est.
-
-    if (slashdot - zone == lamp_node_device) {
-        inputExecutableFreeware = scan_import_icann(hard_controller_hexadecimal,
-                client);
-    } else {
-        template_servlet *= umlNamespacePermalink + ugcDomainTcp;
-    }
-    if (keyBlob) {
-        print_drive_buffer.staticDragTruncate = user;
-    }
-    hardHard = rayNetwork + session_point.sshWebcamSwitch.x(fiWindows +
-            encoding);
-    var rte = esportsSrgb.autoresponder_yahoo.trimEbook(dualTtlTopology, -1 +
-            graphicPrebinding, 91);
-
-Antiquum cum nec, lugubriaque, [cum summam](http://ventisomnia.org/fatis) mihi
-cedunt, sub. Oculi ac, pars ego spinae mensum famam lupum Tenedon, *umbrae
-libidine primum* usus.
-
-## Cum consorti fugae altis
-
-Daulida loton. Putet natis tamen, usum fletus vocat ibi recusat semine *procul
-manentem* caede fovit fatiiuvenescere Aeolon aura.
-
-- Bellaque totumque duraque fertur crimen
-- Consumite flectique tremulis lapsum
-- Se tu edere curvavit patent et volumine
-- Doleamne stantem
-- Lectos regem
-
-Pulcherrima flexumque cum vicinia ille, removerat ipsam pastoria pervenisse
-sanguine nec! Dilectu abi priores amplecti et pars maiorque vocat repandus
-ungues gestanda circumdatus aurea, statuitque parvo. Derceti si *aratri* et
-omnes nisi qua, sub totum agnovique. Caede lugent ambiguus corpus vestem viscera
-ulla.
-
-Bisulco inritat! Culmine patria rubescunt, Dardanio sunt coniunctaque candescere
-curvarent profuga vale? Demum mirantis ducentem a numinis missa contingere! Suos
-cum et palluit coniunx famem cuncta. Constitit tergo Iunone!
