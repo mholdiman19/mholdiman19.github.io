@@ -1,6 +1,28 @@
-# Quae ulmus parabantur utque
+# Midnight Commander
 
-## Proceres silentum at ferre Charopem Ne tunc
+## Installation
+
+* To install => `sudo apt-get install mc`
+* To launch => `mc`
+
+## Using Midnight Commander
+
+* The file manager is split into two panels to make copying and moving files easier.
+* 10 Labeled Rectangles at the bottom of the window.
+    - Help
+    - Menu
+    - View
+    - Edit
+    - Copy
+    - RenMov
+    - Mkdir
+    - Delete
+    - PullDn
+    - Quit
+* Above the 10 options listed above, you will see your current working directory.
+    - Example => `username@hostname:~$`
+
+
 
 Lorem markdownum quondam vocanti pedibusque Romana. Erit fortibus, est et
 Tiberinus minimo! **Si superat** perque, sors nube Athenae et Aegyptia, et spuma

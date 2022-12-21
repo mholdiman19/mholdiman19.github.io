@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>WireGuard - ReadMyDocs</title>
+  <title>Midnight Commander - ReadMyDocs</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../css/theme.css" />
@@ -19,8 +19,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "WireGuard";
-    var mkdocs_page_input_path = "wireguard.md";
+    var mkdocs_page_name = "Midnight Commander";
+    var mkdocs_page_input_path = "mc.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -75,8 +75,16 @@
                     <li class="toctree-l1"><a class="reference internal" href="../commands/">Linux Commands</a>
                     </li>
                 </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../mc/">Midnight Commander</a>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Midnight Commander</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#using-midnight-commander">Using Midnight Commander</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#cum-consorti-fugae-altis">Cum consorti fugae altis</a>
+    </li>
+    </ul>
                     </li>
                 </ul>
                 <ul>
@@ -95,22 +103,8 @@
                     <li class="toctree-l1"><a class="reference internal" href="../samba/">Samba</a>
                     </li>
                 </ul>
-                <ul class="current">
-                    <li class="toctree-l1 current"><a class="reference internal current" href="./">WireGuard</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#wireguard-advantech-routers">WireGuard &amp; Advantech Routers</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#windows-10-client-to-icr-3241-client-to-server">Windows 10 Client to ICR-3241 (Client-to-Server)</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#icr-3241-configuration-server">ICR-3241 Configuration (Server)</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#windows-10-configuration-client">Windows 10 Configuration (Client)</a>
-    </li>
-        </ul>
-    </li>
-        </ul>
-    </li>
-    </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../wireguard/">WireGuard</a>
                     </li>
                 </ul>
                 <ul>
@@ -138,7 +132,7 @@
     
       
     
-    <li>WireGuard</li>
+    <li>Midnight Commander</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -150,62 +144,72 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="wireguard">WireGuard</h1>
+                <h1 id="midnight-commander">Midnight Commander</h1>
+<h2 id="installation">Installation</h2>
 <ul>
-<li>free and open-source communication protocol and software which implements encrypted virtual private networks (VPNs)</li>
-<li>passes traffic over UDP</li>
+<li>To install =&gt; <code>sudo apt-get install mc</code></li>
+<li>To launch =&gt; <code>mc</code></li>
 </ul>
-<h2 id="wireguard-advantech-routers">WireGuard &amp; Advantech Routers</h2>
+<h2 id="using-midnight-commander">Using Midnight Commander</h2>
 <ul>
-<li>Up to 4 WireGuard VPN tunnels per router</li>
-</ul>
-<h3 id="windows-10-client-to-icr-3241-client-to-server">Windows 10 Client to ICR-3241 (Client-to-Server)</h3>
-<h4 id="icr-3241-configuration-server">ICR-3241 Configuration (Server)</h4>
-<ul>
-<li>Fields to update:<ul>
-<li>Description</li>
-<li>Local Port </li>
-<li>NAT/Firewall Traversal</li>
-<li>Interface IPv4 Address</li>
-<li>Interface IPv4 Prefix Length</li>
-<li>Install Routers</li>
-<li>Traffic Selector</li>
-<li>Remote Subnets</li>
+<li>The file manager is split into two panels to make copying and moving files easier.</li>
+<li>10 Labeled Rectangles at the bottom of the window.<ul>
+<li>Help</li>
+<li>Menu</li>
+<li>View</li>
+<li>Edit</li>
+<li>Copy</li>
+<li>RenMov</li>
+<li>Mkdir</li>
+<li>Delete</li>
+<li>PullDn</li>
+<li>Quit</li>
 </ul>
 </li>
-<li>Click on the <strong>Generate</strong> box to generate a Local Private Key and a Local Public Key</li>
-<li>Copy and paste the Remote Public Key from the Windows 10 WireGuard Client</li>
-<li>Click Apply</li>
-</ul>
-<h4 id="windows-10-configuration-client">Windows 10 Configuration (Client)</h4>
-<ul>
-<li>Click Add Empty Tunnel in the WireGuard Software</li>
-<li>In the <strong>Create New Tunnel</strong> window, do the following:<ul>
-<li>Give your tunnel a name</li>
-<li>Copy the public and private keys to a safe location</li>
-<li>Below <code>[Interface]</code> and <code>Private Key</code>, enter the following:<ul>
-<li>the VPN IP address you want to give the Windows client</li>
-<li>the DNS address</li>
+<li>Above the 10 options listed above, you will see your current working directory.<ul>
+<li>Example =&gt; <code>username@hostname:~$</code></li>
 </ul>
 </li>
 </ul>
-</li>
-<li>Please see example below</li>
-</ul>
-<pre><code class="language-yaml">[Interface]
-PrivateKey = &lt;removed&gt;
-Address = 172.16.24.1/32
-DNS = 8.8.8.8, 8.8.4.4
+<p>Lorem markdownum quondam vocanti pedibusque Romana. Erit fortibus, est et
+Tiberinus minimo! <strong>Si superat</strong> perque, sors nube Athenae et Aegyptia, et spuma
+terrae. Quae fallax este primo denique secabatur; fluminis divitis Saturnia
+magno; est.</p>
+<pre><code>if (slashdot - zone == lamp_node_device) {
+    inputExecutableFreeware = scan_import_icann(hard_controller_hexadecimal,
+            client);
+} else {
+    template_servlet *= umlNamespacePermalink + ugcDomainTcp;
+}
+if (keyBlob) {
+    print_drive_buffer.staticDragTruncate = user;
+}
+hardHard = rayNetwork + session_point.sshWebcamSwitch.x(fiWindows +
+        encoding);
+var rte = esportsSrgb.autoresponder_yahoo.trimEbook(dualTtlTopology, -1 +
+        graphicPrebinding, 91);
 </code></pre>
+<p>Antiquum cum nec, lugubriaque, <a href="http://ventisomnia.org/fatis">cum summam</a> mihi
+cedunt, sub. Oculi ac, pars ego spinae mensum famam lupum Tenedon, <em>umbrae
+libidine primum</em> usus.</p>
+<h2 id="cum-consorti-fugae-altis">Cum consorti fugae altis</h2>
+<p>Daulida loton. Putet natis tamen, usum fletus vocat ibi recusat semine <em>procul
+manentem</em> caede fovit fatiiuvenescere Aeolon aura.</p>
 <ul>
-<li>Now you will need to enter the configuration information for the peer, in this case server.</li>
-<li>Please see example below</li>
+<li>Bellaque totumque duraque fertur crimen</li>
+<li>Consumite flectique tremulis lapsum</li>
+<li>Se tu edere curvavit patent et volumine</li>
+<li>Doleamne stantem</li>
+<li>Lectos regem</li>
 </ul>
-<pre><code class="language-yaml">[Peer]
-PublicKey = &lt;removed&gt;
-AllowedIPs = 192.168.20.0/24 # The network behind the router
-Endpoint = &lt;publicly_accessible_IP&gt;:51820
-</code></pre>
+<p>Pulcherrima flexumque cum vicinia ille, removerat ipsam pastoria pervenisse
+sanguine nec! Dilectu abi priores amplecti et pars maiorque vocat repandus
+ungues gestanda circumdatus aurea, statuitque parvo. Derceti si <em>aratri</em> et
+omnes nisi qua, sub totum agnovique. Caede lugent ambiguus corpus vestem viscera
+ulla.</p>
+<p>Bisulco inritat! Culmine patria rubescunt, Dardanio sunt coniunctaque candescere
+curvarent profuga vale? Demum mirantis ducentem a numinis missa contingere! Suos
+cum et palluit coniunx famem cuncta. Constitit tergo Iunone!</p>
               
             </div>
           </div>
@@ -213,10 +217,10 @@ Endpoint = &lt;publicly_accessible_IP&gt;:51820
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../about/" class="btn btn-neutral float-right" title="About">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../nodered/" class="btn btn-neutral float-right" title="Node-RED">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../samba/" class="btn btn-neutral" title="Samba"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../commands/" class="btn btn-neutral" title="Linux Commands"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -242,10 +246,10 @@ Endpoint = &lt;publicly_accessible_IP&gt;:51820
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../samba/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../commands/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../about/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../nodered/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
