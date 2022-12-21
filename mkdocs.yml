@@ -5,8 +5,9 @@ nav:
   - Cool Resources: resources.md
   - Docker: docker.md
   - GitHub: gitnotes.md
-  - Linux Commands: commands.md
   - Java Script: javascript.md
+  - Linux Commands: commands.md
+  - Midnight Commander: mc.md
   - Node-RED: nodered.md
   - OpenSSH: openSSH.md
   - OpenVPN: openvpn.md
