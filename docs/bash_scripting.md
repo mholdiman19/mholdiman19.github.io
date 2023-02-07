@@ -260,6 +260,11 @@ cat << _EOF_
 echo "Hello World"
 _EOF_
 ```
+## Bash Scripting on Linux (The Complete Guide)
 
+### Class 02 - Hello World
 
+__Resource__ => [Bash Scripting on Linux (The Complete Guide) Class 02 - Hello World](https://youtu.be/boqC9QenshY)
 
+* To see what bash you are using => `echo $SHELL`
+    * Result => `/bin/bash`

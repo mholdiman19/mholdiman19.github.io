@@ -247,6 +247,10 @@ __REFERENCE__:  [12 TCPDUMP Commands - A Network Sniffer Tool](https://www.tecmi
 * If you would like to see the file permissions, then do => `sudo tree -p`
 * If you would like to redirect the output to a text file => `sudo tree -o <filename>`
 
+## Customizing Your Terminal
+
+* 
+
 
 ## Syncthing Install & Configuration ##
 
