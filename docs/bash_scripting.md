@@ -352,8 +352,8 @@ Mon Feb 13 09:27:19 AM CST 2023
 Your username is: manhands
 ```
 * You should use lowercase letters for your variables.
-* Best practice is to use uppercase variables for environment variables.
-* This way whoever is reading your code will know which variables you are creating and which variables are environment or system variables.
+* Best practice is to use uppercase letters for environment variables.
+* This way whoever is reading your code will know which variables you are creating versus which variables are environment or system variables.
 * How to see your environment variables => `env`
 * Partial results of my `env`:
 ```text
