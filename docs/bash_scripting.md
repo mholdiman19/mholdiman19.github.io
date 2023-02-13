@@ -269,4 +269,101 @@ __Resource__ => [Bash Scripting on Linux (The Complete Guide) Class 02 - Hello W
 * To see what bash you are using => `echo $SHELL`
     * Result => `/bin/bash`
 
-__Stopped at 4:16__
+### Class 03 - Variables
+
+#### How to create a variable in Bash
+
+* Need to name the variable => Ex: `name` is the variable.
+* Add an `=` sign
+* Inside `""` define the variable.
+* Example is below.
+
+```bash
+#!/bin/bash
+
+name="Michelle"
+
+echo $name
+```
+* Result is `Michelle`
+
+```bash
+#!/bin/bash
+myname="Michelle"
+myage="42"
+echo "Hello, my name is $myname."
+echo "I am $myage years old."
+```
+* Result:
+
+```txt
+Hello, my name is Michelle.
+I am 43 years old.
+```
+
+* Clearly, you wouldn't create a script to do these funcions.
+* What are some of the reasons you would create a script?
+    + Less typing
+    + Less duplication of typing
+    + Saves time
+* Another example would be the following:
+```bash
+#!/bin/bash
+word="awesome"
+echo "Linux is $word!"
+echo "Videogames are $word!"
+echo "Sunny days are $word!"
+```
+* Results:
+```text
+Linux is awesome!
+Videogames are awesome!
+Sunny days are awesome!
+```
+* You can also utilize the output of commands as well.
+* Example:
+```bash
+#!/bin/bash
+files=$(ls)
+echo $files
+```
+* Result:
+```text
+3_variables.sh Advanced_Bash_Scripting.pdf helloworld.sh myscript.sh script_ls.sh
+```
+* How to view environment variables in your Linux session
+* Example => `echo $USER`  
+* Result => `manhands`
+* More detailed example:
+```bash                             
+#!/bin/bash
+name="Michelle Holdiman"
+now=$(date)
+echo "Hello $name"
+echo "The system date and time is:"
+echo $now
+echo "Your username is: $USER"
+```
+* Results:
+```text
+Hello Michelle Holdiman
+The system date and time is:
+Mon Feb 13 09:27:19 AM CST 2023
+Your username is: manhands
+```
+* You should use lowercase letters for your variables.
+* Best practice is to use uppercase variables for environment variables.
+* This way whoever is reading your code will know which variables you are creating and which variables are environment or system variables.
+* How to see your environment variables => `env`
+* Partial results of my `env`:
+```text
+LOGNAME=manhands
+XDG_SESSION_DESKTOP=ubuntu
+XDG_SESSION_TYPE=wayland
+SYSTEMD_EXEC_PID=2286
+```
+
+
+
+
+
