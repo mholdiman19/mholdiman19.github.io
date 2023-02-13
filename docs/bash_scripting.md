@@ -268,3 +268,5 @@ __Resource__ => [Bash Scripting on Linux (The Complete Guide) Class 02 - Hello W
 
 * To see what bash you are using => `echo $SHELL`
     * Result => `/bin/bash`
+
+__Stopped at 4:16__
