@@ -362,8 +362,6 @@ XDG_SESSION_DESKTOP=ubuntu
 XDG_SESSION_TYPE=wayland
 SYSTEMD_EXEC_PID=2286
 ```
-
-
-
-
-
+* Additional examples
+    + `echo $HOME`
+    + `echo $USER`
