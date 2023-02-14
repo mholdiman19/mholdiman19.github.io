@@ -365,3 +365,48 @@ SYSTEMD_EXEC_PID=2286
 * Additional examples
     + `echo $HOME`
     + `echo $USER`
+
+### Class 04 - Basic Math
+
+* Math is handled differently in Bash than in Python for example.
+* In Bash, the __evaluate expression__ (`expr`) is used.
+* Examples are below:
+    + `expr 1 + 1` => 2
+    + The spaces are require, or Example => `expr 1+1` => 1+1
+    + `expr 1 - 1` => 0
+    + `expr 1 / 1` => 1
+    + Multiplication is different, since "`*`" is a wildcard in Bash.
+    + Example => `expr 1 \* 1` => 1
+* Mathematical expressions can also be done using variables.  Please see example below.
+
+```bash
+#!/bin/bash
+
+mynum=19
+kimnum=14
+
+expr $mynum + $kimnum
+```
+* Result: `33`
+
+### Class 05 - If Statements
+
+```bash
+#!/bin/bash
+
+# Declaring variable
+mynum=200
+
+# Beginning of if statement
+# If statement is determining whether 200 is equal to 200
+if [ $mynum -eq 200 ]
+
+# Then what are we going to do?  Echoing the text statement
+then
+    echo "This condition is true."
+# If backwards ends the script
+fi
+```
+* If I change the variable from 200 to 300, then the statement is no longer true so the text will not be echoed.
+
+
