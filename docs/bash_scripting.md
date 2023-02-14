@@ -408,5 +408,127 @@ then
 fi
 ```
 * If I change the variable from 200 to 300, then the statement is no longer true so the text will not be echoed.
+* To combine to "if statements" you can use `else`.
+* Example is below.
+```bash
+#!/bin/bash
+
+mynum=300
+
+if [ $mynum -eq 200 ]
+then
+    echo "The condition is true."
+else
+    echo "The variable does not equal 200."
+fi
+```
+* Result => `The variable does not equal 200.`
+
+* A quick way to do the opposite of the "if statement" is to add an "`!`" mark before the variable in the "if statement".
+* Example is below.
+```bash
+#!/bin/bash
+
+mynum=300
+
+if [ ! $mynum -eq 200 ]
+then
+    echo "The condition is true."
+else
+    echo "The variable does not equal 200."
+fi
+```
+* Result => `The condition is true.`
+
+* To set the above if_statement to _not equals_ is to use `-ne` instead of `-eq`.
+* `-ne` => not equal
+* `-eq` => equal
+* Please see example below using `-ne`.
+```bash
+#!/bin/bash
+
+mynum=300
+
+if [ $mynum -ne 200 ]
+then
+    echo "The condition is true."
+else
+    echo "The variable does not equal 200."
+fi
+```
+* Result => `The condition is true.`
+* Another option is to use greater than, which is `-gt`.
+* Example is below.
+```bash
+#!/bin/bash
+
+mynum=300
+
+if [ $mynum -ne 200 ]
+then
+    echo "The condition is true."
+else
+    echo "The variable does not equal 200."
+fi
+```
+* Result => `The condition is true.`
+* An example of a more useful way to use this would be to see if a file exists.
+* Please see the example below.
+```bash
+#!/bin/bash
+
+if [ -f ~/myfile ]
+then
+    echo "The file exists."
+else
+    echo "The file does not exist."
+fi
+```
+* Result => `The files does not exist.`
+* Why? Because I do not have a file named myfile in my home directory.
+
+* You can also create a script to see if a program is installed, and if not, install it.
+* Example is below.
+```bash
+#!/bin/bash
+
+command=/usr/bin/htop
+
+if [ -f $command ]
+then 
+    echo "$command is available, let's run it..."
+else
+    echo "$command is not available, installing it..."
+    sudo apt update && sudo apt install -y htop
+fi
+
+$command
+```
+* Result => The above script installed `htop` on my system.
+* You can also create the same script without using brackets.
+* Example is below.
+```bash
+#!/bin/bash
+
+command=htop
+
+if command -v $command
+then 
+    echo "$command is available, let's run it..."
+else
+    echo "$command is not available, installing it..."
+    sudo apt update && sudo apt install -y htop
+fi
+
+$command
+```
+* Result => `htop` started running.
+* Brackets are really only needed for test command.
+* `command -v` can actually be used in command prompt.
+* `command` lets you know if a command is available.
+* You can find out more about the __test command__ via the `man` page.
+* If you type `man test` in your command prompt screen, you will see `[]` is a test.
+
+
 
 
