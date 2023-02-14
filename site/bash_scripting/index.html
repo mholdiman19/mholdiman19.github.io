@@ -398,12 +398,103 @@ _EOF_
 <li>Inside <code>""</code> define the variable.</li>
 <li>Example is below.</li>
 </ul>
-<pre><code class="language-bash">name=&quot;Michelle&quot;
+<pre><code class="language-bash">#!/bin/bash
+
+name=&quot;Michelle&quot;
 
 echo $name
 </code></pre>
 <ul>
 <li>Result is <code>Michelle</code></li>
+</ul>
+<pre><code class="language-bash">#!/bin/bash
+myname=&quot;Michelle&quot;
+myage=&quot;42&quot;
+echo &quot;Hello, my name is $myname.&quot;
+echo &quot;I am $myage years old.&quot;
+</code></pre>
+<ul>
+<li>Result:</li>
+</ul>
+<pre><code class="language-txt">Hello, my name is Michelle.
+I am 43 years old.
+</code></pre>
+<ul>
+<li>Clearly, you wouldn't create a script to do these funcions.</li>
+<li>What are some of the reasons you would create a script?<ul>
+<li>Less typing</li>
+<li>Less duplication of typing</li>
+<li>Saves time</li>
+</ul>
+</li>
+<li>Another example would be the following:</li>
+</ul>
+<pre><code class="language-bash">#!/bin/bash
+word=&quot;awesome&quot;
+echo &quot;Linux is $word!&quot;
+echo &quot;Videogames are $word!&quot;
+echo &quot;Sunny days are $word!&quot;
+</code></pre>
+<ul>
+<li>Results:</li>
+</ul>
+<pre><code class="language-text">Linux is awesome!
+Videogames are awesome!
+Sunny days are awesome!
+</code></pre>
+<ul>
+<li>You can also utilize the output of commands as well.</li>
+<li>Example:</li>
+</ul>
+<pre><code class="language-bash">#!/bin/bash
+files=$(ls)
+echo $files
+</code></pre>
+<ul>
+<li>Result:</li>
+</ul>
+<pre><code class="language-text">3_variables.sh Advanced_Bash_Scripting.pdf helloworld.sh myscript.sh script_ls.sh
+</code></pre>
+<ul>
+<li>How to view environment variables in your Linux session</li>
+<li>Example =&gt; <code>echo $USER</code>  </li>
+<li>Result =&gt; <code>manhands</code></li>
+<li>More detailed example:</li>
+</ul>
+<pre><code class="language-bash">#!/bin/bash
+name=&quot;Michelle Holdiman&quot;
+now=$(date)
+echo &quot;Hello $name&quot;
+echo &quot;The system date and time is:&quot;
+echo $now
+echo &quot;Your username is: $USER&quot;
+</code></pre>
+<ul>
+<li>Results:</li>
+</ul>
+<pre><code class="language-text">Hello Michelle Holdiman
+The system date and time is:
+Mon Feb 13 09:27:19 AM CST 2023
+Your username is: manhands
+</code></pre>
+<ul>
+<li>You should use lowercase letters for your variables.</li>
+<li>Best practice is to use uppercase letters for environment variables.</li>
+<li>This way whoever is reading your code will know which variables you are creating versus which variables are environment or system variables.</li>
+<li>How to see your environment variables =&gt; <code>env</code></li>
+<li>Partial results of my <code>env</code>:</li>
+</ul>
+<pre><code class="language-text">LOGNAME=manhands
+XDG_SESSION_DESKTOP=ubuntu
+XDG_SESSION_TYPE=wayland
+SYSTEMD_EXEC_PID=2286
+</code></pre>
+<ul>
+<li>Additional examples<ul>
+<li><code>echo $HOME</code></li>
+<li><code>echo $USER</code></li>
+</ul>
+</li>
 </ul>
               
             </div>
