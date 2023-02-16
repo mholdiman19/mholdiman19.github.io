@@ -529,6 +529,90 @@ $command
 * You can find out more about the __test command__ via the `man` page.
 * If you type `man test` in your command prompt screen, you will see `[]` is a test.
 
+### Class 06 - Exit Codes
+
+* How do you know if your script was successful?
+* Answer => Exit Codes
+* How does Bash represent whether command/script was successful or if there was a failure?
+* The variable `$?` represents whether or not the previous command was successful.
+* If I typed `ls -l /etc` in a command prompt screen and then typed `echo $?`, then my result would be `0`.
+* What does that mean?
+    + `0` => means command was successful
+    + Anything other than zero, means that command failed.
+* An exit code tells us the status.
+* An example of a working script:
+```bash
+!/bin/bash
+
+package=htop
+
+sudo apt install $package
+
+echo "The exit code for the package install is: $?"
+```
+* Result => `The exit code for the package install is: 0`
+* An example of a failed script:
+```bash
+#!/bin/bash
+
+package=notexist
+
+sudo apt install $package
+
+echo "The exit code for the package install is: $?"
+```
+* Result => `The exit code for the package install is: 100`
+* An example of a more useful way to utilize the `$?` exit code.
+```bash
+#!/bin/bash
+
+package=htop
+
+sudo apt install $package
+
+if [ $? -eq 0 ]
+then
+    echo "The installation of the $package was successful."
+    echo "The new command is available here:"
+    which $package
+else
+    echo "$package failed to install."
+fi
+```
+* A more realistic version of a script you may see on a real Linux system.
+```bash
+#!/bin/bash
+
+package=notexist
+
+sudo apt install $package >> package_install_results.log
+
+if [ $? -eq 0 ]
+then
+    echo "The installation of the $package was successful."
+    echo "The new command is available here:"
+    which $package
+else
+    echo "$package failed to install." >> package_install_fail.log
+fi
+```
+* Since `nonexist` is not a real package name.  I can find the results in the file __package_install_fail.log__.
+* Results => `notexist failed to install.`
+* You need to make sure that the exit codes are in the correct location.
+* Check them at the appropriate time in the script.
+* You can also control what the exit code ends up being.
+```bash
+#!/bin/bash
+
+echo "Hello World"
+exit 199
+echo $?
+```
+* Result => `Hello World`
+* If you do `$?`, then you get `199`.
+* Remember when you type `exit`, the script will __exit__.
+
+
 
 
 
