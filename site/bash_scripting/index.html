@@ -68,6 +68,10 @@
     </li>
         </ul>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#class-04-basic-math">Class 04 - Basic Math</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#class-05-if-statements">Class 05 - If Statements</a>
+    </li>
         </ul>
     </li>
     </ul>
@@ -495,6 +499,186 @@ SYSTEMD_EXEC_PID=2286
 <li><code>echo $USER</code></li>
 </ul>
 </li>
+</ul>
+<h3 id="class-04-basic-math">Class 04 - Basic Math</h3>
+<ul>
+<li>Math is handled differently in Bash than in Python for example.</li>
+<li>In Bash, the <strong>evaluate expression</strong> (<code>expr</code>) is used.</li>
+<li>Examples are below:<ul>
+<li><code>expr 1 + 1</code> =&gt; 2</li>
+<li>The spaces are require, or Example =&gt; <code>expr 1+1</code> =&gt; 1+1</li>
+<li><code>expr 1 - 1</code> =&gt; 0</li>
+<li><code>expr 1 / 1</code> =&gt; 1</li>
+<li>Multiplication is different, since "<code>*</code>" is a wildcard in Bash.</li>
+<li>Example =&gt; <code>expr 1 \* 1</code> =&gt; 1</li>
+</ul>
+</li>
+<li>Mathematical expressions can also be done using variables.  Please see example below.</li>
+</ul>
+<pre><code class="language-bash">#!/bin/bash
+
+mynum=19
+kimnum=14
+
+expr $mynum + $kimnum
+</code></pre>
+<ul>
+<li>Result: <code>33</code></li>
+</ul>
+<h3 id="class-05-if-statements">Class 05 - If Statements</h3>
+<pre><code class="language-bash">#!/bin/bash
+
+# Declaring variable
+mynum=200
+
+# Beginning of if statement
+# If statement is determining whether 200 is equal to 200
+if [ $mynum -eq 200 ]
+
+# Then what are we going to do?  Echoing the text statement
+then
+    echo &quot;This condition is true.&quot;
+# If backwards ends the script
+fi
+</code></pre>
+<ul>
+<li>If I change the variable from 200 to 300, then the statement is no longer true so the text will not be echoed.</li>
+<li>To combine to "if statements" you can use <code>else</code>.</li>
+<li>Example is below.</li>
+</ul>
+<pre><code class="language-bash">#!/bin/bash
+
+mynum=300
+
+if [ $mynum -eq 200 ]
+then
+    echo &quot;The condition is true.&quot;
+else
+    echo &quot;The variable does not equal 200.&quot;
+fi
+</code></pre>
+<ul>
+<li>
+<p>Result =&gt; <code>The variable does not equal 200.</code></p>
+</li>
+<li>
+<p>A quick way to do the opposite of the "if statement" is to add an "<code>!</code>" mark before the variable in the "if statement".</p>
+</li>
+<li>Example is below.</li>
+</ul>
+<pre><code class="language-bash">#!/bin/bash
+
+mynum=300
+
+if [ ! $mynum -eq 200 ]
+then
+    echo &quot;The condition is true.&quot;
+else
+    echo &quot;The variable does not equal 200.&quot;
+fi
+</code></pre>
+<ul>
+<li>
+<p>Result =&gt; <code>The condition is true.</code></p>
+</li>
+<li>
+<p>To set the above if_statement to <em>not equals</em> is to use <code>-ne</code> instead of <code>-eq</code>.</p>
+</li>
+<li><code>-ne</code> =&gt; not equal</li>
+<li><code>-eq</code> =&gt; equal</li>
+<li>Please see example below using <code>-ne</code>.</li>
+</ul>
+<pre><code class="language-bash">#!/bin/bash
+
+mynum=300
+
+if [ $mynum -ne 200 ]
+then
+    echo &quot;The condition is true.&quot;
+else
+    echo &quot;The variable does not equal 200.&quot;
+fi
+</code></pre>
+<ul>
+<li>Result =&gt; <code>The condition is true.</code></li>
+<li>Another option is to use greater than, which is <code>-gt</code>.</li>
+<li>Example is below.</li>
+</ul>
+<pre><code class="language-bash">#!/bin/bash
+
+mynum=300
+
+if [ $mynum -ne 200 ]
+then
+    echo &quot;The condition is true.&quot;
+else
+    echo &quot;The variable does not equal 200.&quot;
+fi
+</code></pre>
+<ul>
+<li>Result =&gt; <code>The condition is true.</code></li>
+<li>An example of a more useful way to use this would be to see if a file exists.</li>
+<li>Please see the example below.</li>
+</ul>
+<pre><code class="language-bash">#!/bin/bash
+
+if [ -f ~/myfile ]
+then
+    echo &quot;The file exists.&quot;
+else
+    echo &quot;The file does not exist.&quot;
+fi
+</code></pre>
+<ul>
+<li>Result =&gt; <code>The files does not exist.</code></li>
+<li>
+<p>Why? Because I do not have a file named myfile in my home directory.</p>
+</li>
+<li>
+<p>You can also create a script to see if a program is installed, and if not, install it.</p>
+</li>
+<li>Example is below.</li>
+</ul>
+<pre><code class="language-bash">#!/bin/bash
+
+command=/usr/bin/htop
+
+if [ -f $command ]
+then 
+    echo &quot;$command is available, let's run it...&quot;
+else
+    echo &quot;$command is not available, installing it...&quot;
+    sudo apt update &amp;&amp; sudo apt install -y htop
+fi
+
+$command
+</code></pre>
+<ul>
+<li>Result =&gt; The above script installed <code>htop</code> on my system.</li>
+<li>You can also create the same script without using brackets.</li>
+<li>Example is below.</li>
+</ul>
+<pre><code class="language-bash">#!/bin/bash
+
+command=htop
+
+if command -v $command
+then 
+    echo &quot;$command is available, let's run it...&quot;
+else
+    echo &quot;$command is not available, installing it...&quot;
+    sudo apt update &amp;&amp; sudo apt install -y htop
+fi
+
+$command
+</code></pre>
+<ul>
+<li>Result =&gt; <code>htop</code> started running.</li>
+<li>Brackets are really only needed for test command.</li>
+<li><code>command -v</code> can actually be used in command prompt.</li>
+<li><code>command</code> lets you know if a command is available.</li>
+<li>You can find out more about the <strong>test command</strong> via the <code>man</code> page.</li>
+<li>If you type <code>man test</code> in your command prompt screen, you will see <code>[]</code> is a test.</li>
 </ul>
               
             </div>
