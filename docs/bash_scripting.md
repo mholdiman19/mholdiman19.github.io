@@ -612,6 +612,78 @@ echo $?
 * If you do `$?`, then you get `199`.
 * Remember when you type `exit`, the script will __exit__.
 
+### Class 07 - While Loops
+
+* A __while loop__ completes a script over and over again.
+* Please see example below.
+
+```bash
+#!/bin/bash
+
+# Setting myvar equal to 1
+myvar=1
+
+# Checking to see if myvar is less than 10
+while [ $myvar -le 10 ]
+do
+    echo $myvar
+    myvar=$(( $myvar +1 ))
+    sleep 0.5
+done
+```
+
+* Result:
+
+```text
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+```
+
+* Why does the script stop at 10?  Because 11 is greater than 10, meaning the script is no longer true, so it stops.
+* Another example would be the following:
+
+```bash
+#!/bin/bash
+
+myvar=1
+
+while [ -f ~/testfile ]
+do 
+    echo "The test file exists."
+done
+
+echo "The file no longer exists."
+```
+
+* The system will check to see if `testfile` exists in the `~` directory.
+* Result (if the file exists):
+
+```text
+The test file exists.
+The test file exists.
+The test file exists.
+The test file exists.
+The test file exists.
+The test file exists.
+```
+
+* The above will continue to run until it is manually stopped or the file is removed.
+* Result if the file does not exist:
+
+```text
+The file no longer exists.
+```
+
+
+
 
 
 
