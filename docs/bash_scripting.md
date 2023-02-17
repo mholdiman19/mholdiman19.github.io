@@ -682,6 +682,37 @@ The test file exists.
 The file no longer exists.
 ```
 
+* Another example including `sleep` would be the following:
+
+```bash
+#!/bin/bash
+
+# myvar is not needed
+myvar=1
+
+# Does the testfile exist?
+while [ -f ~/testfile ]
+do 
+    echo "As of $(date), the test file exists."
+    sleep 5
+done
+
+# This happens if the file does not exist.
+echo "As of $(date), the test file has gone missing."
+```
+
+* The above not only adds the `sleep` function, but it also adds the `date` to the script as well.  
+* In the output below, you can see the script did sleep for 5 seconds prior to the loop checking again.
+
+```text
+As of Fri Feb 17 03:14:22 PM CST 2023, the test file exists.
+As of Fri Feb 17 03:14:27 PM CST 2023, the test file exists.
+As of Fri Feb 17 03:14:32 PM CST 2023, the test file exists.
+As of Fri Feb 17 03:14:37 PM CST 2023, the test file exists.
+```
+
+
+
 
 
 

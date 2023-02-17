@@ -72,6 +72,10 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#class-05-if-statements">Class 05 - If Statements</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#class-06-exit-codes">Class 06 - Exit Codes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#class-07-while-loops">Class 07 - While Loops</a>
+    </li>
         </ul>
     </li>
     </ul>
@@ -680,6 +684,187 @@ $command
 <li>You can find out more about the <strong>test command</strong> via the <code>man</code> page.</li>
 <li>If you type <code>man test</code> in your command prompt screen, you will see <code>[]</code> is a test.</li>
 </ul>
+<h3 id="class-06-exit-codes">Class 06 - Exit Codes</h3>
+<ul>
+<li>How do you know if your script was successful?</li>
+<li>Answer =&gt; Exit Codes</li>
+<li>How does Bash represent whether command/script was successful or if there was a failure?</li>
+<li>The variable <code>$?</code> represents whether or not the previous command was successful.</li>
+<li>If I typed <code>ls -l /etc</code> in a command prompt screen and then typed <code>echo $?</code>, then my result would be <code>0</code>.</li>
+<li>What does that mean?<ul>
+<li><code>0</code> =&gt; means command was successful</li>
+<li>Anything other than zero, means that command failed.</li>
+</ul>
+</li>
+<li>An exit code tells us the status.</li>
+<li>An example of a working script:</li>
+</ul>
+<pre><code class="language-bash">!/bin/bash
+
+package=htop
+
+sudo apt install $package
+
+echo &quot;The exit code for the package install is: $?&quot;
+</code></pre>
+<ul>
+<li>Result =&gt; <code>The exit code for the package install is: 0</code></li>
+<li>An example of a failed script:</li>
+</ul>
+<pre><code class="language-bash">#!/bin/bash
+
+package=notexist
+
+sudo apt install $package
+
+echo &quot;The exit code for the package install is: $?&quot;
+</code></pre>
+<ul>
+<li>Result =&gt; <code>The exit code for the package install is: 100</code></li>
+<li>An example of a more useful way to utilize the <code>$?</code> exit code.</li>
+</ul>
+<pre><code class="language-bash">#!/bin/bash
+
+package=htop
+
+sudo apt install $package
+
+if [ $? -eq 0 ]
+then
+    echo &quot;The installation of the $package was successful.&quot;
+    echo &quot;The new command is available here:&quot;
+    which $package
+else
+    echo &quot;$package failed to install.&quot;
+fi
+</code></pre>
+<ul>
+<li>A more realistic version of a script you may see on a real Linux system.</li>
+</ul>
+<pre><code class="language-bash">#!/bin/bash
+
+package=notexist
+
+sudo apt install $package &gt;&gt; package_install_results.log
+
+if [ $? -eq 0 ]
+then
+    echo &quot;The installation of the $package was successful.&quot;
+    echo &quot;The new command is available here:&quot;
+    which $package
+else
+    echo &quot;$package failed to install.&quot; &gt;&gt; package_install_fail.log
+fi
+</code></pre>
+<ul>
+<li>Since <code>nonexist</code> is not a real package name.  I can find the results in the file <strong>package_install_fail.log</strong>.</li>
+<li>Results =&gt; <code>notexist failed to install.</code></li>
+<li>You need to make sure that the exit codes are in the correct location.</li>
+<li>Check them at the appropriate time in the script.</li>
+<li>You can also control what the exit code ends up being.</li>
+</ul>
+<pre><code class="language-bash">#!/bin/bash
+
+echo &quot;Hello World&quot;
+exit 199
+echo $?
+</code></pre>
+<ul>
+<li>Result =&gt; <code>Hello World</code></li>
+<li>If you do <code>$?</code>, then you get <code>199</code>.</li>
+<li>Remember when you type <code>exit</code>, the script will <strong>exit</strong>.</li>
+</ul>
+<h3 id="class-07-while-loops">Class 07 - While Loops</h3>
+<ul>
+<li>A <strong>while loop</strong> completes a script over and over again.</li>
+<li>Please see example below.</li>
+</ul>
+<pre><code class="language-bash">#!/bin/bash
+
+# Setting myvar equal to 1
+myvar=1
+
+# Checking to see if myvar is less than 10
+while [ $myvar -le 10 ]
+do
+    echo $myvar
+    myvar=$(( $myvar +1 ))
+    sleep 0.5
+done
+</code></pre>
+<ul>
+<li>Result:</li>
+</ul>
+<pre><code class="language-text">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</code></pre>
+<ul>
+<li>Why does the script stop at 10?  Because 11 is greater than 10, meaning the script is no longer true, so it stops.</li>
+<li>Another example would be the following:</li>
+</ul>
+<pre><code class="language-bash">#!/bin/bash
+
+myvar=1
+
+while [ -f ~/testfile ]
+do 
+    echo &quot;The test file exists.&quot;
+done
+
+echo &quot;The file no longer exists.&quot;
+</code></pre>
+<ul>
+<li>The system will check to see if <code>testfile</code> exists in the <code>~</code> directory.</li>
+<li>Result (if the file exists):</li>
+</ul>
+<pre><code class="language-text">The test file exists.
+The test file exists.
+The test file exists.
+The test file exists.
+The test file exists.
+The test file exists.
+</code></pre>
+<ul>
+<li>The above will continue to run until it is manually stopped or the file is removed.</li>
+<li>Result if the file does not exist:</li>
+</ul>
+<pre><code class="language-text">The file no longer exists.
+</code></pre>
+<ul>
+<li>Another example including <code>sleep</code> would be the following:</li>
+</ul>
+<pre><code class="language-bash">#!/bin/bash
+
+# myvar is not needed
+myvar=1
+
+# Does the testfile exist?
+while [ -f ~/testfile ]
+do 
+    echo &quot;As of $(date), the test file exists.&quot;
+    sleep 5
+done
+
+# This happens if the file does not exist.
+echo &quot;As of $(date), the test file has gone missing.&quot;
+</code></pre>
+<ul>
+<li>The above not only adds the <code>sleep</code> function, but it also adds the <code>date</code> to the script as well.  </li>
+<li>In the output below, you can see the script did sleep for 5 seconds prior to the loop checking again.</li>
+</ul>
+<pre><code class="language-text">As of Fri Feb 17 03:14:22 PM CST 2023, the test file exists.
+As of Fri Feb 17 03:14:27 PM CST 2023, the test file exists.
+As of Fri Feb 17 03:14:32 PM CST 2023, the test file exists.
+As of Fri Feb 17 03:14:37 PM CST 2023, the test file exists.
+</code></pre>
               
             </div>
           </div><footer>
