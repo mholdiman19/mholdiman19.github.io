@@ -711,6 +711,94 @@ As of Fri Feb 17 03:14:32 PM CST 2023, the test file exists.
 As of Fri Feb 17 03:14:37 PM CST 2023, the test file exists.
 ```
 
+### Class 08 - Universal Update Script
+
+* We are going to write a useful bash script.
+
+```bash
+#!/bin/bash
+
+if [ -d /etc/pacman.d ]
+then
+    # The host is based on Arch, run the pacman update command
+    sudo pacman -Syu
+fi
+
+if [ -d /etc/apt ]
+then
+    # The is host is based on Debian or Ubuntu, 
+    # Run the apt version of the command
+    sudo apt update 
+    sudo apt dist-upgrade 
+    echo "Update finished and upgrade finished."
+fi
+```
+
+* There are several "issues" with this script.  We will resolve them in later sessions.
+* Another possibility is the following:
+
+```bash
+##!/bin/bash
+
+release_file=/etc/os-release
+
+# Checking to see if this directory exists
+if grep -q "Arch" $release_file 
+then
+    # The host is based on Arch, run the pacman update command
+    sudo pacman -Syu
+fi
+
+# Checking to see if this directory exists
+if grep -q "Ubuntu" $release_file
+then
+    # The is host is based on Debian or Ubuntu, 
+    # Run the apt version of the command
+    sudo apt update
+    sudo apt dist-upgrade
+fi
+```
+
+* `grep` searches text files and `-q` means quiet mode.
+* Comments begin with the `#` symbol and they are ignored by `bash`.
+* Searching for text in a file is a better way to do this, but it is not the best way.
+* There has to be a better way to do this without so many if-statements.
+* You can use the `||`, which means "OR".
+
+```bash
+#!/bin/bash
+
+release_file=/etc/os-release
+
+# Checking to see if this directory exists
+if grep -q "Arch" $release_file
+then
+    # The host is based on Arch, run the pacman update command
+    sudo pacman -Syu
+fi
+
+# Checking to see if this directory exists
+if grep -q "Debian" $release_file || grep -q "Ubuntu" $release_file
+then
+    # The is host is based on Debian or Ubuntu, 
+    # Run the apt version of the command
+    sudo apt update
+    sudo apt dist-upgrade
+fi
+```
+
+* You can also use `&&`, which means "AND".
+* We wouldn't want to use `&&` in this script because we wouldn't be running Ubuntu and Debian at the same time.
+
+
+
+
+
+
+
+
+
+
 
 
 
