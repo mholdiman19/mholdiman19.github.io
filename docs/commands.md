@@ -411,3 +411,71 @@ __REFERENCE__:  [12 TCPDUMP Commands - A Network Sniffer Tool](https://www.tecmi
 * A question mark (`?`) will match any single character.
 * An exclamation (`!`) plus your sting of characters inside brackets will search for the string => `[!abc]`
 * A (`:`) in front of and behind a string closed in double brackets will search for the specified class => `[[:abc:]]`
+
+## How To Create Your Own Linux Commands
+
+__Resource Used:__ [How to Create Your Own Commands in Linux(https://www.freecodecamp.org/news/how-to-create-your-own-command-in-linux/)]
+
+* By using the `alias` command, you can create your own commands.
+* Command syntax => `alias [alias-name[=string]...]`
+* Example Scenerio:  You go to your `Videos` directory regularly, so you create an `alias` to get the `Videos` directory faster.
+* Command example => `alias cdv="cd Videos"`
+
+## How To View The Alias Command You Created
+
+* Maybe your memory is not the greatest, so you cannot remember all of the `alias` commands you have created.
+* To view a list of your `alias` commands => `alias -p`
+* Please see an example of my results below:
+
+```text
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias grep='grep --color=auto'
+alias l='ls -CF'
+alias la='ls -A'
+alias ll='ls -alF'
+alias ls='ls --color=auto'
+```
+## Removing an Alias Command
+
+* So, you don't use your `alias` as much as you thought you would.
+* In that case, lets remove it.
+* You can remove the `alias` by doing => `unalias alias_name`
+
+## Removing All Alias Commands
+
+* To remove all of your `alias` commands, you can do the following:  `unalias -a`
+* Sad news about the `alias` command; they are not permanent.
+* They can only be used for that terminal session.
+
+## Creating a Permanent Alias
+
+* To create a permanent `alias` command, you have to add the `alias` command to the shell configuration file.
+* Common shells:
+  * Bash => `~/.bashrc`
+  * Zsh => `~/.zshrc`
+  * Fish => `~/.config/fish/config.fish`
+
+* Most Linux distros use `bash`.
+* So how do we do this?
+  * Open `~/.bashrc` using nano or Vim. 
+
+```bash
+sudo nano ~/.bashrc
+```
+
+  * Go to the bottom of the file.
+  * Add the following `alias cdv="cd Videos"`
+  * Save and exit out of the file.
+  * Close and reload the terminal.
+  * Do `alias -p` to confirm your alias is listed.
+  * Please see results below.
+
+```text
+alias cdv='cd Videos'
+```
+
+
+
+
+
