@@ -76,6 +76,8 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#class-07-while-loops">Class 07 - While Loops</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#class-08-universal-update-script">Class 08 - Universal Update Script</a>
+    </li>
         </ul>
     </li>
     </ul>
@@ -865,6 +867,82 @@ As of Fri Feb 17 03:14:27 PM CST 2023, the test file exists.
 As of Fri Feb 17 03:14:32 PM CST 2023, the test file exists.
 As of Fri Feb 17 03:14:37 PM CST 2023, the test file exists.
 </code></pre>
+<h3 id="class-08-universal-update-script">Class 08 - Universal Update Script</h3>
+<ul>
+<li>We are going to write a useful bash script.</li>
+</ul>
+<pre><code class="language-bash">#!/bin/bash
+
+if [ -d /etc/pacman.d ]
+then
+    # The host is based on Arch, run the pacman update command
+    sudo pacman -Syu
+fi
+
+if [ -d /etc/apt ]
+then
+    # The is host is based on Debian or Ubuntu, 
+    # Run the apt version of the command
+    sudo apt update 
+    sudo apt dist-upgrade 
+    echo &quot;Update finished and upgrade finished.&quot;
+fi
+</code></pre>
+<ul>
+<li>There are several "issues" with this script.  We will resolve them in later sessions.</li>
+<li>Another possibility is the following:</li>
+</ul>
+<pre><code class="language-bash">##!/bin/bash
+
+release_file=/etc/os-release
+
+# Checking to see if this directory exists
+if grep -q &quot;Arch&quot; $release_file 
+then
+    # The host is based on Arch, run the pacman update command
+    sudo pacman -Syu
+fi
+
+# Checking to see if this directory exists
+if grep -q &quot;Ubuntu&quot; $release_file
+then
+    # The is host is based on Debian or Ubuntu, 
+    # Run the apt version of the command
+    sudo apt update
+    sudo apt dist-upgrade
+fi
+</code></pre>
+<ul>
+<li><code>grep</code> searches text files and <code>-q</code> means quiet mode.</li>
+<li>Comments begin with the <code>#</code> symbol and they are ignored by <code>bash</code>.</li>
+<li>Searching for text in a file is a better way to do this, but it is not the best way.</li>
+<li>There has to be a better way to do this without so many if-statements.</li>
+<li>You can use the <code>||</code>, which means "OR".</li>
+</ul>
+<pre><code class="language-bash">#!/bin/bash
+
+release_file=/etc/os-release
+
+# Checking to see if this directory exists
+if grep -q &quot;Arch&quot; $release_file
+then
+    # The host is based on Arch, run the pacman update command
+    sudo pacman -Syu
+fi
+
+# Checking to see if this directory exists
+if grep -q &quot;Debian&quot; $release_file || grep -q &quot;Ubuntu&quot; $release_file
+then
+    # The is host is based on Debian or Ubuntu, 
+    # Run the apt version of the command
+    sudo apt update
+    sudo apt dist-upgrade
+fi
+</code></pre>
+<ul>
+<li>You can also use <code>&amp;&amp;</code>, which means "AND".</li>
+<li>We wouldn't want to use <code>&amp;&amp;</code> in this script because we wouldn't be running Ubuntu and Debian at the same time.</li>
+</ul>
               
             </div>
           </div><footer>

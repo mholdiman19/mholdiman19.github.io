@@ -663,6 +663,67 @@ A B C D E F G H I J K L M N O P Q R S T U V W X Y Z [  ] ^ _ ` a b c d e f g h i
 <li>An exclamation (<code>!</code>) plus your sting of characters inside brackets will search for the string =&gt; <code>[!abc]</code></li>
 <li>A (<code>:</code>) in front of and behind a string closed in double brackets will search for the specified class =&gt; <code>[[:abc:]]</code></li>
 </ul>
+<h2 id="how-to-create-your-own-linux-commands">How To Create Your Own Linux Commands</h2>
+<p><strong>Resource Used:</strong> [How to Create Your Own Commands in Linux(https://www.freecodecamp.org/news/how-to-create-your-own-command-in-linux/)]</p>
+<ul>
+<li>By using the <code>alias</code> command, you can create your own commands.</li>
+<li>Command syntax =&gt; <code>alias [alias-name[=string]...]</code></li>
+<li>Example Scenerio:  You go to your <code>Videos</code> directory regularly, so you create an <code>alias</code> to get the <code>Videos</code> directory faster.</li>
+<li>Command example =&gt; <code>alias cdv="cd Videos"</code></li>
+</ul>
+<h2 id="how-to-view-the-alias-command-you-created">How To View The Alias Command You Created</h2>
+<ul>
+<li>Maybe your memory is not the greatest, so you cannot remember all of the <code>alias</code> commands you have created.</li>
+<li>To view a list of your <code>alias</code> commands =&gt; <code>alias -p</code></li>
+<li>Please see an example of my results below:</li>
+</ul>
+<pre><code class="language-text">alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias grep='grep --color=auto'
+alias l='ls -CF'
+alias la='ls -A'
+alias ll='ls -alF'
+alias ls='ls --color=auto'
+</code></pre>
+<h2 id="removing-an-alias-command">Removing an Alias Command</h2>
+<ul>
+<li>So, you don't use your <code>alias</code> as much as you thought you would.</li>
+<li>In that case, lets remove it.</li>
+<li>You can remove the <code>alias</code> by doing =&gt; <code>unalias alias_name</code></li>
+</ul>
+<h2 id="removing-all-alias-commands">Removing All Alias Commands</h2>
+<ul>
+<li>To remove all of your <code>alias</code> commands, you can do the following:  <code>unalias -a</code></li>
+<li>Sad news about the <code>alias</code> command; they are not permanent.</li>
+<li>They can only be used for that terminal session.</li>
+</ul>
+<h2 id="creating-a-permanent-alias">Creating a Permanent Alias</h2>
+<ul>
+<li>To create a permanent <code>alias</code> command, you have to add the <code>alias</code> command to the shell configuration file.</li>
+<li>Common shells:</li>
+<li>Bash =&gt; <code>~/.bashrc</code></li>
+<li>Zsh =&gt; <code>~/.zshrc</code></li>
+<li>
+<p>Fish =&gt; <code>~/.config/fish/config.fish</code></p>
+</li>
+<li>
+<p>Most Linux distros use <code>bash</code>.</p>
+</li>
+<li>So how do we do this?</li>
+<li>Open <code>~/.bashrc</code> using nano or Vim. </li>
+</ul>
+<pre><code class="language-bash">sudo nano ~/.bashrc
+</code></pre>
+<ul>
+<li>Go to the bottom of the file.</li>
+<li>Add the following <code>alias cdv="cd Videos"</code></li>
+<li>Save and exit out of the file.</li>
+<li>Close and reload the terminal.</li>
+<li>Do <code>alias -p</code> to confirm your alias is listed.</li>
+<li>Please see results below.</li>
+</ul>
+<pre><code class="language-text">alias cdv='cd Videos'
+</code></pre>
               
             </div>
           </div><footer>
