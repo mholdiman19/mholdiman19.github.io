@@ -134,6 +134,13 @@ A B C D E F G H I J K L M N O P Q R S T U V W X Y Z [  ] ^ _ ` a b c d e f g h i
       * EX => `ethtool -i eth0`
       * EX => `ethtool -S eth0`
 
+## IPTABLES (`iptables`)
+  * a firewall tool used to manage packet filtering & NAT rules
+  * frontend tool used to manage the Linux kernel's `netfilter` framework
+  * Please reference => [A Tutorial for Controlling Network Traffic with `iptables`](https://www.linode.com/docs/guides/control-network-traffic-with-iptables/) & [Understanding `iptables`](https://www.linode.com/docs/guides/what-is-iptables/)
+  
+
+
 ## LINKS (`ln`)
 
 * `ln` creates hard and symbolic links
