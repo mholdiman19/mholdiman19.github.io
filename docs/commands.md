@@ -135,10 +135,105 @@ A B C D E F G H I J K L M N O P Q R S T U V W X Y Z [  ] ^ _ ` a b c d e f g h i
       * EX => `ethtool -S eth0`
 
 ## IPTABLES (`iptables`)
-  * a firewall tool used to manage packet filtering & NAT rules
-  * frontend tool used to manage the Linux kernel's `netfilter` framework
-  * Please reference => [A Tutorial for Controlling Network Traffic with `iptables`](https://www.linode.com/docs/guides/control-network-traffic-with-iptables/) & [Understanding `iptables`](https://www.linode.com/docs/guides/what-is-iptables/)
-  
+
+* a firewall tool used to manage packet filtering & NAT rules
+* frontend tool used to manage the Linux kernel's `netfilter` framework
+* Please reference:
+    * [A Tutorial for Controlling Network Traffic with IPtables](https://www.linode.com/docs/guides/control-network-traffic-with-iptables/)
+    * [Understanding IPtables](https://www.linode.com/docs/guides/what-is-iptables/)
+* Can use `iptables` to filter both incoming and outgoing packets as well as route network packets.
+
+### Tables
+
+* (def) a collection of chains that serve a particular function.
+* 3 Main Tables
+    * __Filter__ => used to control the flow of packets in and out of the system.
+    * __NAT__ => used to redirect connections to other interface on the network.
+    * __Mangle__ => used to modify packet headers.
+* Each table has a __chain__ of rules.
+
+
+|FILTER TABLE|NAT TABLE|MANGLE TABLE|
+| :---: | :---: | :---: |
+| INPUT CHAIN | OUTPUT CHAIN | INPUT CHAIN |
+| OUTPUT CHAIN | PREROUTING CHAIN | OUTPUT CHAIN |
+| FORWARD CHAIN | POSTROUTING CHAIN | FORWARD CHAIN |
+|    |   | PREROUTING CHAIN |
+|    |   | POSTROUTING CHAIN |
+
+
+
+
+
+
+__NOTE:__ The __Filter Table__ is responsible for blocking or allowing connections and is the default filter in iptables.
+
+### Chains
+
+* (def) a list of rules that are processed in order.
+* 5 main chains in iptables:
+    * _Input_ => used to manage incoming packets/connections to service or protocol.
+    * _Output_ => outgoing packet after it has been created/processed.
+    * _Forward_ => forwards incoming packets from their source to destination (__routing__).
+    * _Prerouting_ => after the packet enters the network interface.
+    * _Postrouting_ => before the packet leaves the network interface after the routing decision has been made.
+
+### Understanding Packet Flow
+
+* Incoming packets are analyzed at each chain and are tested against a set of rules.
+* If a rules is matched, the target is set.  
+* Targets are the following:
+    * ACCEPT => Stop processing and let the packet flow.
+    * REJECT => Drops the packet with feedback.
+    * DROP => Stops the processing at the current chain and drops the packet.
+    * LOG => Similar to ACCEPT, but it is logged to `/var/log/messages`
+* As an example, say you want to block all incoming connections to your web server on port 80.
+* Example packet flow:
+    * Add a rule to the incoming chain in the filter table.
+    * Set the target to `REJECT`.  
+    * If the target gets to the end of the chain without matching any rules, the default rule is used.
+    * If there is no default rule, the packet is accepted.
+
+### Installing IPtables
+
+* `iptables` is an included utility by default.
+* Recommendation is to disable or delete any rules you have before beginning or creating a new configuration.
+* You _must_ uninstall any other firewall management utilities like UFW.
+* To install => `sudo apt install iptables`
+* Default config file for iptables => `/etc/sysconfig/iptables`.
+* Can be modified using text editor of your choice.
+    * EX => `vim /etc/sysconfig/iptables`
+
+### Using IPtables 
+
+#### Building IPtables Commands
+
+* Some common command options.
+* See [iptables man page.](https://manpages.debian.org/bookworm/iptables/iptables.8.en.html)
+* EX => `sudo iptables -t filter -I INPUT -m tcp -p tcp --dport 80 -j REJECT`
+* The above command blocks any incoming traffic to the web server.
+
+
+
+#### Listing Chain
+
+
+
+#### Specifying Default Policy
+
+#### Blocking & Allowing Connections From IP Addresses
+
+#### Blocking & Allowing Connections To Ports
+
+#### Saving Changes
+
+#### Deleting & Clearing Rules
+
+
+
+
+
+
 
 
 ## LINKS (`ln`)
