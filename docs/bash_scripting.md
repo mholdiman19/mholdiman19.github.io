@@ -791,6 +791,60 @@ fi
 * We wouldn't want to use `&&` in this script because we wouldn't be running Ubuntu and Debian at the same time.
 
 
+### Class 09 - For Loops
+
+* A `for loop` is a concept of executing a command or set of commands against each item in a set.
+* Example:
+
+```bash
+#!/bin/bash
+
+for current_number in 1 2 3 4 5 6 7 8 9 10
+do
+    echo $current_number
+    sleep 1
+done
+
+echo "This is outside of the for loop."
+```
+
+Results:
+
+```text
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+This is outside of the for loop.
+```
+
+* You can shorten to the following:
+
+```bash
+#!/bin/bash
+
+for current_number in {1..10}
+do
+    echo $current_number
+    sleep 1
+done
+
+echo "This is outside of the for loop."
+```
+
+* The results are the exact same.  The script is just shorter.
+
+
+
+
+
+
 
 
 

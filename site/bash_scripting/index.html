@@ -78,6 +78,8 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#class-08-universal-update-script">Class 08 - Universal Update Script</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#class-09-for-loops">Class 09 - For Loops</a>
+    </li>
         </ul>
     </li>
     </ul>
@@ -942,6 +944,50 @@ fi
 <ul>
 <li>You can also use <code>&amp;&amp;</code>, which means "AND".</li>
 <li>We wouldn't want to use <code>&amp;&amp;</code> in this script because we wouldn't be running Ubuntu and Debian at the same time.</li>
+</ul>
+<h3 id="class-09-for-loops">Class 09 - For Loops</h3>
+<ul>
+<li>A <code>for loop</code> is a concept of executing a command or set of commands against each item in a set.</li>
+<li>Example:</li>
+</ul>
+<pre><code class="language-bash">#!/bin/bash
+
+for current_number in 1 2 3 4 5 6 7 8 9 10
+do
+    echo $current_number
+    sleep 1
+done
+
+echo &quot;This is outside of the for loop.&quot;
+</code></pre>
+<p>Results:</p>
+<pre><code class="language-text">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+This is outside of the for loop.
+</code></pre>
+<ul>
+<li>You can shorten to the following:</li>
+</ul>
+<pre><code class="language-bash">#!/bin/bash
+
+for current_number in {1..10}
+do
+    echo $current_number
+    sleep 1
+done
+
+echo &quot;This is outside of the for loop.&quot;
+</code></pre>
+<ul>
+<li>The results are the exact same.  The script is just shorter.</li>
 </ul>
               
             </div>
