@@ -163,9 +163,6 @@ A B C D E F G H I J K L M N O P Q R S T U V W X Y Z [  ] ^ _ ` a b c d e f g h i
 
 
 
-
-
-
 __NOTE:__ The __Filter Table__ is responsible for blocking or allowing connections and is the default filter in iptables.
 
 ### Chains
@@ -213,28 +210,73 @@ __NOTE:__ The __Filter Table__ is responsible for blocking or allowing connectio
 * EX => `sudo iptables -t filter -I INPUT -m tcp -p tcp --dport 80 -j REJECT`
 * The above command blocks any incoming traffic to the web server.
 
+#### Listing Chains
 
-
-#### Listing Chain
-
-
+* To see all the available chains in the filter table by using the list command.
+* EX => `sudo iptables -L` 
+* EX => `sudo iptables -L -nv`
+* This will display the `INPUT`, `OUTPUT` and `FORWARD` chains.
 
 #### Specifying Default Policy
 
+* If you have a fresh configuration or no predefined rules, you should set the default target policy.
+* In the example below, the default policy is set to `ACCEPT`, which means all traffic is accepted by default.
+* To set default policy:
+```bash
+sudo iptables --policy INPUT ACCEPT
+sudo iptables --policy FORWARD ACCEPT
+sudo iptables --policy OUTPUT ACCEPT
+```
+* To disable access, just use `DROP` or `REJECT` instead of `ACCEPT`.
+
 #### Blocking & Allowing Connections From IP Addresses
+
+* 192.168.1.1 is the example IP; replace with your IP.
+* To block all incoming requests from an IP address:
+> `sudo iptables -A INPUT -s 192.168.1.1 -j DROP`
+* To block all incoming connections from an entire subnet
+> `sudo iptables -A INPUT -s 192.168.1.1/24 -j DROP`
+* To block all outgoing connections to a particular IP or subnet add the following `OUTPUT` chain
+> `sudo iptables -I OUTPUT -s 192.168.1.1 -j DROP`
 
 #### Blocking & Allowing Connections To Ports
 
+* To block connections to ports and services, specify the protocol and the destination port.
+* To block any incoming SSH connections to the server:
+> `sudo iptables -I INPUT -p tcp --dport 22 -j DROP`
+* To block any incoming connections to your web server: running on port 80
+> `sudo iptables -I INPUT -p tcp --dport 80 -j DROP`
+* To block an IP from connecting to a specific service:
+> `sudo iptables -I INPUT -p tcp --dport 80 -s 10.10.10.1 -j DROP`
+* Deeper dive into the `iptables` command to block all traffic:
+> `iptables -A INPUT -j DROP -p tcp --destination-port 110 -i eth0`
+
+    * `-A` => will add or append the rule to the end of the chain.
+    * `INPUT` => will add the rule to the table.
+    * `DROP` => packets will be discarded.
+    * `-p tcp` => means the rule will only drop TCP packets.
+    * `--destination-port 110` => filters packets targeted to port 110.
+    * `-i eth0` => means this rule will only impact packets arriving on the _eth0_ interface.
+
+__NOTE:__ `iptables` does NOT recognize aliases on the network interface.  If you have virtual interfaces, then you will have to specify the destination IP address.
+> `iptables -A INPUT -j DROP -p tcp --destination-port 110 -i eth0 -d 192.168.100.0`
+
+
 #### Saving Changes
+
+* To save the changes you have made to your rule-set, so they are persistent:
+>  `sudo /sbin/iptables-save`
 
 #### Deleting & Clearing Rules
 
-
-
-
-
-
-
+* If you want to delete a specific rule, you need to determine the rule line number.
+* To do this, list the chains and the rules with the following options: 
+> `sudo iptables -L --line-numbers`
+* The above lists the relevant line numbers for each rule.
+* After determining the line number, you can delete with the following:
+> `sudo iptables -D INPUT 3`
+* To clear all the rules and start over:
+> `sudo iptables -F`
 
 ## LINKS (`ln`)
 
