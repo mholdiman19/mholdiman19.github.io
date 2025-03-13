@@ -98,7 +98,49 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#iptables-iptables">IPTABLES (iptables)</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#iptables-basics">IPTABLES Basics</a>
+    <li class="toctree-l3"><a class="reference internal" href="#tables">Tables</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#chains">Chains</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#understanding-packet-flow">Understanding Packet Flow</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#installing-iptables">Installing IPtables</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#using-iptables">Using IPtables</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#building-iptables-commands">Building IPtables Commands</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#listing-chains">Listing Chains</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#specifying-default-policy">Specifying Default Policy</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#blocking-allowing-connections-from-ip-addresses">Blocking &amp; Allowing Connections From IP Addresses</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#blocking-allowing-connections-to-ports">Blocking &amp; Allowing Connections To Ports</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#saving-changes">Saving Changes</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#deleting-clearing-rules">Deleting &amp; Clearing Rules</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#kill-killall-killkillall">KILL &amp; KILLALL (kill,killall)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#killall-usage">killall Usage</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#kill-usage">kill Usage</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#system-signals">System Signals</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#standard-signals">Standard Signals</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#finding-running-processes">Finding Running Processes</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#verifying-process-termination">Verifying Process Termination</a>
     </li>
         </ul>
     </li>
@@ -351,9 +393,414 @@ A B C D E F G H I J K L M N O P Q R S T U V W X Y Z [  ] ^ _ ` a b c d e f g h i
 <ul>
 <li>a firewall tool used to manage packet filtering &amp; NAT rules</li>
 <li>frontend tool used to manage the Linux kernel's <code>netfilter</code> framework</li>
-<li>Please reference =&gt; <a href="https://www.linode.com/docs/guides/control-network-traffic-with-iptables/">A Tutorial for Controlling Network Traffic with <code>iptables</code></a> &amp; <a href="https://www.linode.com/docs/guides/what-is-iptables/">Understanding <code>iptables</code></a></li>
+<li>Please reference:<ul>
+<li><a href="https://www.linode.com/docs/guides/control-network-traffic-with-iptables/">A Tutorial for Controlling Network Traffic with IPtables</a></li>
+<li><a href="https://www.linode.com/docs/guides/what-is-iptables/">Understanding IPtables</a></li>
 </ul>
-<h3 id="iptables-basics">IPTABLES Basics</h3>
+</li>
+<li>Can use <code>iptables</code> to filter both incoming and outgoing packets as well as route network packets.</li>
+</ul>
+<h3 id="tables">Tables</h3>
+<ul>
+<li>(def) a collection of chains that serve a particular function.</li>
+<li>3 Main Tables<ul>
+<li><strong>Filter</strong> =&gt; used to control the flow of packets in and out of the system.</li>
+<li><strong>NAT</strong> =&gt; used to redirect connections to other interface on the network.</li>
+<li><strong>Mangle</strong> =&gt; used to modify packet headers.</li>
+</ul>
+</li>
+<li>Each table has a <strong>chain</strong> of rules.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">FILTER TABLE</th>
+<th align="center">NAT TABLE</th>
+<th align="center">MANGLE TABLE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">INPUT CHAIN</td>
+<td align="center">OUTPUT CHAIN</td>
+<td align="center">INPUT CHAIN</td>
+</tr>
+<tr>
+<td align="center">OUTPUT CHAIN</td>
+<td align="center">PREROUTING CHAIN</td>
+<td align="center">OUTPUT CHAIN</td>
+</tr>
+<tr>
+<td align="center">FORWARD CHAIN</td>
+<td align="center">POSTROUTING CHAIN</td>
+<td align="center">FORWARD CHAIN</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">PREROUTING CHAIN</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">POSTROUTING CHAIN</td>
+</tr>
+</tbody>
+</table>
+<p><strong>NOTE:</strong> The <strong>Filter Table</strong> is responsible for blocking or allowing connections and is the default filter in iptables.</p>
+<h3 id="chains">Chains</h3>
+<ul>
+<li>(def) a list of rules that are processed in order.</li>
+<li>5 main chains in iptables:<ul>
+<li><em>Input</em> =&gt; used to manage incoming packets/connections to service or protocol.</li>
+<li><em>Output</em> =&gt; outgoing packet after it has been created/processed.</li>
+<li><em>Forward</em> =&gt; forwards incoming packets from their source to destination (<strong>routing</strong>).</li>
+<li><em>Prerouting</em> =&gt; after the packet enters the network interface.</li>
+<li><em>Postrouting</em> =&gt; before the packet leaves the network interface after the routing decision has been made.</li>
+</ul>
+</li>
+</ul>
+<h3 id="understanding-packet-flow">Understanding Packet Flow</h3>
+<ul>
+<li>Incoming packets are analyzed at each chain and are tested against a set of rules.</li>
+<li>If a rules is matched, the target is set.  </li>
+<li>Targets are the following:<ul>
+<li>ACCEPT =&gt; Stop processing and let the packet flow.</li>
+<li>REJECT =&gt; Drops the packet with feedback.</li>
+<li>DROP =&gt; Stops the processing at the current chain and drops the packet.</li>
+<li>LOG =&gt; Similar to ACCEPT, but it is logged to <code>/var/log/messages</code></li>
+</ul>
+</li>
+<li>As an example, say you want to block all incoming connections to your web server on port 80.</li>
+<li>Example packet flow:<ul>
+<li>Add a rule to the incoming chain in the filter table.</li>
+<li>Set the target to <code>REJECT</code>.  </li>
+<li>If the target gets to the end of the chain without matching any rules, the default rule is used.</li>
+<li>If there is no default rule, the packet is accepted.</li>
+</ul>
+</li>
+</ul>
+<h3 id="installing-iptables">Installing IPtables</h3>
+<ul>
+<li><code>iptables</code> is an included utility by default.</li>
+<li>Recommendation is to disable or delete any rules you have before beginning or creating a new configuration.</li>
+<li>You <em>must</em> uninstall any other firewall management utilities like UFW.</li>
+<li>To install =&gt; <code>sudo apt install iptables</code></li>
+<li>Default config file for iptables =&gt; <code>/etc/sysconfig/iptables</code>.</li>
+<li>Can be modified using text editor of your choice.<ul>
+<li>EX =&gt; <code>vim /etc/sysconfig/iptables</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="using-iptables">Using IPtables</h3>
+<h4 id="building-iptables-commands">Building IPtables Commands</h4>
+<ul>
+<li>Some common command options.</li>
+<li>See <a href="https://manpages.debian.org/bookworm/iptables/iptables.8.en.html">iptables man page.</a></li>
+<li>EX =&gt; <code>sudo iptables -t filter -I INPUT -m tcp -p tcp --dport 80 -j REJECT</code></li>
+<li>The above command blocks any incoming traffic to the web server.</li>
+</ul>
+<h4 id="listing-chains">Listing Chains</h4>
+<ul>
+<li>To see all the available chains in the filter table by using the list command.</li>
+<li>EX =&gt; <code>sudo iptables -L</code> </li>
+<li>EX =&gt; <code>sudo iptables -L -nv</code></li>
+<li>This will display the <code>INPUT</code>, <code>OUTPUT</code> and <code>FORWARD</code> chains.</li>
+</ul>
+<h4 id="specifying-default-policy">Specifying Default Policy</h4>
+<ul>
+<li>If you have a fresh configuration or no predefined rules, you should set the default target policy.</li>
+<li>In the example below, the default policy is set to <code>ACCEPT</code>, which means all traffic is accepted by default.</li>
+<li>To set default policy:</li>
+</ul>
+<pre><code class="language-bash">sudo iptables --policy INPUT ACCEPT
+sudo iptables --policy FORWARD ACCEPT
+sudo iptables --policy OUTPUT ACCEPT
+</code></pre>
+<ul>
+<li>To disable access, just use <code>DROP</code> or <code>REJECT</code> instead of <code>ACCEPT</code>.</li>
+</ul>
+<h4 id="blocking-allowing-connections-from-ip-addresses">Blocking &amp; Allowing Connections From IP Addresses</h4>
+<ul>
+<li>192.168.1.1 is the example IP; replace with your IP.</li>
+<li>To block all incoming requests from an IP address:<blockquote>
+<p><code>sudo iptables -A INPUT -s 192.168.1.1 -j DROP</code></p>
+</blockquote>
+</li>
+<li>To block all incoming connections from an entire subnet<blockquote>
+<p><code>sudo iptables -A INPUT -s 192.168.1.1/24 -j DROP</code></p>
+</blockquote>
+</li>
+<li>To block all outgoing connections to a particular IP or subnet add the following <code>OUTPUT</code> chain<blockquote>
+<p><code>sudo iptables -I OUTPUT -s 192.168.1.1 -j DROP</code></p>
+</blockquote>
+</li>
+</ul>
+<h4 id="blocking-allowing-connections-to-ports">Blocking &amp; Allowing Connections To Ports</h4>
+<ul>
+<li>To block connections to ports and services, specify the protocol and the destination port.</li>
+<li>To block any incoming SSH connections to the server:<blockquote>
+<p><code>sudo iptables -I INPUT -p tcp --dport 22 -j DROP</code></p>
+</blockquote>
+</li>
+<li>To block any incoming connections to your web server: running on port 80<blockquote>
+<p><code>sudo iptables -I INPUT -p tcp --dport 80 -j DROP</code></p>
+</blockquote>
+</li>
+<li>To block an IP from connecting to a specific service:<blockquote>
+<p><code>sudo iptables -I INPUT -p tcp --dport 80 -s 10.10.10.1 -j DROP</code></p>
+</blockquote>
+</li>
+<li>
+<p>Deeper dive into the <code>iptables</code> command to block all traffic:</p>
+<blockquote>
+<p><code>iptables -A INPUT -j DROP -p tcp --destination-port 110 -i eth0</code></p>
+</blockquote>
+<ul>
+<li><code>-A</code> =&gt; will add or append the rule to the end of the chain.</li>
+<li><code>INPUT</code> =&gt; will add the rule to the table.</li>
+<li><code>DROP</code> =&gt; packets will be discarded.</li>
+<li><code>-p tcp</code> =&gt; means the rule will only drop TCP packets.</li>
+<li><code>--destination-port 110</code> =&gt; filters packets targeted to port 110.</li>
+<li><code>-i eth0</code> =&gt; means this rule will only impact packets arriving on the <em>eth0</em> interface.</li>
+</ul>
+</li>
+</ul>
+<p><strong>NOTE:</strong> <code>iptables</code> does NOT recognize aliases on the network interface.  If you have virtual interfaces, then you will have to specify the destination IP address.</p>
+<blockquote>
+<p><code>iptables -A INPUT -j DROP -p tcp --destination-port 110 -i eth0 -d 192.168.100.0</code></p>
+</blockquote>
+<h4 id="saving-changes">Saving Changes</h4>
+<ul>
+<li>To save the changes you have made to your rule-set, so they are persistent:<blockquote>
+<p><code>sudo /sbin/iptables-save</code></p>
+</blockquote>
+</li>
+</ul>
+<h4 id="deleting-clearing-rules">Deleting &amp; Clearing Rules</h4>
+<ul>
+<li>If you want to delete a specific rule, you need to determine the rule line number.</li>
+<li>To do this, list the chains and the rules with the following options: <blockquote>
+<p><code>sudo iptables -L --line-numbers</code></p>
+</blockquote>
+</li>
+<li>The above lists the relevant line numbers for each rule.</li>
+<li>After determining the line number, you can delete with the following:<blockquote>
+<p><code>sudo iptables -D INPUT 3</code></p>
+</blockquote>
+</li>
+<li>To clear all the rules and start over:<blockquote>
+<p><code>sudo iptables -F</code></p>
+</blockquote>
+</li>
+</ul>
+<h2 id="kill-killall-killkillall">KILL &amp; KILLALL (<code>kill</code>,<code>killall</code>)</h2>
+<ul>
+<li><code>killall</code> =&gt; a tool for terminating running processes on your system based on name</li>
+<li><code>kill</code> =&gt; terminates processes based on Process ID number (PID)</li>
+<li>both <code>kill</code> and <code>killall</code> can also send specific system signals to processes</li>
+<li>use <code>killall</code> and <code>kill</code> with tools such as Process Status <code>ps</code>, to manage and end processes that are stuck or unresponsive.</li>
+</ul>
+<h3 id="killall-usage"><code>killall</code> Usage</h3>
+<ul>
+<li>will terminate all programs that match the specified name.</li>
+<li>sends <code>SIGTERM</code> or signal number, which terminates running processes that match the name.</li>
+<li>you can also specify a different signal using <code>-s</code> option as follow:<ul>
+<li><code>killall -s 9 &lt;process name&gt;</code></li>
+<li>the above sends the <code>SIGKILL</code> signal which is more successful at ending unruly processes.</li>
+</ul>
+</li>
+<li>can also specify signals in one of the following formats:<ul>
+<li><code>killall -KILL &lt;process name&gt;</code></li>
+<li><code>killall -SIGKILL &lt;process name&gt;</code></li>
+<li><code>killall -9 &lt;process name&gt;</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="kill-usage"><code>kill</code> Usage</h3>
+<ul>
+<li><code>kill</code> =&gt; command terminates individual processes or specified by their PID</li>
+<li><code>kill &lt;PID&gt;</code><ul>
+<li>without options, <code>KILL</code> sends <code>SIGTERM</code> to the PID specified and asks the application or service to shut itself down.</li>
+<li>Multiple PIDs and alternate system signals can be specified within a single <code>KILL</code> command</li>
+<li>The following examples all send the <code>SIGKILL</code> signal to the PID specified:<ul>
+<li><code>kill -s KILL &lt;PID&gt;</code></li>
+<li><code>kill -KILL &lt;PID&gt;</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="system-signals">System Signals</h3>
+<ul>
+<li>The <code>KILL</code> command does <strong>NOT</strong> terminate a process directly.</li>
+<li>Alternatively, a signal is sent to the process where the process will have instructions to follow if it receives a given signal.</li>
+<li>For further reference =&gt; <code>man 7 signal</code></li>
+</ul>
+<h4 id="standard-signals">Standard Signals</h4>
+<table>
+<thead>
+<tr>
+<th>Signal</th>
+<th>Value</th>
+<th>Action</th>
+<th>Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SIGHUP</td>
+<td>1</td>
+<td>Term</td>
+<td>Hangup detected on controlling terminal or death</td>
+</tr>
+<tr>
+<td>SIGINT</td>
+<td>2</td>
+<td>Term</td>
+<td>Interrupt from keyboard</td>
+</tr>
+<tr>
+<td>SIGQUIT</td>
+<td>3</td>
+<td>Core</td>
+<td>Quit from keyboard</td>
+</tr>
+<tr>
+<td>SIGILL</td>
+<td>4</td>
+<td>Core</td>
+<td>Illegal Instruction</td>
+</tr>
+<tr>
+<td>SIGABRT</td>
+<td>6</td>
+<td>Core</td>
+<td>Abort signal from abort(3)</td>
+</tr>
+<tr>
+<td>SIGFPE</td>
+<td>8</td>
+<td>Core</td>
+<td>Floating-point exception</td>
+</tr>
+<tr>
+<td>SIGKILL</td>
+<td>9</td>
+<td>Term</td>
+<td>Kill signal</td>
+</tr>
+<tr>
+<td>SIGSERV</td>
+<td>11</td>
+<td>Core</td>
+<td>Invalid memory reference</td>
+</tr>
+<tr>
+<td>SIGPIPE</td>
+<td>13</td>
+<td>Term</td>
+<td>Broken pipe: write to pipe with no readers; see pipe (7)</td>
+</tr>
+<tr>
+<td>SIGALRM</td>
+<td>14</td>
+<td>Term</td>
+<td>Timer signal from alarm (2)</td>
+</tr>
+<tr>
+<td>SIGTERM</td>
+<td>15</td>
+<td>Term</td>
+<td>Termination signal</td>
+</tr>
+<tr>
+<td>SIGUSR1</td>
+<td>30,10,16</td>
+<td>Term</td>
+<td>User-defined signal 1</td>
+</tr>
+<tr>
+<td>SIGUSR2</td>
+<td>31,12,17</td>
+<td>Term</td>
+<td>User-defined signal 2</td>
+</tr>
+<tr>
+<td>SIGCHLD</td>
+<td>20,17,18</td>
+<td>Ign</td>
+<td>Child stopped/terminated</td>
+</tr>
+<tr>
+<td>SIGCONT</td>
+<td>19,18,25</td>
+<td>Cont</td>
+<td>Continue if stopped</td>
+</tr>
+<tr>
+<td>SIGSTOP</td>
+<td>17,19,23</td>
+<td>Stop</td>
+<td>Stop process</td>
+</tr>
+<tr>
+<td>SIGTSTP</td>
+<td>18,20,24</td>
+<td>Stop</td>
+<td>Stop typed at terminal</td>
+</tr>
+<tr>
+<td>SIGTTIN</td>
+<td>21,21,26</td>
+<td>Stop</td>
+<td>Terminal input for background</td>
+</tr>
+<tr>
+<td>SIGTTOU</td>
+<td>22,22,27</td>
+<td>Stop</td>
+<td>Terminal output for background</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>To list <strong>ALL</strong> available signals without descriptions<ul>
+<li><code>kill -l</code></li>
+<li><code>killall -l</code></li>
+</ul>
+</li>
+<li>To convert a signal name to a number, or vice versa:<ul>
+<li><code>kill -l 9</code></li>
+<li><code>kill -l kill</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="finding-running-processes">Finding Running Processes</h3>
+<ul>
+<li>Use <code>ps</code> command to view processes that are currently runing and their PIDs<blockquote>
+<p><code>ps aux | grep "emacs"</code> =&gt; simple search for "emacs"</p>
+</blockquote>
+</li>
+<li>Example Results:<blockquote>
+<p>manhands   20002  0.0  0.0   9080  2560 pts/0    S+   13:30   0:00 grep --color=auto emacs</p>
+</blockquote>
+</li>
+<li>Can also use <code>ps auxf</code> to view hierarchal tree of processes.</li>
+</ul>
+<h3 id="verifying-process-termination">Verifying Process Termination</h3>
+<ul>
+<li>Adding the <code>-w</code> option to a <code>killall</code> command causes <code>killall</code> to wait until the process terminates before exiting.<blockquote>
+<p><code>killall -w irssi</code></p>
+</blockquote>
+</li>
+<li>Example issues <code>SIGTERM</code> system signal to a background process with a name that matches <code>irssi</code></li>
+<li><code>killall</code> will wait until the matched process ends</li>
+<li>If no process matches the name specified, <code>killall</code> returns an error message:<blockquote>
+<p><code>killall -w irssi</code> =&gt; irssi:no process found </p>
+</blockquote>
+</li>
+</ul>
 <h2 id="links-ln">LINKS (<code>ln</code>)</h2>
 <ul>
 <li><code>ln</code> creates hard and symbolic links</li>

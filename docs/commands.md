@@ -278,6 +278,91 @@ __NOTE:__ `iptables` does NOT recognize aliases on the network interface.  If yo
 * To clear all the rules and start over:
 > `sudo iptables -F`
 
+## KILL & KILLALL (`kill`,`killall`)
+
+* `killall` => a tool for terminating running processes on your system based on name
+* `kill` => terminates processes based on Process ID number (PID)
+* both `kill` and `killall` can also send specific system signals to processes
+* use `killall` and `kill` with tools such as Process Status `ps`, to manage and end processes that are stuck or unresponsive.
+
+### `killall` Usage
+
+* will terminate all programs that match the specified name.
+* sends `SIGTERM` or signal number, which terminates running processes that match the name.
+* you can also specify a different signal using `-s` option as follow:
+    + `killall -s 9 <process name>`
+    + the above sends the `SIGKILL` signal which is more successful at ending unruly processes.
+* can also specify signals in one of the following formats:
+    + `killall -KILL <process name>`
+    + `killall -SIGKILL <process name>`
+    + `killall -9 <process name>`
+
+
+### `kill` Usage
+
+* `kill` => command terminates individual processes or specified by their PID
+* `kill <PID>`
+    + without options, `KILL` sends `SIGTERM` to the PID specified and asks the application or service to shut itself down.
+    + Multiple PIDs and alternate system signals can be specified within a single `KILL` command
+    + The following examples all send the `SIGKILL` signal to the PID specified:
+        + `kill -s KILL <PID>`
+        + `kill -KILL <PID>`
+
+### System Signals
+
+* The `KILL` command does __NOT__ terminate a process directly.
+* Alternatively, a signal is sent to the process where the process will have instructions to follow if it receives a given signal.
+* For further reference => `man 7 signal`
+
+#### Standard Signals
+
+| Signal | Value | Action | Comment |
+| ------ | ----- | ------ | ------- |
+| SIGHUP | 1 | Term | Hangup detected on controlling terminal or death |
+| SIGINT | 2 | Term | Interrupt from keyboard |
+| SIGQUIT | 3 | Core | Quit from keyboard |
+| SIGILL | 4 | Core | Illegal Instruction |
+| SIGABRT | 6 | Core | Abort signal from abort(3) |
+| SIGFPE | 8 | Core | Floating-point exception |
+| SIGKILL | 9 | Term | Kill signal |
+| SIGSERV | 11 | Core | Invalid memory reference |
+| SIGPIPE | 13 | Term | Broken pipe: write to pipe with no readers; see pipe (7) |
+| SIGALRM | 14 | Term | Timer signal from alarm (2) |
+| SIGTERM | 15 | Term | Termination signal |
+| SIGUSR1 | 30,10,16 | Term | User-defined signal 1 |
+| SIGUSR2 | 31,12,17 | Term | User-defined signal 2 |
+| SIGCHLD | 20,17,18 | Ign | Child stopped/terminated |
+| SIGCONT | 19,18,25 | Cont | Continue if stopped |
+| SIGSTOP | 17,19,23 | Stop | Stop process |
+| SIGTSTP | 18,20,24 | Stop | Stop typed at terminal |
+| SIGTTIN | 21,21,26 | Stop | Terminal input for background |
+| SIGTTOU | 22,22,27 | Stop | Terminal output for background |
+
+* To list __ALL__ available signals without descriptions
+    + `kill -l`
+    + `killall -l`
+* To convert a signal name to a number, or vice versa:
+    + `kill -l 9`
+    + `kill -l kill`
+
+### Finding Running Processes
+
+* Use `ps` command to view processes that are currently runing and their PIDs
+> `ps aux | grep "emacs"` => simple search for "emacs"
+* Example Results:
+> manhands   20002  0.0  0.0   9080  2560 pts/0    S+   13:30   0:00 grep --color=auto emacs
+* Can also use `ps auxf` to view hierarchal tree of processes.
+
+### Verifying Process Termination
+
+* Adding the `-w` option to a `killall` command causes `killall` to wait until the process terminates before exiting.
+> `killall -w irssi`
+* Example issues `SIGTERM` system signal to a background process with a name that matches `irssi`
+* `killall` will wait until the matched process ends
+* If no process matches the name specified, `killall` returns an error message:
+> `killall -w irssi` => irssi:no process found 
+
+
 ## LINKS (`ln`)
 
 * `ln` creates hard and symbolic links
